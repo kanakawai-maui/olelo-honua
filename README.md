@@ -4,18 +4,19 @@ This library provides a way to automatically create and sync locale files using 
 
 (ʻŌlelo Honua can be translated to mean "Language Bridge" in Hawaiian.)
 
-
 ## Usage
 
 Here's how you use the library:
 
 ```javascript
 const oh = new OleloHonua(config, new GoogleTranslateProvider());
-oh.createLocaleFiles().then(() => {
-    console.log('Locale files created successfully.');
-}).catch(error => {
-    console.error('Error creating locale files:', error);
-});
+oh.createLocaleFiles()
+  .then(() => {
+    console.log("Locale files created successfully.");
+  })
+  .catch((error) => {
+    console.error("Error creating locale files:", error);
+  });
 ```
 
 ## Configuration Example
@@ -24,13 +25,13 @@ Here is an example of a configuration object:
 
 ```javascript
 const config = {
-    primeLanguage: 'en',
-    includeLanguage: ['es', 'fr'],
-    excludeLanguage: ['jp'],
-    translationProvider: {
-        apiKey: 'your-google-translate-api-key',
-        providerName: 'GoogleTranslate'
-    }
+  primeLanguage: "en",
+  includeLanguage: ["es", "fr"],
+  excludeLanguage: ["jp"],
+  translationProvider: {
+    apiKey: "your-google-translate-api-key",
+    providerName: "GoogleTranslate",
+  },
 };
 ```
 

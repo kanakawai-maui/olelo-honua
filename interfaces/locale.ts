@@ -1,6 +1,6 @@
 export interface LocaleConfig {
-    includeLanguage: string[];
-    excludeLanguage: string[];
-    primeLanguage: string;
-    multiLanguageAgreementThreshold?: number;
+  includeLanguage: string[];
+  excludeLanguage: string[];
+  primeLanguage: string;
+  multiLanguageAgreementThreshold?: number;
 }
