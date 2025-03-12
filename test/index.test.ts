@@ -10,7 +10,7 @@ const mockProvider: LanguageProvider = {
 };
 
 const mockConfig: LocaleConfig = {
-  includeLanguage: ["en", "ja"],
+  includeLanguage: ["en", "haw"],
   excludeLanguage: [],
   primeLanguage: "en",
 };

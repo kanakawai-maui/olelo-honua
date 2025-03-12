@@ -25,7 +25,7 @@ Here is an example of a configuration object:
 
 ```javascript
 const config = {
-  primeLanguage: "en",
+  primeLanguage: "haw",
   includeLanguage: ["es", "fr"],
   excludeLanguage: ["jp"],
   translationProvider: {
