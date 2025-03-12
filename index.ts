@@ -1,25 +1,19 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { fileURLToPath } from 'url';
 
 import { LocaleConfig } from './interfaces/locale';
 import {LanguageProvider} from './interfaces/language';
-
-const exampleConfig: LocaleConfig = {
-    includeLanguage: ["en", "zh-tw"],
-    excludeLanguage: ["zh-cn"],
-    primeLanguage: "en"
-};
+import defaultLanguagesData from './default_languages.json';
 
 export default class OleloHonua {
     private config: LocaleConfig;
     private provider: LanguageProvider;
     private __dirname: string;
 
-    constructor(config: LocaleConfig, provider: LanguageProvider, __dirname: string = path.dirname(fileURLToPath(import.meta.url))) {
+    constructor(config: LocaleConfig, provider: LanguageProvider) {
         this.config = config;
         this.provider = provider;
-        this.__dirname = __dirname;
+        this.__dirname = path.resolve(process.cwd());
     }
 
     async createLocaleFiles() {
@@ -54,26 +48,33 @@ export default class OleloHonua {
 
         // Ensure that languages specified in includeLanguage or excludeLanguage are valid
         const allLanguages = this.getAllLanguages();
+
         for (const lang of config.includeLanguage) {
             if (!allLanguages.includes(lang)) {
                 throw new Error(`Invalid language specified in includeLanguage: ${lang}`);
+            }
+        }
+        for (const lang of config.excludeLanguage) {
+            if (!allLanguages.includes(lang)) {
+                throw new Error(`Invalid language specified in excludeLanguage: ${lang}`);
             }
         }
     }
 
     private getAllLanguages(): string[] {
         // This function should return all available languages from ISO 639-1
-        const defaultLanguagesFilePath = path.join(this.__dirname, 'default_languages.json');
-        const customerLanguagesFilePath = path.join(this.__dirname, 'customer_languages.json');
+        const customLanguagesFilePath = path.join(this.__dirname, 'custom_languages.json');
 
-        let languagesData = fs.readFileSync(defaultLanguagesFilePath, 'utf-8');
+        let customLanguagesData = [];
 
-        if (fs.existsSync(customerLanguagesFilePath)) {
-            const customerLanguagesData = fs.readFileSync(customerLanguagesFilePath, 'utf-8');
-            languagesData = customerLanguagesData;
+        if (fs.existsSync(customLanguagesFilePath)) {
+            const customLanguagesRaw = fs.readFileSync(customLanguagesFilePath, 'utf-8');
+            customLanguagesData = JSON.parse(customLanguagesRaw);
         }
 
-        return JSON.parse(languagesData);
+        const allLanguagesData = [...defaultLanguagesData, ...customLanguagesData];
+
+        return allLanguagesData.map((lang: any) => lang.code);
     }
 
     private async getPrimeLanguageContent(primeLanguage: string): Promise<string> {

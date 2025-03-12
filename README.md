@@ -18,6 +18,22 @@ oh.createLocaleFiles().then(() => {
 });
 ```
 
+## Configuration Example
+
+Here is an example of a configuration object:
+
+```javascript
+const config = {
+    primeLanguage: 'en',
+    includeLanguage: ['es', 'fr'],
+    excludeLanguage: ['jp'],
+    translationProvider: {
+        apiKey: 'your-google-translate-api-key',
+        providerName: 'GoogleTranslate'
+    }
+};
+```
+
 ## Installation
 
 To install the library, use npm or yarn:
