@@ -2,7 +2,7 @@
 
 This library provides a way to automatically create and sync locale files using different translation providers.
 
-(ʻŌlelo Honua can be translated to mean "Language Bridge" in Hawaiian.)
+(ʻŌlelo Honua can be translated to mean "World Language" or "Language Bridge" in Hawaiian.)
 
 ## Usage
 
