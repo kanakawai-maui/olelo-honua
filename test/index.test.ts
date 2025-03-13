@@ -1,7 +1,7 @@
-import OleloHonua from "../index";
+import { OleloHonua } from "../src/index";
 import { LocaleConfig } from "../src/interfaces/locale";
 import { LanguageProvider } from "../src/interfaces/language";
-import * as fs from "fs";
+import { bulkify, backify } from "../src/utils/shared";
 
 const mockProvider: LanguageProvider = {
   translateText: jest.fn((text, from, to) =>
@@ -49,5 +49,17 @@ describe("OleloHonua", () => {
     expect(() => oleloHonua["validateConfig"](invalidConfig)).toThrow(
       "One of includeLanguage or excludeLanguage must be specified.",
     );
+  });
+
+  test("bulkify should remove newlines and join text with newline", () => {
+    const input = ["Hello\nWorld", "This\nis\na\ntest"];
+    const expectedOutput = "HelloWorld\nThisisatest";
+    expect(bulkify(input)).toBe(expectedOutput);
+  });
+
+  test("backify should split text by newline", () => {
+    const input = "HelloWorld\nThisisatest";
+    const expectedOutput = ["HelloWorld", "Thisisatest"];
+    expect(backify(input)).toEqual(expectedOutput);
   });
 });
