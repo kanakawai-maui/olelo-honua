@@ -9,29 +9,26 @@ This library provides a way to automatically create and sync locale files using 
 Here's how you use the library:
 
 ```javascript
-const oh = new OleloHonua(config, new GoogleTranslateProvider());
-oh.createLocaleFiles()
-  .then(() => {
-    console.log("Locale files created successfully.");
-  })
-  .catch((error) => {
-    console.error("Error creating locale files:", error);
-  });
+// Create a new instance
+const dakine = new OleloHonua({
+        primeLanguage: "haw",
+        excludeLanguage: ["ja", "en", "de"]
+    }, 
+    new GoogleTranslateProvider({projectId: "<my_project_id>"})
+);
+// Runs or re-runs i18n translations
+dakine.hanaHou();
 ```
 
 ## Configuration Example
 
-Here is an example of a configuration object:
+Here is an example of full configuration options:
 
 ```javascript
 const config = {
   primeLanguage: "haw",
   includeLanguage: ["es", "fr"],
-  excludeLanguage: ["jp"],
-  translationProvider: {
-    apiKey: "your-google-translate-api-key",
-    providerName: "GoogleTranslate",
-  },
+  // alternatively we can use excludeLanguage: ["ja"]
 };
 ```
 

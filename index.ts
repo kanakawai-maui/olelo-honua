@@ -24,7 +24,7 @@ export default class OleloHonua {
    *
    * @throws An error if the configuration is invalid.
    */
-  async createLocaleFiles() {
+  async hanahou() {
     this.validateConfig(this.config);
 
     const languages =
