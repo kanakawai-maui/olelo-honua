@@ -1,14 +1,12 @@
 const OleloHonua = require("../../dist").OleloHonua;
 const { ToyProvider } = require("../../dist/providers/toy");
 
-console.log(OleloHonua)
-
 // Create a new instance
 const dakine = new OleloHonua({
-    primeLanguage: "en",
-    includeLanguage: ["haw"]
-}, 
-new ToyProvider()
+        primeLanguage: "en", // Default language
+        includeLanguage: ["haw", "de"] // Additional languages
+    }, 
+    new ToyProvider()
 );
 // Runs or re-runs i18n translations
 dakine.hanaHou();
