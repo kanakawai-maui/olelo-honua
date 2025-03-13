@@ -10,11 +10,12 @@ Here's how you use the library:
 
 ```javascript
 // Create a new instance
-const dakine = new OleloHonua({
-        primeLanguage: "haw",
-        excludeLanguage: ["ja", "en", "de"]
-    }, 
-    new GoogleTranslateProvider({projectId: "<my_project_id>"})
+const dakine = new OleloHonua(
+  {
+    primeLanguage: "haw",
+    excludeLanguage: ["ja", "en", "de"],
+  },
+  new GoogleTranslateProvider({ projectId: "<my_project_id>" }),
 );
 // Runs or re-runs i18n translations
 dakine.hanaHou();

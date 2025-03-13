@@ -78,8 +78,8 @@ export class OleloHonua {
     }
 
     if (
-        (config.includeLanguage?.length ?? 0) === 0 &&
-        (config.excludeLanguage?.length ?? 0) === 0
+      (config.includeLanguage?.length ?? 0) === 0 &&
+      (config.excludeLanguage?.length ?? 0) === 0
     ) {
       throw new Error(
         "One of includeLanguage or excludeLanguage must be specified.",

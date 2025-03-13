@@ -3,5 +3,9 @@ export interface LanguageProvider {
 }
 
 export interface BulkLanguageProvider {
-  translateTextBulk(text: string[], from: string, to: string): Promise<string[]>;
+  translateTextBulk(
+    text: string[],
+    from: string,
+    to: string,
+  ): Promise<string[]>;
 }
