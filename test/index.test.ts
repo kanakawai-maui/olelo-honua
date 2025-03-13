@@ -1,6 +1,6 @@
 import OleloHonua from "../index";
-import { LocaleConfig } from "../interfaces/locale";
-import { LanguageProvider } from "../interfaces/language";
+import { LocaleConfig } from "../src/interfaces/locale";
+import { LanguageProvider } from "../src/interfaces/language";
 import * as fs from "fs";
 
 const mockProvider: LanguageProvider = {

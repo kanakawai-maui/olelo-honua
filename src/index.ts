@@ -8,7 +8,7 @@ import defaultLanguagesData from "./default_languages.json";
 /**
  * The main class for OleloHonua.
  */
-export default class OleloHonua {
+export class OleloHonua {
   private config: LocaleConfig;
   private provider: LanguageProvider;
   private __dirname: string;
@@ -20,30 +20,37 @@ export default class OleloHonua {
   }
 
   /**
-   * Creates locale files for the specified languages.
+   * Hana Hou - Creates locale files for the specified languages.
    *
    * @throws An error if the configuration is invalid.
    */
-  async hanahou() {
+  async hanaHou() {
     this.validateConfig(this.config);
 
     const languages =
-      this.config.includeLanguage.length > 0
+      this.config.includeLanguage && this.config.includeLanguage.length > 0
         ? this.config.includeLanguage
         : this.getAllLanguages().filter(
-            (lang) => !this.config.excludeLanguage.includes(lang),
+            (lang) => !this.config.excludeLanguage?.includes(lang),
           );
     const primeLanguage = this.config.primeLanguage;
     const primeContent = await this.getPrimeLanguageContent(primeLanguage);
+    // convert primeContent to JSON
+    const primeContentJSON = JSON.parse(primeContent);
 
     for (const lang of languages) {
       if (lang !== primeLanguage) {
-        const translatedContent = await this.provider.translateText(
-          primeContent,
-          primeLanguage,
-          lang,
-        );
-        this.saveToFile(lang, translatedContent);
+        for (const key in primeContentJSON) {
+          const originalValue = primeContentJSON[key];
+          const translatedValue = await this.provider.translateText(
+            originalValue,
+            primeLanguage,
+            lang,
+          );
+          primeContentJSON[key] = translatedValue;
+        }
+        console.log(primeContentJSON);
+        this.saveToFile(lang, JSON.stringify(primeContentJSON, null, 2));
       } else {
         this.saveToFile(lang, primeContent);
       }
@@ -62,8 +69,8 @@ export default class OleloHonua {
     }
 
     if (
-      config.includeLanguage.length > 0 &&
-      config.excludeLanguage.length > 0
+      (config.includeLanguage?.length ?? 0) > 0 &&
+      (config.excludeLanguage?.length ?? 0) > 0
     ) {
       throw new Error(
         "Only one of includeLanguage or excludeLanguage must be specified, not both.",
@@ -71,8 +78,8 @@ export default class OleloHonua {
     }
 
     if (
-      config.includeLanguage.length === 0 &&
-      config.excludeLanguage.length === 0
+        (config.includeLanguage?.length ?? 0) === 0 &&
+        (config.excludeLanguage?.length ?? 0) === 0
     ) {
       throw new Error(
         "One of includeLanguage or excludeLanguage must be specified.",
@@ -82,14 +89,14 @@ export default class OleloHonua {
     // Ensure that languages specified in includeLanguage or excludeLanguage are valid
     const allLanguages = this.getAllLanguages();
 
-    for (const lang of config.includeLanguage) {
+    for (const lang of config.includeLanguage ?? []) {
       if (!allLanguages.includes(lang)) {
         throw new Error(
           `Invalid language specified in includeLanguage: ${lang}`,
         );
       }
     }
-    for (const lang of config.excludeLanguage) {
+    for (const lang of config.excludeLanguage ?? []) {
       if (!allLanguages.includes(lang)) {
         throw new Error(
           `Invalid language specified in excludeLanguage: ${lang}`,
@@ -149,6 +156,6 @@ export default class OleloHonua {
    */
   private saveToFile(language: string, content: string) {
     const filePath = path.join(this.__dirname, `locales/${language}.json`);
-    fs.writeFileSync(filePath, JSON.stringify({ content }, null, 2));
+    fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
   }
 }

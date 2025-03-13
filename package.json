@@ -5,10 +5,13 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
   },
   "dependencies": {
     "@google-cloud/translate": "^8.5.1",
+    "@vitalets/google-translate-api": "^9.2.1",
     "axios": "^1.8.3"
   },
   "devDependencies": {
@@ -16,7 +19,8 @@
     "jest": "^29.7.0",
     "prettier": "^3.5.3",
     "ts-jest": "^29.2.6",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
   },
   "keywords": [
     "accessibility",
