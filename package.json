@@ -12,7 +12,8 @@
   "dependencies": {
     "@google-cloud/translate": "^8.5.1",
     "@vitalets/google-translate-api": "^9.2.1",
-    "axios": "^1.8.3"
+    "axios": "^1.8.3",
+    "http-proxy-agent": "^7.0.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
