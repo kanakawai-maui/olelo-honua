@@ -17,16 +17,17 @@ export class ToyProvider implements LanguageProvider {
   async translateText(text: string, from: string, to: string): Promise<string> {
     let translation = { text: 'NA' };
     try {
-      translation = await translate(text, { to });
+      let options : any = { to };
+      if(this.proxyAgent){
+        options = { to, "fetchOptions": {"agent": this.proxyAgent} };
+      } 
+      translation = await translate(text, options);
     } catch (e) {
       if ((e as any).name === 'TooManyRequestsError') {
-        if(this.proxyAgent){
-          translation = await translate(text, { to, fetchOptions: {agent: this.proxyAgent} });
-        } else {
           throw new Error('Too many requests. Please try again later.');
-        }
       }
+    } finally {
+      return translation.text;
     }
-    return translation.text;
   }
 }
