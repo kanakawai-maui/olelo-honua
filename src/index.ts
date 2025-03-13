@@ -4,6 +4,7 @@ import * as path from "path";
 import { LocaleConfig } from "./interfaces/locale";
 import { LanguageProvider } from "./interfaces/language";
 import defaultLanguagesData from "./default_languages.json";
+import { BulkLanguageProvider } from "./interfaces/language";
 
 /**
  * The main class for OleloHonua.
@@ -40,19 +41,36 @@ export class OleloHonua {
 
     for (const lang of languages) {
       if (lang !== primeLanguage) {
-        for (const key in primeContentJSON) {
-          const originalValue = primeContentJSON[key];
-          const translatedValue = await this.provider.translateText(
-            originalValue,
+        if ("translateTextBulk" in this.provider) {
+          const primeContentKeys = Object.keys(primeContentJSON);
+          const primeContentValues = Object.values(primeContentJSON);
+          const translatedValues = await (
+            this.provider as BulkLanguageProvider
+          ).translateTextBulk(
+            primeContentValues as string[],
             primeLanguage,
             lang,
           );
-          primeContentJSON[key] = translatedValue;
+          const translatedContentJSON = primeContentKeys.reduce(
+            (acc, key, index) => {
+              (acc as Record<string, string>)[key] = translatedValues[index];
+              return acc;
+            },
+            {},
+          );
+          this.saveToFile(lang, JSON.stringify(translatedContentJSON, null, 2));
+        } else {
+          for (const key in primeContentJSON) {
+            const originalValue = primeContentJSON[key];
+            const translatedValue = await this.provider.translateText(
+              originalValue,
+              primeLanguage,
+              lang,
+            );
+            primeContentJSON[key] = translatedValue;
+          }
+          this.saveToFile(lang, JSON.stringify(primeContentJSON, null, 2));
         }
-        console.log(primeContentJSON);
-        this.saveToFile(lang, JSON.stringify(primeContentJSON, null, 2));
-      } else {
-        this.saveToFile(lang, primeContent);
       }
     }
   }
