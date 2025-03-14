@@ -69,7 +69,7 @@ yarn add olelo-honua
 
 ## Configuration
 
-You need to provide a configuration object and a translation provider. For example, you can use the `GoogleTranslateProvider` as shown in the usage example.
+You need to provide a configuration object and a translation provider. For instance, you can use the `GoogleTranslateProvider` as demonstrated in the usage example. Additionally, I've created a `ToyProvider`, which serves as a simple example of how the providers function. While it's a fun way to get started, I highly recommend using a proper API key for more accurate translations. Happy coding!
 
 ## License
 
