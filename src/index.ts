@@ -32,6 +32,14 @@ export class OleloHonua {
   async hanaHou() {
     this.validateConfig(this.config);
 
+    const cacheFilePath = path.join(this.__dirname, ".translation_cache.json");
+    let cache: { [key: string]: any } = {};
+
+    if (fs.existsSync(cacheFilePath)) {
+      const cacheRaw = fs.readFileSync(cacheFilePath, "utf-8");
+      cache = JSON.parse(cacheRaw);
+    }
+
     const languages =
       this.config.includeLanguage && this.config.includeLanguage.length > 0
         ? this.config.includeLanguage
@@ -48,13 +56,22 @@ export class OleloHonua {
         if ("translateTextBulk" in this.provider && this.config.useBulkProvider) {
           const primeContentKeys = Object.keys(primeContentJSON);
           const primeContentValues = Object.values(primeContentJSON);
-          const translatedValues = await (
-            this.provider as BulkLanguageProvider
-          ).translateTextBulk(
-            primeContentValues as string[],
-            primeLanguage,
-            lang,
-          );
+          const cacheKey = `${primeLanguage}-${lang}-${this.provider.constructor.name}`;
+          let translatedValues;
+
+          if (cache[cacheKey]) {
+            translatedValues = cache[cacheKey];
+          } else {
+            translatedValues = await (
+              this.provider as BulkLanguageProvider
+            ).translateTextBulk(
+              primeContentValues as string[],
+              primeLanguage,
+              lang,
+            );
+            cache[cacheKey] = translatedValues;
+          }
+
           const translatedContentJSON = primeContentKeys.reduce(
             (acc, key, index) => {
               (acc as Record<string, string>)[key] = translatedValues[index];
@@ -66,17 +83,28 @@ export class OleloHonua {
         } else {
           for (const key in primeContentJSON) {
             const originalValue = primeContentJSON[key];
-            const translatedValue = await this.provider.translateText(
-              originalValue,
-              primeLanguage,
-              lang,
-            );
+            const cacheKey = `${primeLanguage}-${lang}-${key}`;
+            let translatedValue;
+
+            if (cache[cacheKey]) {
+              translatedValue = cache[cacheKey];
+            } else {
+              translatedValue = await this.provider.translateText(
+                originalValue,
+                primeLanguage,
+                lang,
+              );
+              cache[cacheKey] = translatedValue;
+            }
+
             primeContentJSON[key] = translatedValue;
           }
           this.saveToFile(lang, primeContentJSON);
         }
       }
     }
+
+    fs.writeFileSync(cacheFilePath, JSON.stringify(cache, null, 2));
   }
 
   /**
