@@ -1,7 +1,6 @@
 # ʻŌlelo Honua
 #### Automate Your Internationalization Workflow with Ease
-
-# 🚀 Now in Beta!! 🎉
+#### 🚀 Now in Beta!! 🎉
 
 This library provides a way to automatically create and sync locale files using different translation providers.
 
