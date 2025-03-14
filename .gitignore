@@ -1,8 +1,10 @@
 node_modules/
 npm-debug.log
+.env
 .github
 tsconfig.tsbuildinfo
 .DS_Store
 .vscode
+.translation_cache.json
 dist/
 examples/**/locales/

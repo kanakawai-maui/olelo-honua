@@ -9,6 +9,7 @@ import { BulkLanguageProvider } from "./interfaces/language";
 export { ToyProvider } from "./providers/toy";
 export { GoogleTranslateProvider } from "./providers/googleTranslate";
 export { OpenAIChatGPTProvider } from "./providers/openAiChatGpt";
+export { OpenRouterProvider } from "./providers/openRouter";
 
 /**
  * The main class for OleloHonua.
