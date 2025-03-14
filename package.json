@@ -1,6 +1,6 @@
 {
   "name": "olelo-honua",
-  "version": "0.1.2-alpha",
+  "version": "0.1.3-alpha",
   "description": "An i18n library designed to simplify the process of translating and managing locale files for your applications. It leverages the power of Google Cloud Translation API to provide accurate translations and supports a wide range of languages. With a focus on ease of use and flexibility, ʻŌlelo Honua allows you to include or exclude specific languages and set a prime language for your content.\n\nFeatures:\n\nEasy configuration for including or excluding languages\nSupports a wide range of languages using ISO 639-1 codes\nUtilizes Google Cloud Translation API for accurate translations\nAutomatically generates locale files for specified languages\nSimple and intuitive API for managing translations",
   "main": "dist/index.js",
   "scripts": {
