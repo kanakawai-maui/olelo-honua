@@ -4,7 +4,7 @@ const { OleloHonua, ToyProvider } = require("olelo-honua");
 const dakine = new OleloHonua(
   {
     primeLanguage: "en", // Default language
-    includeLanguage: ["haw", "de"], // Additional languages
+    includeLanguage: ["es", "de"], // Additional languages
     useBulkProvider: false
   },
   new ToyProvider(),
