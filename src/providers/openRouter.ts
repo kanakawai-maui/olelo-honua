@@ -16,7 +16,7 @@ export class OpenRouterProvider implements LanguageProvider, BulkLanguageProvide
         const translatedText = await this.getChatCompletion(prompt);
         const backified = backify(translatedText);
         if(backified.length !== text.length) {
-            throw new Error("The number of translations does not match the number of texts.");
+            console.log("Warning:  The number of translations does not match the number of texts.");
         }
         return backified;
     }
