@@ -108,6 +108,13 @@ export class OleloHonua {
   }
 
   /**
+   * Alias for hanaHou function.
+   */
+  async createLocaleFiles() {
+    await this.hanaHou();
+  }
+
+  /**
    * Validates the provided configuration.
    *
    * @param config - The configuration to validate.

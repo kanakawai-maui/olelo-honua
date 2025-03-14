@@ -37,7 +37,7 @@ const dakine = new OleloHonua(
   new GoogleTranslateProvider({ projectId: "<my_project_id>" }),
 );
 // Runs or re-runs i18n translations
-dakine.hanaHou();
+dakine.hanaHou(); // or use alias dakine.createLocaleFiles()
 ```
 
 ## Configuration Example
