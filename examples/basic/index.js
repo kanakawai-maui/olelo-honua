@@ -1,11 +1,11 @@
-const OleloHonua = require("../../dist").OleloHonua;
-const { ToyProvider } = require("../../dist/providers/toy");
+const { OleloHonua, ToyProvider } = require("olelo-honua");
 
 // Create a new instance
 const dakine = new OleloHonua(
   {
     primeLanguage: "en", // Default language
     includeLanguage: ["haw", "de"], // Additional languages
+    useBulkProvider: false
   },
   new ToyProvider(),
 );

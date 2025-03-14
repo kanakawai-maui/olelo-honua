@@ -6,6 +6,10 @@ import { LanguageProvider } from "./interfaces/language";
 import defaultLanguagesData from "./default_languages.json";
 import { BulkLanguageProvider } from "./interfaces/language";
 
+export { ToyProvider } from "./providers/toy";
+export { GoogleTranslateProvider } from "./providers/googleTranslate";
+export { OpenAIChatGPTProvider } from "./providers/openAiChatGpt";
+
 /**
  * The main class for OleloHonua.
  */
@@ -41,7 +45,7 @@ export class OleloHonua {
 
     for (const lang of languages) {
       if (lang !== primeLanguage) {
-        if ("translateTextBulk" in this.provider) {
+        if ("translateTextBulk" in this.provider && this.config.useBulkProvider) {
           const primeContentKeys = Object.keys(primeContentJSON);
           const primeContentValues = Object.values(primeContentJSON);
           const translatedValues = await (
@@ -58,7 +62,7 @@ export class OleloHonua {
             },
             {},
           );
-          this.saveToFile(lang, JSON.stringify(translatedContentJSON, null, 2));
+          this.saveToFile(lang, translatedContentJSON);
         } else {
           for (const key in primeContentJSON) {
             const originalValue = primeContentJSON[key];
@@ -69,7 +73,7 @@ export class OleloHonua {
             );
             primeContentJSON[key] = translatedValue;
           }
-          this.saveToFile(lang, JSON.stringify(primeContentJSON, null, 2));
+          this.saveToFile(lang, primeContentJSON);
         }
       }
     }
@@ -172,7 +176,7 @@ export class OleloHonua {
    * @param language - The language code to name the file.
    * @param content - The content to be saved in the file.
    */
-  private saveToFile(language: string, content: string) {
+  private saveToFile(language: string, content: {}) {
     const filePath = path.join(this.__dirname, `locales/${language}.json`);
     fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
   }

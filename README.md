@@ -29,7 +29,8 @@ Here is an example of full configuration options:
 const config = {
   primeLanguage: "haw",
   includeLanguage: ["es", "fr"],
-  // alternatively we can use excludeLanguage: ["ja"]
+  // alternatively we can use excludeLanguage: ["ja"],
+  useBulkProvider: true
 };
 ```
 
