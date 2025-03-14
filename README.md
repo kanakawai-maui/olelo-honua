@@ -18,7 +18,7 @@ Imagine you have an application that supports multiple languages. You start by c
 
 Here's a simple illustration:
 
-1. **Without ʻŌlelo Honua**: You manually create and update translation files for each language.
+1. **Without ʻŌlelo Honua**: You manually create and update translation files for each language.  Commence repetitive copy/paste from Google, ChatGPT, etc...
 2. **With ʻŌlelo Honua**: The library automatically generates and syncs translation files using your preferred translation provider.
 
 This automation makes it easier to manage internationalization in your application, allowing you to focus on other important tasks.
