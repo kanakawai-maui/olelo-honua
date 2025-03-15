@@ -24,6 +24,9 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "keywords": [
     "accessibility",
     "hawaiian",
