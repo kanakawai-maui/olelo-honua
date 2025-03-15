@@ -5,9 +5,12 @@
  * @returns A single string with newline characters removed from each input string and joined by a newline character.
  */
 export const bulkify = (text: string[]): string => {
-    return text.map((t) => t.replace(/\n/g, ">")).join("\n");
+  return text.map((t) => t.replace(/\n/g, ">")).join("\n");
 };
 
 export const backify = (text: string): string[] => {
-    return text.split("\n").map((t) => t.replace(/>/g, "\n").trim()).filter((t) => t.length > 0);
+  return text
+    .split("\n")
+    .map((t) => t.replace(/>/g, "\n").trim())
+    .filter((t) => t.length > 0);
 };

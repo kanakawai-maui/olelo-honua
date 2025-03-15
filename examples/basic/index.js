@@ -12,7 +12,7 @@ const dakine = new OleloHonua(
   {
     primeLanguage: "en", // Default language
     includeLanguage: ["haw", "es", "de", "ja"], // Additional languages
-    useBulkProvider: true
+    useBulkProvider: true,
   },
   new OpenRouterProvider(OPEN_ROUTER_API_KEY, OPEN_ROUTER_MODEL_ID),
 );

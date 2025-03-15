@@ -1,5 +1,7 @@
 # ʻŌlelo Honua
+
 #### Automate Your Internationalization Workflow with Ease
+
 #### 🚀 Now in Beta!! 🎉
 
 This library provides a way to automatically create and sync locale files using different translation providers.
@@ -20,7 +22,7 @@ Imagine you have an application that supports multiple languages. You start by c
 
 Here's a simple illustration:
 
-1. **Without ʻŌlelo Honua**: You manually create and update translation files for each language.  Commence repetitive copy/paste from Google, ChatGPT, etc...
+1. **Without ʻŌlelo Honua**: You manually create and update translation files for each language. Commence repetitive copy/paste from Google, ChatGPT, etc...
 2. **With ʻŌlelo Honua**: The library automatically generates and syncs translation files using your preferred translation provider.
 
 This automation makes it easier to manage internationalization in your application, allowing you to focus on other important tasks.
@@ -51,7 +53,7 @@ const config = {
   primeLanguage: "haw",
   includeLanguage: ["es", "fr"],
   // alternatively we can use excludeLanguage: ["ja"],
-  useBulkProvider: true
+  useBulkProvider: true,
 };
 ```
 

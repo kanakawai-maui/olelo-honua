@@ -54,7 +54,10 @@ export class OleloHonua {
 
     for (const lang of languages) {
       if (lang !== primeLanguage) {
-        if ("translateTextBulk" in this.provider && this.config.useBulkProvider) {
+        if (
+          "translateTextBulk" in this.provider &&
+          this.config.useBulkProvider
+        ) {
           const primeContentKeys = Object.keys(primeContentJSON);
           const primeContentValues = Object.values(primeContentJSON);
           const cacheKey = `${primeLanguage}-${lang}-${this.provider.constructor.name}`;
