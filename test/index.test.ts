@@ -53,7 +53,7 @@ describe("OleloHonua", () => {
 
   test("bulkify should remove newlines and join text with newline", () => {
     const input = ["Hello\nWorld", "This\nis\na\ntest"];
-    const expectedOutput = "HelloWorld\nThisisatest";
+    const expectedOutput = "Hello>World\nThis>is>a>test";
     expect(bulkify(input)).toBe(expectedOutput);
   });
 
