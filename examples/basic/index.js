@@ -11,7 +11,7 @@ const OPEN_ROUTER_MODEL_ID = process.env.OPEN_ROUTER_MODEL_ID;
 const dakine = new OleloHonua(
   {
     primeLanguage: "en", // Default language
-    includeLanguage: ["haw", "es", "de", "ja"], // Additional languages
+    includeLanguage: ["haw", "es", "de", "ja", "ar"], // Additional languages
     useBulkProvider: true,
   },
   new OpenRouterProvider(OPEN_ROUTER_API_KEY, OPEN_ROUTER_MODEL_ID),
