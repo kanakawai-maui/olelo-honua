@@ -9,3 +9,7 @@ export interface BulkLanguageProvider {
     to: string,
   ): Promise<string[]>;
 }
+
+export interface CachableProvider {
+  getCacheCode(): string;
+}

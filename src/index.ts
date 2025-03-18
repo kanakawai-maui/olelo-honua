@@ -59,8 +59,11 @@ export class OleloHonua {
           this.config.useBulkProvider
         ) {
           const primeContentKeys = Object.keys(primeContentJSON);
-          const primeContentValues = Object.values(primeContentJSON);
-          const cacheKey = `${primeLanguage}-${lang}-${this.provider.constructor.name}`;
+          const primeContentValues = Object.values(primeContentJSON).map(
+            (value) =>
+              typeof value === "object" ? JSON.stringify(value) : value,
+          );
+          const cacheKey = `${primeLanguage}-${lang}-${this.provider.constructor.name}-bulk`;
           let translatedValues;
 
           if (cache[cacheKey]) {

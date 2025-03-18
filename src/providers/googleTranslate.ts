@@ -1,13 +1,23 @@
-import { LanguageProvider, BulkLanguageProvider } from "../interfaces/language";
+import {
+  LanguageProvider,
+  BulkLanguageProvider,
+  CachableProvider,
+} from "../interfaces/language";
 
 export class GoogleTranslateProvider
-  implements LanguageProvider, BulkLanguageProvider
+  implements LanguageProvider, BulkLanguageProvider, CachableProvider
 {
   private translate: any;
+  private projectId: string;
 
   constructor(projectId: string) {
     const { Translate } = require("@google-cloud/translate").v2;
+    this.projectId = projectId;
     this.translate = new Translate({ projectId });
+  }
+
+  getCacheCode(): string {
+    return this.projectId;
   }
 
   async translateTextBulk(
