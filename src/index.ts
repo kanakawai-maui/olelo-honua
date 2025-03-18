@@ -99,6 +99,7 @@ export class OleloHonua {
             }
           }
         } else {
+          const translatedContentJSON = primeContentJSON;
           for (const key in primeContentJSON) {
             const originalValue = primeContentJSON[key];
             const cacheKey = `${primeLanguage}-${lang}-${key}`;
@@ -115,11 +116,17 @@ export class OleloHonua {
               cache[cacheKey] = translatedValue;
             }
 
-            primeContentJSON[key] = translatedValue;
+            translatedContentJSON[key] = translatedValue;
           }
-          this.saveToFile(lang, primeContentJSON);
+          this.saveToFile(lang, translatedContentJSON);
         }
       }
+    }
+
+    if (JSON.stringify(cache, null, 2) === "{}") {
+      console.log(
+        "An empty cache file was created, this means that the translations were not cached and something went wrong. Please check the logs for more information.",
+      );
     }
 
     fs.writeFileSync(cacheFilePath, JSON.stringify(cache, null, 2));

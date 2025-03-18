@@ -5,7 +5,7 @@
   "welcome": "Willkommen",
   "good_morning": "Guten Morgen",
   "good_night": "Gute Nacht",
-  "how_are_you": "Wie geht's?",
+  "how_are_you": "Wie geht es Ihnen?",
   "please": "Bitte",
   "yes": "Ja",
   "no": "Nein",
@@ -19,5 +19,5 @@
   "taxi": "Taxi",
   "airport": "Flughafen",
   "train_station": "Bahnhof",
-  "train_station_description": "Ein Bahnhof, Eisenbahnstation, Bahnstation oder Depot ist eine Eisenbahninfrastruktur oder ein Bereich, in dem Züge regelmäßig anhalten, um Passagiere oder Fracht ein- oder auszuladen."
+  "train_station_description": "Ein Bahnhof, Eisenbahnstation, Eisenbahnstation oder Depot ist eine Eisenbahn Anlage oder Bereich, an dem Züge regelmäßig anhalten, um Passagiere oder Güter zu laden oder zu entladen."
 }
