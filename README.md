@@ -27,6 +27,18 @@ Here's a simple illustration:
 
 This automation makes it easier to manage internationalization in your application, allowing you to focus on other important tasks.
 
+## Introducing Critiques
+
+Critiques are a way to evaluate and improve the quality of translations by identifying areas where they may lack clarity, cultural accuracy, or grammatical correctness. ʻŌlelo Honua provides an optional feature to generate AI-powered critiques for translations, helping you refine and enhance your localization efforts.
+
+### Example Critique
+
+An example of an AI-generated critique can be seen [here](examples/basic/critiques/critique.en.haw.md).
+
+## Caching
+
+Translations are cached for performance reasons. To clear the translations cache, `rm -rf .translations_cache.json`
+
 ## Usage
 
 Here's how you use the library:

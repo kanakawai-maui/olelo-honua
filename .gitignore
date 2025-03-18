@@ -7,3 +7,4 @@ tsconfig.tsbuildinfo
 .vscode
 .translation_cache.json
 dist/
+examples/basic/*.tgz

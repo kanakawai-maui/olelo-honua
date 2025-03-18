@@ -32,15 +32,32 @@ export class OpenRouterProvider
   ): Promise<string> {
     const prompt = `Now your job is to critique the following translation from ${from} to ${to}.
     I will provide both the original text and the new translation.  The original text and new translation may be single line, multi-line, or even JSON.
+    Please return all responses in Markdown format (.md).  The sturcture of the .md is as follows:
+
+    
+    # Translation Critique
+    1. **Consistency and Completeness**
+    2. **Clarity and Readability**
+    3. **Accuracy of Translation**
+    4. **Cultural Appropriateness**
+    5. **Syntax and Structure**
+    5. **Natural Flow**
+    **Summary**
+    
+
+    DO NOT return any text formatting blocks for 'md' or 'markdown', just return the raw markdown.
     The original text is:
         ${originalText}
     The new translation is:
         ${newText}
     `;
     const critique = await this.getChatCompletion(`${prompt}`);
+    if (!fs.existsSync(process.cwd() + "/critiques")) {
+      fs.mkdirSync(process.cwd() + "/critiques");
+    }
     const critiqueFilePath = path.join(
-      path.resolve(process.cwd()),
-      `.translation_critique.${from}.${to}.json`,
+      path.resolve(process.cwd() + "/critiques"),
+      `critique.${from}.${to}.md`,
     );
     fs.writeFileSync(critiqueFilePath, critique);
     return critique;

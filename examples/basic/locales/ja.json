@@ -18,6 +18,6 @@
   "hotel": "ホテル",
   "taxi": "タクシー",
   "airport": "空港",
-  "train_station": "駅",
-  "train_station_description": "駅、鉄道駅、またはデポは、定期的に旅客または貨物の乗降や積み下ろしする鉄道施設または地域です。"
+  "train_station": "電車駅",
+  "train_station_description": "電車駅、鉄道駅、またはデポは、定期的に乗客や貨物を乗せ降ろすための鉄道施設または場所です。"
 }
