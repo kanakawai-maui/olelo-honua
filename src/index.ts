@@ -54,10 +54,7 @@ export class OleloHonua {
 
     for (const lang of languages) {
       if (lang !== primeLanguage) {
-        if (
-          "translateTextBulk" in this.provider &&
-          this.config.useBulkProvider
-        ) {
+        if ("translateTextBulk" in this.provider && this.config.bulkTranslate) {
           const primeContentKeys = Object.keys(primeContentJSON);
           const primeContentValues = Object.values(primeContentJSON).map(
             (value) =>
@@ -87,6 +84,16 @@ export class OleloHonua {
             {},
           );
           this.saveToFile(lang, translatedContentJSON);
+          if ("critiqueTranslation" in this.provider && this.config.critique) {
+            if (typeof this.provider.critiqueTranslation === "function") {
+              this.provider.critiqueTranslation(
+                JSON.stringify(primeContentJSON),
+                JSON.stringify(translatedContentJSON),
+                primeLanguage,
+                lang,
+              );
+            }
+          }
         } else {
           for (const key in primeContentJSON) {
             const originalValue = primeContentJSON[key];

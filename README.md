@@ -53,7 +53,8 @@ const config = {
   primeLanguage: "haw",
   includeLanguage: ["es", "fr"],
   // alternatively we can use excludeLanguage: ["ja"],
-  useBulkProvider: true,
+  bulkTranslate: true, // whether to use bulk translation for performance, replacement for useBulkProvider (deprecating soon)
+  critique: false, // whether to have AI critique translations, if available
 };
 ```
 

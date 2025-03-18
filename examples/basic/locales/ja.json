@@ -1,0 +1,23 @@
+{
+  "greeting": "こんにちは",
+  "farewell": "さようなら",
+  "thank_you": "ありがとう",
+  "welcome": "ようこそ",
+  "good_morning": "おはようございます",
+  "good_night": "おやすみなさい",
+  "how_are_you": "おげんきですか？",
+  "please": "おねがいします",
+  "yes": "はい",
+  "no": "いいえ",
+  "sorry": "ごめんなさい",
+  "excuse_me": "すみません",
+  "help": "たすけて",
+  "bathroom": "トイレ",
+  "food": "食べ物",
+  "water": "水",
+  "hotel": "ホテル",
+  "taxi": "タクシー",
+  "airport": "空港",
+  "train_station": "駅",
+  "train_station_description": "駅、鉄道駅、またはデポは、定期的に旅客または貨物の乗降や積み下ろしする鉄道施設または地域です。"
+}

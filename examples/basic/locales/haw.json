@@ -1,0 +1,23 @@
+{
+  "greeting": "Aloha",
+  "farewell": "Mālie",
+  "thank_you": "Mahalo",
+  "welcome": "E Komo Mai",
+  "good_morning": "Mālie kakahiaka",
+  "good_night": "Pō mamao",
+  "how_are_you": "Pehea ʻoe?",
+  "please": "ʻoluʻolu",
+  "yes": "ʻAe",
+  "no": "ʻAʻole",
+  "sorry": "Kūpono",
+  "excuse_me": "ʻI Kane ʻō aʻe",
+  "help": "Kōkua",
+  "bathroom": "Lua",
+  "food": "ʻAi",
+  "water": "Wai",
+  "hotel": "Hōʻel",
+  "taxi": "Kāʻeʻe",
+  "airport": "Ke Kahua Mokulele",
+  "train_station": "Ke lua mokulele iuka",
+  "train_station_description": "He hālau mokulele iuka, ke kahua iuka mokulele, ke hālau mokulele iuka, a i ʻā he hālau, he wahi e noho ai na mokulele iuka e kūkulu a i kaʻa na kanaka a i kaʻa na hua."
+}

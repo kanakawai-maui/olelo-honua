@@ -1,13 +1,20 @@
 import {
   BulkLanguageProvider,
   CachableProvider,
+  CritiqueProvider,
   LanguageProvider,
 } from "../interfaces/language";
 import axios from "axios";
 import { backify, bulkify, sharedSystemPrompt } from "../utils/shared";
+import * as path from "path";
+import * as fs from "fs";
 
 export class OpenRouterProvider
-  implements LanguageProvider, BulkLanguageProvider, CachableProvider
+  implements
+    LanguageProvider,
+    BulkLanguageProvider,
+    CachableProvider,
+    CritiqueProvider
 {
   private apiKey: string;
   private modelId: string;
@@ -15,6 +22,28 @@ export class OpenRouterProvider
   constructor(apiKey: string, modelId: string) {
     this.apiKey = apiKey;
     this.modelId = modelId;
+  }
+
+  async critiqueTranslation(
+    originalText: string,
+    newText: string,
+    from: string,
+    to: string,
+  ): Promise<string> {
+    const prompt = `Now your job is to critique the following translation from ${from} to ${to}.
+    I will provide both the original text and the new translation.  The original text and new translation may be single line, multi-line, or even JSON.
+    The original text is:
+        ${originalText}
+    The new translation is:
+        ${newText}
+    `;
+    const critique = await this.getChatCompletion(`${prompt}`);
+    const critiqueFilePath = path.join(
+      path.resolve(process.cwd()),
+      `.translation_critique.${from}.${to}.json`,
+    );
+    fs.writeFileSync(critiqueFilePath, critique);
+    return critique;
   }
 
   getCacheCode(): string {
