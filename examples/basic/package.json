@@ -9,6 +9,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "olelo-honua": "file:olelo-honua-1.1.0-beta.tgz"
+    "olelo-honua": "^1.1.1-beta"
   }
 }
