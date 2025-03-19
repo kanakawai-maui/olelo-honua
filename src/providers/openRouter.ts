@@ -2,6 +2,7 @@ import {
   BulkLanguageProvider,
   CachableProvider,
   CritiqueProvider,
+  Language,
   LanguageProvider,
 } from "../interfaces/language";
 import axios from "axios";
@@ -27,28 +28,28 @@ export class OpenRouterProvider
   async critiqueTranslation(
     originalText: string,
     newText: string,
-    from: string,
-    to: string,
+    from: Language,
+    to: Language,
   ): Promise<string> {
-    const prompt = `Now your job is to critique the following translation from ${from} to ${to}.
-    I will provide both the original text and the new translation.  The original text and new translation may be single line, multi-line, or even JSON.
-    Please return all responses in Markdown format (.md).  The sturcture of the .md is as follows:
+    const prompt = `You are tasked with critiquing a translation from ${from.englishName} to ${to.englishName}.
+    I will provide both the original text and the translated text. These texts may be single-line, multi-line, or even in JSON format.
+    Your critique should be returned in Markdown format (.md) with the following structure:
 
-    
     # Translation Critique
-    1. **Consistency and Completeness**
-    2. **Clarity and Readability**
-    3. **Accuracy of Translation**
-    4. **Cultural Appropriateness**
-    5. **Syntax and Structure**
-    5. **Natural Flow**
-    **Summary**
-    
+    1. **Consistency and Completeness**: Evaluate if the translation preserves the meaning and includes all necessary details.
+    2. **Clarity and Readability**: Assess how clear and easy to understand the translation is.
+    3. **Accuracy of Translation**: Verify if the translation accurately reflects the original text.
+    4. **Cultural Appropriateness**: Check if the translation is culturally appropriate and contextually relevant.
+    5. **Syntax and Structure**: Review the grammatical correctness and structural integrity of the translation.
+    6. **Natural Flow**: Determine if the translation reads naturally and fluently in the target language.
 
-    DO NOT return any text formatting blocks for 'md' or 'markdown', just return the raw markdown.
-    The original text is:
+    **Summary**: Provide an overall summary of the critique.
+
+    Do not include any text formatting blocks for 'md' or 'markdown'; return only the raw Markdown content.
+
+    Original text:
         ${originalText}
-    The new translation is:
+    Translated text:
         ${newText}
     `;
     const critique = await this.getChatCompletion(`${prompt}`);
@@ -57,7 +58,7 @@ export class OpenRouterProvider
     }
     const critiqueFilePath = path.join(
       path.resolve(process.cwd() + "/critiques"),
-      `critique.${from}.${to}.md`,
+      `critique.${from.code}.${to.code}.md`,
     );
     fs.writeFileSync(critiqueFilePath, critique);
     return critique;
@@ -69,10 +70,10 @@ export class OpenRouterProvider
 
   async translateTextBulk(
     text: string[],
-    from: string,
-    to: string,
+    from: Language,
+    to: Language,
   ): Promise<string[]> {
-    const prompt = `Translate the following text from ${from} to ${to}: ${bulkify(text)}`;
+    const prompt = `Translate the following text from ${from.englishName} to ${to.englishName} (ISO 639-1 language code ${from.code} to ${to.code}): ${bulkify(text)}`;
     const translatedText = await this.getChatCompletion(
       `${sharedSystemPrompt} ${prompt}`,
     );
@@ -85,8 +86,12 @@ export class OpenRouterProvider
     return backified;
   }
 
-  async translateText(text: string, from: string, to: string): Promise<string> {
-    const prompt = `Translate the following text from ${from} to ${to}: ${text}`;
+  async translateText(
+    text: string,
+    from: Language,
+    to: Language,
+  ): Promise<string> {
+    const prompt = `Translate the following text from ${from.englishName} to ${to.englishName} (ISO 639-1 language code ${from.code} to ${to.code}): ${text}`;
     const translatedText = await this.getChatCompletion(
       `${sharedSystemPrompt} ${prompt}`,
     );

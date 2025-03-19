@@ -2,6 +2,7 @@ import {
   LanguageProvider,
   BulkLanguageProvider,
   CachableProvider,
+  Language,
 } from "../interfaces/language";
 
 export class GoogleTranslateProvider
@@ -22,15 +23,25 @@ export class GoogleTranslateProvider
 
   async translateTextBulk(
     text: string[],
-    from: string,
-    to: string,
+    from: Language,
+    to: Language,
   ): Promise<string[]> {
-    const [translations] = await this.translate.translate(text, { from, to });
+    const [translations] = await this.translate.translate(text, {
+      from: from.code,
+      to: to.code,
+    });
     return translations;
   }
 
-  async translateText(text: string, from: string, to: string): Promise<string> {
-    const [translation] = await this.translate.translate(text, { from, to });
+  async translateText(
+    text: string,
+    from: Language,
+    to: Language,
+  ): Promise<string> {
+    const [translation] = await this.translate.translate(text, {
+      from: from.code,
+      to: to.code,
+    });
     return translation;
   }
 }

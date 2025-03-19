@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 import { LocaleConfig } from "./interfaces/locale";
-import { LanguageProvider } from "./interfaces/language";
+import { Language, LanguageProvider } from "./interfaces/language";
 import defaultLanguagesData from "./default_languages.json";
 import { BulkLanguageProvider } from "./interfaces/language";
 
@@ -48,12 +48,14 @@ export class OleloHonua {
             (lang) => !this.config.excludeLanguage?.includes(lang),
           );
     const primeLanguage = this.config.primeLanguage;
+    const primeLanguageInfo = this.getLanguageInfo(primeLanguage);
     const primeContent = await this.getPrimeLanguageContent(primeLanguage);
     // convert primeContent to JSON
     const primeContentJSON = JSON.parse(primeContent);
 
     for (const lang of languages) {
       if (lang !== primeLanguage) {
+        const targetLanguageInfo = this.getLanguageInfo(lang);
         console.log(`Translating ${primeLanguage} -> ${lang}...`);
         if ("translateTextBulk" in this.provider && this.config.bulkTranslate) {
           const primeContentKeys = Object.keys(primeContentJSON);
@@ -71,8 +73,8 @@ export class OleloHonua {
               this.provider as BulkLanguageProvider
             ).translateTextBulk(
               primeContentValues as string[],
-              primeLanguage,
-              lang,
+              primeLanguageInfo,
+              targetLanguageInfo,
             );
             cache[cacheKey] = translatedValues;
           }
@@ -93,8 +95,8 @@ export class OleloHonua {
               this.provider.critiqueTranslation(
                 JSON.stringify(primeContentJSON),
                 JSON.stringify(translatedContentJSON),
-                primeLanguage,
-                lang,
+                primeLanguageInfo,
+                targetLanguageInfo,
               );
             }
           }
@@ -110,8 +112,8 @@ export class OleloHonua {
             } else {
               translatedValue = await this.provider.translateText(
                 originalValue,
-                primeLanguage,
-                lang,
+                primeLanguageInfo,
+                targetLanguageInfo,
               );
               cache[cacheKey] = translatedValue;
             }
@@ -194,6 +196,16 @@ export class OleloHonua {
    */
   private getAllLanguages(): string[] {
     // This function should return all available languages from ISO 639-1
+    return this.getAllLanguageInfo().map((lang: any) => lang.code);
+  }
+
+  /**
+   * Returns all available language info.
+   *
+   * @returns An array of all available languages
+   */
+  private getAllLanguageInfo(): Language[] {
+    // This function should return all available languages from ISO 639-1
     const customLanguagesFilePath = path.join(
       this.__dirname,
       "custom_languages.json",
@@ -211,7 +223,27 @@ export class OleloHonua {
 
     const allLanguagesData = [...defaultLanguagesData, ...customLanguagesData];
 
-    return allLanguagesData.map((lang: any) => lang.code);
+    return allLanguagesData;
+  }
+
+  /**
+   * Returns the language info for the specified language code.
+   *
+   * @param languageCode - The language code.
+   * @returns The language info for the specified language code.
+   * @throws An error if the language is not found.
+   */
+  private getLanguageInfo(languageCode: string): Language {
+    const allLanguages = this.getAllLanguageInfo();
+    const languageInfo = allLanguages.find(
+      (lang) => lang.code === languageCode,
+    );
+
+    if (!languageInfo) {
+      throw new Error(`Language not found: ${languageCode}`);
+    }
+
+    return languageInfo;
   }
 
   /**

@@ -1,1 +1,23 @@
-{}
+{
+  "greeting": "<translated text from English to Japanese (ISO 639-1: en → ja)",
+  "farewell": "こんにちは",
+  "thank_you": "さようなら",
+  "welcome": "ありがとうございます",
+  "good_morning": "ようこそ",
+  "good_night": "おはようございます",
+  "how_are_you": "おやすみなさい",
+  "please": "おげんきですか？",
+  "yes": "おねがいします",
+  "no": "はい",
+  "sorry": "いいえ",
+  "excuse_me": "ごめんなさい",
+  "help": "すみません",
+  "bathroom": "ヘルプ",
+  "food": "トイレ",
+  "water": "食べ物",
+  "hotel": "水",
+  "taxi": "ホテル",
+  "airport": "タクシー",
+  "train_station": "空港",
+  "train_station_description": "駅"
+}

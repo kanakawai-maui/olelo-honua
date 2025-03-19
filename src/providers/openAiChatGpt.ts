@@ -1,4 +1,8 @@
-import { BulkLanguageProvider, LanguageProvider } from "../interfaces/language";
+import {
+  BulkLanguageProvider,
+  Language,
+  LanguageProvider,
+} from "../interfaces/language";
 import { bulkify, backify, sharedSystemPrompt } from "../utils/shared";
 import axios from "axios";
 
@@ -13,13 +17,13 @@ export class OpenAIChatGPTProvider
 
   async translateTextBulk(
     text: string[],
-    from: string,
-    to: string,
+    from: Language,
+    to: Language,
   ): Promise<string[]> {
     const response = await axios.post(
       "https://api.openai.com/v1/engines/davinci-codex/completions",
       {
-        prompt: `${sharedSystemPrompt} Translate the following text from ${from} to ${to}: ${bulkify(text)}`,
+        prompt: `${sharedSystemPrompt} Translate the following text from ${from.englishName} to ${to.englishName} (ISO 639-1 language code ${from.code} to ${to.code}): ${bulkify(text)}`,
         max_tokens: 1000,
       },
       {
@@ -39,11 +43,15 @@ export class OpenAIChatGPTProvider
     return backified;
   }
 
-  async translateText(text: string, from: string, to: string): Promise<string> {
+  async translateText(
+    text: string,
+    from: Language,
+    to: Language,
+  ): Promise<string> {
     const response = await axios.post(
       "https://api.openai.com/v1/engines/davinci-codex/completions",
       {
-        prompt: `${sharedSystemPrompt} Translate the following text from ${from} to ${to}: ${text}`,
+        prompt: `${sharedSystemPrompt} Translate the following text from ${from.englishName} to ${to.englishName} (ISO 639-1 language code ${from.code} to ${to.code}): ${text}`,
         max_tokens: 1000,
       },
       {

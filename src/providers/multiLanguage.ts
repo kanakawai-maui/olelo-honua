@@ -1,4 +1,4 @@
-import { LanguageProvider } from "../interfaces/language";
+import { Language, LanguageProvider } from "../interfaces/language";
 
 export class MultiLanguageProvider implements LanguageProvider {
   private providers: LanguageProvider[];
@@ -12,7 +12,11 @@ export class MultiLanguageProvider implements LanguageProvider {
     this.agreementThreshold = agreementThreshold;
   }
 
-  async translateText(text: string, from: string, to: string): Promise<string> {
+  async translateText(
+    text: string,
+    from: Language,
+    to: Language,
+  ): Promise<string> {
     const translations = await Promise.all(
       this.providers.map((provider) => provider.translateText(text, from, to)),
     );

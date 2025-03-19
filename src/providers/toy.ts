@@ -1,4 +1,8 @@
-import { LanguageProvider, BulkLanguageProvider } from "../interfaces/language";
+import {
+  LanguageProvider,
+  BulkLanguageProvider,
+  Language,
+} from "../interfaces/language";
 import { translate } from "@vitalets/google-translate-api";
 import { HttpProxyAgent } from "http-proxy-agent";
 import { backify, bulkify } from "../utils/shared";
@@ -17,14 +21,14 @@ export class ToyProvider implements LanguageProvider, BulkLanguageProvider {
 
   async translateTextBulk(
     text: string[],
-    from: string,
-    to: string,
+    from: Language,
+    to: Language,
   ): Promise<string[]> {
     let translation = { text: "NA" };
     try {
-      let options: any = { to };
+      let options: any = { to: to.code };
       if (this.proxyAgent) {
-        options = { to, fetchOptions: { agent: this.proxyAgent } };
+        options = { to: to.code, fetchOptions: { agent: this.proxyAgent } };
       }
       translation = await translate(bulkify(text), options);
     } catch (e) {
@@ -36,12 +40,16 @@ export class ToyProvider implements LanguageProvider, BulkLanguageProvider {
     }
   }
 
-  async translateText(text: string, from: string, to: string): Promise<string> {
+  async translateText(
+    text: string,
+    from: Language,
+    to: Language,
+  ): Promise<string> {
     let translation = { text: "NA" };
     try {
-      let options: any = { to };
+      let options: any = { to: to.code };
       if (this.proxyAgent) {
-        options = { to, fetchOptions: { agent: this.proxyAgent } };
+        options = { to: to.code, fetchOptions: { agent: this.proxyAgent } };
       }
       translation = await translate(text, options);
     } catch (e) {
