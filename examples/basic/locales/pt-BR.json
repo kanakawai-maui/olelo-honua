@@ -1,0 +1,23 @@
+{
+  "greeting": "Olá",
+  "farewell": "Tchau",
+  "thank_you": "Obrigado",
+  "welcome": "Bem-vindo",
+  "good_morning": "Bom dia",
+  "good_night": "Boa noite",
+  "how_are_you": "Como você está?",
+  "please": "Por favor",
+  "yes": "Sim",
+  "no": "Não",
+  "sorry": "Desculpe",
+  "excuse_me": "Com licença",
+  "help": "Ajuda",
+  "bathroom": "Banheiro",
+  "food": "Comida",
+  "water": "Água",
+  "hotel": "Hotel",
+  "taxi": "Táxi",
+  "airport": "Aeroporto",
+  "train_station": "Estação de trem",
+  "train_station_description": "Uma estação de trem, estação ferroviária ou depósito é uma instalação ferroviária ou área onde os trens param regularmente para embarcar ou desembarcar passageiros ou carga."
+}

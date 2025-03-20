@@ -2,8 +2,10 @@ import {
   BulkLanguageProvider,
   CachableProvider,
   CritiqueProvider,
+  FileFormat,
   Language,
   LanguageProvider,
+  RepairProvider,
 } from "../interfaces/language";
 import axios from "axios";
 import { backify, bulkify, sharedSystemPrompt } from "../utils/shared";
@@ -15,7 +17,8 @@ export class OpenRouterProvider
     LanguageProvider,
     BulkLanguageProvider,
     CachableProvider,
-    CritiqueProvider
+    CritiqueProvider,
+    RepairProvider
 {
   private apiKey: string;
   private modelId: string;
@@ -25,42 +28,68 @@ export class OpenRouterProvider
     this.modelId = modelId;
   }
 
+  async repairTranslation(original: string, critique: string, from: Language, to: Language): Promise<string> {
+    const prompt = `Now that you've critiqued the translation, if necessary, please fix the translation from ${from.englishName} to ${to.englishName}.
+    If a redo is not necessary, you can simply return the original translation.
+    I will provide the original outputted JSON and your JSON-based critique. Your task is to provide a new JSON output based on the critique.
+    The JSON should match the original JSON format as closely as possible, but with the necessary corrections.
+    ONLY RESPOND WITH VALID JSON.  DO NOT RETURN ANYTHING ELSE.  THE JSON WILL BE PARSED AND VALIDATED.
+    Do not include any text formatting blocks for 'json'; return only the raw JSON content string.
+    Original JSON:
+        ${original}
+    Critique JSON:
+        ${critique}`;
+    const translatedJSONString = await this.getChatCompletion(
+      `${prompt}`, true
+    );
+    return translatedJSONString;
+  }
+
   async critiqueTranslation(
     originalText: string,
     newText: string,
+    format: FileFormat,
+    save: boolean,
     from: Language,
     to: Language,
   ): Promise<string> {
     const prompt = `You are tasked with critiquing a translation from ${from.englishName} to ${to.englishName}.
-    I will provide both the original text and the translated text. These texts may be single-line, multi-line, or even in JSON format.
-    Your critique should be returned in Markdown format (.md) with the following structure:
+    I will provide both the original text and the translated text. These texts may be single-line text, multi-line text, or even JSON format.
+    Your critique should be returned in ${format.name} file format (.${format.ext}) with the following structure:
 
-    # Translation Critique
-    1. **Consistency and Completeness**: Evaluate if the translation preserves the meaning and includes all necessary details.
-    2. **Clarity and Readability**: Assess how clear and easy to understand the translation is.
-    3. **Accuracy of Translation**: Verify if the translation accurately reflects the original text.
-    4. **Cultural Appropriateness**: Check if the translation is culturally appropriate and contextually relevant.
-    5. **Syntax and Structure**: Review the grammatical correctness and structural integrity of the translation.
-    6. **Natural Flow**: Determine if the translation reads naturally and fluently in the target language.
+    1. consistencyAndCompleteness (qualitative): Evaluate if the translation preserves the meaning and includes all necessary details.
+    2. clarityAndReadability (qualitative): Assess how clear and easy to understand the translation is.
+    3. accuracyOfTranslation (qualitative): Verify if the translation accurately reflects the original text.
+    4. culturalAppropriateness (qualitative): Check if the translation is culturally appropriate and contextually relevant.
+    5. syntaxAndStructure (qualitative): Review the grammatical correctness and structural integrity of the translation.
+    6. naturalFlow (qualitative): Determine if the translation reads naturally and fluently in the target language.
+    7. summary (qualitative): Provide an overall summary of the critique.
+    8. scoringOnEach (quantitative): Provide an integer score from 1 to 10 for each of the above criteria (round down).
+    
+    Do not include any text formatting blocks for '${format.name}'; return only the raw ${format.ext} content.
 
-    **Summary**: Provide an overall summary of the critique.
+    IMPORTANT:  Don't ever lead with any reasoning, chain-of-thought, or filler like "Alright, let's dive into this critique." or "Now, let's break down the translation.".
+    Only provide the critique information in the format specified.
 
-    Do not include any text formatting blocks for 'md' or 'markdown'; return only the raw Markdown content.
+    Here is an example of the expected format, in this scenario, the translation is ${format.exampleTitle}:
+        ${format.exampleDetail}
 
     Original text:
         ${originalText}
     Translated text:
         ${newText}
     `;
-    const critique = await this.getChatCompletion(`${prompt}`);
-    if (!fs.existsSync(process.cwd() + "/critiques")) {
-      fs.mkdirSync(process.cwd() + "/critiques");
+    const critique = await this.getChatCompletion(`${prompt}`, (format.ext === ".json"));
+    if(save) {
+        if (!fs.existsSync(process.cwd() + "/critiques")) {
+            fs.mkdirSync(process.cwd() + "/critiques");
+        }
+        const critiqueFilePath = path.join(
+        path.resolve(process.cwd() + "/critiques"),
+        `critique.${from.code}.${to.code}${format.ext}`,
+        );
+        fs.writeFileSync(critiqueFilePath, critique);
     }
-    const critiqueFilePath = path.join(
-      path.resolve(process.cwd() + "/critiques"),
-      `critique.${from.code}.${to.code}.md`,
-    );
-    fs.writeFileSync(critiqueFilePath, critique);
     return critique;
   }
 
@@ -98,25 +127,51 @@ export class OpenRouterProvider
     return translatedText;
   }
 
-  private async getChatCompletion(content: string): Promise<string> {
-    const response = await axios.post(
-      "https://openrouter.ai/api/v1/chat/completions",
-      {
-        model: this.modelId,
-        messages: [
-          {
-            role: "user",
-            content: content,
-          },
-        ],
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${this.apiKey}`,
-          "Content-Type": "application/json",
-        },
-      },
-    );
-    return response.data.choices[0].message.content.trim();
+  private async getChatCompletion(content: string, strictJSON: boolean = false): Promise<string> {
+    try {
+        const response = await axios.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            {
+                model: this.modelId,
+                messages: [
+                    {
+                        role: "user",
+                        content: content,
+                    },
+                ],
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${this.apiKey}`,
+                    "Content-Type": "application/json",
+                },
+            },
+        );
+        console.log(response.data);
+        let raw = response.data.choices?.[0]?.content?.trim() || "";
+        if(raw === "") {
+            console.error("Empty response received. Retrying...");
+            return await this.getChatCompletion(content, strictJSON);
+        }
+        if(strictJSON) {
+            raw = raw.replace(/^```json|```$/g, "").trim();
+            try {
+                const output = JSON.parse(raw);
+                return output;
+            }
+            catch {
+                console.error("Invalid JSON returned. Retrying...");
+                return await this.getChatCompletion(`This JSON is not valid - return the expected valid JSON result ONLY:  ${raw}`, strictJSON);
+            }
+        }
+        return raw; // Ensure a return statement for non-strictJSON case
+    } catch (error: any) {
+        if (error.code === "ECONNRESET") {
+            console.warn("Connection reset. Retrying...");
+            return await this.getChatCompletion(content);
+        }
+        console.error("An error occurred:", error.message);
+        return ""; // Return an empty string or a default value in case of an error
+    }
   }
 }

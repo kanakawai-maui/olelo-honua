@@ -7,6 +7,7 @@ import { translate } from "@vitalets/google-translate-api";
 import { HttpProxyAgent } from "http-proxy-agent";
 import { backify, bulkify } from "../utils/shared";
 
+// Deprecation notice:  Don't use this provider for production.
 // This is not a good practice to use Google Translate API for free.
 // This is just for demonstration purposes.
 // You should use the official Google Translate API for production.

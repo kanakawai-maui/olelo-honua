@@ -33,7 +33,7 @@ Critiques are a way to evaluate and improve the quality of translations by ident
 
 ### Example Critique
 
-An example of an AI-generated critique can be seen [here](examples/basic/critiques/critique.en.haw.md).
+An example of an AI-generated critique can be seen [here](examples/basic/critiques/critique.en.haw.json).
 
 ## Caching
 
@@ -50,7 +50,7 @@ const dakine = new OleloHonua(
     primeLanguage: "haw",
     excludeLanguage: ["ja", "en", "de"],
   },
-  new GoogleTranslateProvider({ projectId: "<my_project_id>" }),
+  new DeepSeekProvider({ apiKey: '<your_openrouter_api_key' }),
 );
 // Runs or re-runs i18n translations
 dakine.hanaHou(); // or use alias dakine.createLocaleFiles()

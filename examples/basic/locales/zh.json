@@ -1,0 +1,23 @@
+{
+  "greeting": "你好",
+  "farewell": "再见",
+  "thank_you": "谢谢",
+  "welcome": "欢迎",
+  "good_morning": "早上好",
+  "good_night": "晚安",
+  "how_are_you": "你好吗？",
+  "please": "请",
+  "yes": "是",
+  "no": "否",
+  "sorry": "对不起",
+  "excuse_me": "打扰一下",
+  "help": "帮助",
+  "bathroom": "卫生间",
+  "food": "食物",
+  "water": "水",
+  "hotel": "酒店",
+  "taxi": "出租车",
+  "airport": "机场",
+  "train_station": "火车站",
+  "train_station_description": "铁路站、火车站、铁路车站或车站是指列车定期停靠装载或卸载乘客或货物的铁路设施或区域。"
+}

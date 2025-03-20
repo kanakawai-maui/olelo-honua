@@ -1,0 +1,23 @@
+{
+  "greeting": "Merhaba",
+  "farewell": "Görüşürüz",
+  "thank_you": "Teşekkür ederim",
+  "welcome": "Hoş geldiniz",
+  "good_morning": "Günaydın",
+  "good_night": "İyi geceler",
+  "how_are_you": "Nasılsın?",
+  "please": "Lütfen",
+  "yes": "Evet",
+  "no": "Hayır",
+  "sorry": "Özür dilerim",
+  "excuse_me": "Özür dilerim",
+  "help": "Yardım",
+  "bathroom": "Tuvalet",
+  "food": "Yemek",
+  "water": "Su",
+  "hotel": "Otel",
+  "taxi": "Taksi",
+  "airport": "Havalimanı",
+  "train_station": "Tren istasyonu",
+  "train_station_description": "Tren istasyonu, demiryolu istasyonu, demir yolu istasyonu veya depo, düzenli olarak yolcuları veya eşyaları yüklemek veya boşaltmak için trenlerin durduğu bir demiryolu tesisi veya alanidir."
+}

@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 import { LocaleConfig } from "./interfaces/locale";
-import { Language, LanguageProvider } from "./interfaces/language";
+import { Language, LanguageProvider, OUTPUT_FILETYPE_JSON } from "./interfaces/language";
 import defaultLanguagesData from "./default_languages.json";
 import { BulkLanguageProvider } from "./interfaces/language";
 
@@ -10,6 +10,7 @@ export { ToyProvider } from "./providers/toy";
 export { GoogleTranslateProvider } from "./providers/googleTranslate";
 export { OpenAIChatGPTProvider } from "./providers/openAiChatGpt";
 export { OpenRouterProvider } from "./providers/openRouter";
+export { DeepSeekProvider } from "./providers/deepSeek";
 
 /**
  * The main class for OleloHonua.
@@ -36,7 +37,10 @@ export class OleloHonua {
     const cacheFilePath = path.join(this.__dirname, ".translation_cache.json");
     let cache: { [key: string]: any } = {};
 
+    if (this.config.debug) console.log("Validating configuration...");
+
     if (fs.existsSync(cacheFilePath)) {
+      if (this.config.debug) console.log("Loading existing cache...");
       const cacheRaw = fs.readFileSync(cacheFilePath, "utf-8");
       cache = JSON.parse(cacheRaw);
     }
@@ -47,16 +51,21 @@ export class OleloHonua {
         : this.getAllLanguages().filter(
             (lang) => !this.config.excludeLanguage?.includes(lang),
           );
+
+    if (this.config.debug) console.log(`Languages to process: ${languages.join(", ")}`);
+
     const primeLanguage = this.config.primeLanguage;
     const primeLanguageInfo = this.getLanguageInfo(primeLanguage);
+
+    if (this.config.debug) console.log(`Fetching content for prime language: ${primeLanguage}`);
     const primeContent = await this.getPrimeLanguageContent(primeLanguage);
-    // convert primeContent to JSON
     const primeContentJSON = JSON.parse(primeContent);
 
     for (const lang of languages) {
       if (lang !== primeLanguage) {
         const targetLanguageInfo = this.getLanguageInfo(lang);
-        console.log(`Translating ${primeLanguage} -> ${lang}...`);
+        if (this.config.debug) console.log(`Translating ${primeLanguage} -> ${lang}...`);
+
         if ("translateTextBulk" in this.provider && this.config.bulkTranslate) {
           const primeContentKeys = Object.keys(primeContentJSON);
           const primeContentValues = Object.values(primeContentJSON).map(
@@ -67,8 +76,10 @@ export class OleloHonua {
           let translatedValues;
 
           if (cache[cacheKey]) {
+            if (this.config.debug) console.log(`Using cached bulk translation for ${primeLanguage} -> ${lang}`);
             translatedValues = cache[cacheKey];
           } else {
+            if (this.config.debug) console.log(`Performing bulk translation for ${primeLanguage} -> ${lang}`);
             translatedValues = await (
               this.provider as BulkLanguageProvider
             ).translateTextBulk(
@@ -87,17 +98,38 @@ export class OleloHonua {
             {},
           );
           this.saveToFile(lang, translatedContentJSON);
+
           if ("critiqueTranslation" in this.provider && this.config.critique) {
             if (typeof this.provider.critiqueTranslation === "function") {
-              console.log(
-                `Critiquing translation ${primeLanguage} -> ${lang}...`,
-              );
-              this.provider.critiqueTranslation(
+              if (this.config.debug) console.log(`Critiquing translation ${primeLanguage} -> ${lang}`);
+              const critique = await this.provider.critiqueTranslation(
                 JSON.stringify(primeContentJSON),
                 JSON.stringify(translatedContentJSON),
+                OUTPUT_FILETYPE_JSON,
+                this.config.saveCritique,
                 primeLanguageInfo,
                 targetLanguageInfo,
               );
+
+              if ("repairTranslation" in this.provider && this.config.repair) {
+                if (typeof this.provider.repairTranslation === "function") {
+                  if (this.config.debug) console.log(`Repairing translation ${primeLanguage} -> ${lang}`);
+                  const repairedContentJSON = await this.provider.repairTranslation(
+                    JSON.stringify(primeContentJSON),
+                    critique,
+                    primeLanguageInfo,
+                    targetLanguageInfo,
+                  );
+                  try {
+                    const validJSON = JSON.parse(repairedContentJSON);
+                    this.saveToFile(lang, validJSON);
+                  } catch (e) {
+                    console.error(
+                      `Error: The repaired content for ${lang} is not a valid JSON. Skipping...`,
+                    );
+                  }
+                }
+              }
             }
           }
         } else {
@@ -108,8 +140,10 @@ export class OleloHonua {
             let translatedValue;
 
             if (cache[cacheKey]) {
+              if (this.config.debug) console.log(`Using cached translation for key "${key}" in ${primeLanguage} -> ${lang}`);
               translatedValue = cache[cacheKey];
             } else {
+              if (this.config.debug) console.log(`Translating key "${key}" in ${primeLanguage} -> ${lang}`);
               translatedValue = await this.provider.translateText(
                 originalValue,
                 primeLanguageInfo,
@@ -131,6 +165,7 @@ export class OleloHonua {
       );
     }
 
+    if (this.config.debug) console.log("Saving updated cache...");
     fs.writeFileSync(cacheFilePath, JSON.stringify(cache, null, 2));
   }
 

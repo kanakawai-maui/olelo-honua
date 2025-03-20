@@ -1,0 +1,23 @@
+{
+  "greeting": "Ciao",
+  "farewell": "Arrivederci",
+  "thank_you": "Grazie",
+  "welcome": "Benvenuto",
+  "good_morning": "Buongiorno",
+  "good_night": "Buona notte",
+  "how_are_you": "Come stai?",
+  "please": "Per favore",
+  "yes": "Sì",
+  "no": "No",
+  "sorry": "Mi dispiace",
+  "excuse_me": "Mi scusi",
+  "help": "Aiuto",
+  "bathroom": "Bagno",
+  "food": "Cibo",
+  "water": "Acqua",
+  "hotel": "Hotel",
+  "taxi": "Taxi",
+  "airport": "Aeroporto",
+  "train_station": "Stazione ferroviaria",
+  "train_station_description": "Una stazione ferroviaria, stazione ferroviaria, stazione ferroviaria o scalo ferroviario è un impianto o un'area ferroviaria dove i treni si fermano regolarmente per far salire o scendere passeggeri o merci."
+}

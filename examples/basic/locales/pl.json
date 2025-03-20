@@ -1,0 +1,23 @@
+{
+  "greeting": "Cześć",
+  "farewell": "Żegnaj",
+  "thank_you": "Dziękuję",
+  "welcome": "Witaj",
+  "good_morning": "Dzień dobry",
+  "good_night": "Dobranoc",
+  "how_are_you": "Jak się masz?",
+  "please": "Proszę",
+  "yes": "Tak",
+  "no": "Nie",
+  "sorry": "Przepraszam",
+  "excuse_me": "Przepraszam",
+  "help": "Pomoc",
+  "bathroom": "Łazienka",
+  "food": "Jedzenie",
+  "water": "Woda",
+  "hotel": "Hotel",
+  "taxi": "Taksówka",
+  "airport": "Lotnisko",
+  "train_station": "Stacja kolejowa",
+  "train_station_description": "Stacja kolejowa, dworzec kolejowy lub depot to obiekt lub obszar kolejowy, gdzie pociągi regularnie zatrzymują się w celu załadunku lub wyładunku pasażerów lub towarów."
+}

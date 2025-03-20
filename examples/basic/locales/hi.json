@@ -1,0 +1,23 @@
+{
+  "greeting": "Hello",
+  "farewell": "नमस्ते",
+  "thank_you": "Goodbye",
+  "welcome": "अलविदा",
+  "good_morning": "Thank you",
+  "good_night": "धन्यवाद",
+  "how_are_you": "Welcome",
+  "please": "स्वागत",
+  "yes": "Good morning",
+  "no": "शुभ प्रभात",
+  "sorry": "Good night",
+  "excuse_me": "शुभ रात्रि",
+  "help": "How are you?",
+  "bathroom": "आप कैसे हैं?",
+  "food": "Please",
+  "water": "कृपया",
+  "hotel": "Yes",
+  "taxi": "हाँ",
+  "airport": "No",
+  "train_station": "नहीं",
+  "train_station_description": "Sorry"
+}

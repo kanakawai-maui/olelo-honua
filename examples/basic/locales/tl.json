@@ -1,0 +1,23 @@
+{
+  "greeting": "Kumusta",
+  "farewell": "Paalam",
+  "thank_you": "Salamat",
+  "welcome": "Maligayang pagdating",
+  "good_morning": "Magandang umaga",
+  "good_night": "Magandang gabi",
+  "how_are_you": "Kumusta ka?",
+  "please": "Pakiusap",
+  "yes": "Oo",
+  "no": "Hindi",
+  "sorry": "Pasensya",
+  "excuse_me": "Paalam",
+  "help": "Tulong",
+  "bathroom": "Banyo",
+  "food": "Pagkain",
+  "water": "Tubig",
+  "hotel": "Hotel",
+  "taxi": "Taksi",
+  "airport": "Paliparan",
+  "train_station": "Estasyon ng tren",
+  "train_station_description": "Isang estasyon ng tren, estasyon ng daangbakal, o deposito ay isang pasilidad ng daangbakal kung saan regular na naghihinto ang mga tren upang ikarga o i-baba ang mga pasahero o kargamento."
+}

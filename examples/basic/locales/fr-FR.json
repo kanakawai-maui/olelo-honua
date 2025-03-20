@@ -1,0 +1,23 @@
+{
+  "greeting": "Bonjour",
+  "farewell": "Au revoir",
+  "thank_you": "Merci",
+  "welcome": "Bienvenue",
+  "good_morning": "Bonjour",
+  "good_night": "Bonne nuit",
+  "how_are_you": "Comment ça va?",
+  "please": "S'il vous plaît",
+  "yes": "Oui",
+  "no": "Non",
+  "sorry": "Désolé(e)",
+  "excuse_me": "Excusez-moi",
+  "help": "Aide",
+  "bathroom": "Salle de bain",
+  "food": "Nourriture",
+  "water": "Eau",
+  "hotel": "Hôtel",
+  "taxi": "Taxi",
+  "airport": "Aéroport",
+  "train_station": "Gare",
+  "train_station_description": "Une gare, station ferroviaire, gare de chemin de fer ou dépôt est une installation ou une zone ferroviaire où les trains s'arrêtent régulièrement pour charger ou décharger des passagers ou des marchandises."
+}
