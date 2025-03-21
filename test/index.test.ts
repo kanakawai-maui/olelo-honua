@@ -1,12 +1,32 @@
 import { OleloHonua } from "../src/index";
 import { LocaleConfig } from "../src/interfaces/locale";
-import { LanguageProvider } from "../src/interfaces/language";
+import { BaseProvider } from "../src/providers/base";
 import { bulkify, backify } from "../src/utils/shared";
 
-const mockProvider: LanguageProvider = {
-  translateText: jest.fn((text, from, to) =>
-    Promise.resolve(`Translated ${text} from ${from} to ${to}`),
+const mockProvider: BaseProvider = {
+  preferBulkTranslate: true,
+  getCacheCode: jest.fn(() => "mockCacheCode"),
+  generateCacheKey: jest.fn((original, critique, from, to) =>
+    Buffer.from(`${original}-${critique}-${from}-${to}`).toString("base64"),
   ),
+  repairTranslation: jest.fn((original, critique, from, to) =>
+    Promise.resolve("Mock repaired translation"),
+  ),
+  critiqueTranslation: jest.fn(
+    (originalText, newText, format, save, from, to) =>
+      Promise.resolve("Mock critique result"),
+  ),
+  translateTextBulk: jest.fn((text, from, to) =>
+    Promise.resolve(
+      text.map((t) => `Mock translated ${t} from ${from} to ${to}`),
+    ),
+  ),
+  translateText: jest.fn((text, from, to) =>
+    Promise.resolve(`Mock translated ${text} from ${from} to ${to}`),
+  ),
+  saveToFile: jest.fn((content, filePath) => {
+    // Mock implementation for saving to file
+  }),
 };
 
 const mockConfig: LocaleConfig = {

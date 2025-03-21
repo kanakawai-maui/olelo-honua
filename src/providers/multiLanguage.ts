@@ -1,6 +1,7 @@
 import { Language, LanguageProvider } from "../interfaces/language";
+import { BaseProvider } from "./base";
 
-export class MultiLanguageProvider implements LanguageProvider {
+export class MultiLanguageProvider extends BaseProvider {
   private providers: LanguageProvider[];
   private agreementThreshold: number;
 
@@ -8,6 +9,7 @@ export class MultiLanguageProvider implements LanguageProvider {
     providers: LanguageProvider[],
     agreementThreshold: number = 0.95,
   ) {
+    super();
     this.providers = providers;
     this.agreementThreshold = agreementThreshold;
   }

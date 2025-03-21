@@ -2,24 +2,31 @@ import * as fs from "fs";
 import * as path from "path";
 
 import { LocaleConfig } from "./interfaces/locale";
-import { Language, LanguageProvider } from "./interfaces/language";
+import { Language } from "./interfaces/language";
 import defaultLanguagesData from "./default_languages.json";
-import { BulkLanguageProvider } from "./interfaces/language";
+import { Enquirer } from "./enquirer/enquirer";
+import { BaseProvider } from "./providers/base";
 
 export { ToyProvider } from "./providers/toy";
 export { GoogleTranslateProvider } from "./providers/googleTranslate";
 export { OpenAIChatGPTProvider } from "./providers/openAiChatGpt";
 export { OpenRouterProvider } from "./providers/openRouter";
+export { DeepSeekProvider } from "./providers/deepSeek";
+export { MultiLanguageProvider } from "./providers/multiLanguage";
+export { GemmaProvider } from "./providers/gemma";
+export { LlamaProvider } from "./providers/llama";
+export { MistralProvider } from "./providers/mistral";
+export { QwenProvider } from "./providers/qwen";
 
 /**
  * The main class for OleloHonua.
  */
 export class OleloHonua {
   private config: LocaleConfig;
-  private provider: LanguageProvider;
+  private provider: BaseProvider;
   private __dirname: string;
 
-  constructor(config: LocaleConfig, provider: LanguageProvider) {
+  constructor(config: LocaleConfig, provider: BaseProvider) {
     this.config = config;
     this.provider = provider;
     this.__dirname = path.resolve(process.cwd());
@@ -33,105 +40,35 @@ export class OleloHonua {
   async hanaHou() {
     this.validateConfig(this.config);
 
-    const cacheFilePath = path.join(this.__dirname, ".translation_cache.json");
-    let cache: { [key: string]: any } = {};
-
-    if (fs.existsSync(cacheFilePath)) {
-      const cacheRaw = fs.readFileSync(cacheFilePath, "utf-8");
-      cache = JSON.parse(cacheRaw);
-    }
-
     const languages =
       this.config.includeLanguage && this.config.includeLanguage.length > 0
         ? this.config.includeLanguage
         : this.getAllLanguages().filter(
             (lang) => !this.config.excludeLanguage?.includes(lang),
           );
+
+    if (this.config.debug)
+      console.log(`Languages to process: ${languages.join(", ")}`);
+
     const primeLanguage = this.config.primeLanguage;
+
+    if (this.config.debug)
+      console.log(`Fetching content for prime language: ${primeLanguage}`);
     const primeLanguageInfo = this.getLanguageInfo(primeLanguage);
     const primeContent = await this.getPrimeLanguageContent(primeLanguage);
-    // convert primeContent to JSON
     const primeContentJSON = JSON.parse(primeContent);
 
-    for (const lang of languages) {
-      if (lang !== primeLanguage) {
-        const targetLanguageInfo = this.getLanguageInfo(lang);
-        console.log(`Translating ${primeLanguage} -> ${lang}...`);
-        if ("translateTextBulk" in this.provider && this.config.bulkTranslate) {
-          const primeContentKeys = Object.keys(primeContentJSON);
-          const primeContentValues = Object.values(primeContentJSON).map(
-            (value) =>
-              typeof value === "object" ? JSON.stringify(value) : value,
-          );
-          const cacheKey = `${primeLanguage}-${lang}-${this.provider.constructor.name}-bulk`;
-          let translatedValues;
-
-          if (cache[cacheKey]) {
-            translatedValues = cache[cacheKey];
-          } else {
-            translatedValues = await (
-              this.provider as BulkLanguageProvider
-            ).translateTextBulk(
-              primeContentValues as string[],
-              primeLanguageInfo,
-              targetLanguageInfo,
-            );
-            cache[cacheKey] = translatedValues;
-          }
-
-          const translatedContentJSON = primeContentKeys.reduce(
-            (acc, key, index) => {
-              (acc as Record<string, string>)[key] = translatedValues[index];
-              return acc;
-            },
-            {},
-          );
-          this.saveToFile(lang, translatedContentJSON);
-          if ("critiqueTranslation" in this.provider && this.config.critique) {
-            if (typeof this.provider.critiqueTranslation === "function") {
-              console.log(
-                `Critiquing translation ${primeLanguage} -> ${lang}...`,
-              );
-              this.provider.critiqueTranslation(
-                JSON.stringify(primeContentJSON),
-                JSON.stringify(translatedContentJSON),
-                primeLanguageInfo,
-                targetLanguageInfo,
-              );
-            }
-          }
-        } else {
-          const translatedContentJSON = primeContentJSON;
-          for (const key in primeContentJSON) {
-            const originalValue = primeContentJSON[key];
-            const cacheKey = `${primeLanguage}-${lang}-${key}`;
-            let translatedValue;
-
-            if (cache[cacheKey]) {
-              translatedValue = cache[cacheKey];
-            } else {
-              translatedValue = await this.provider.translateText(
-                originalValue,
-                primeLanguageInfo,
-                targetLanguageInfo,
-              );
-              cache[cacheKey] = translatedValue;
-            }
-
-            translatedContentJSON[key] = translatedValue;
-          }
-          this.saveToFile(lang, translatedContentJSON);
-        }
-      }
-    }
-
-    if (JSON.stringify(cache, null, 2) === "{}") {
-      console.log(
-        "An empty cache file was created, this means that the translations were not cached and something went wrong. Please check the logs for more information.",
+    for (const lang of languages.filter((lang) => lang !== primeLanguage)) {
+      const toLanguageInfo = this.getLanguageInfo(lang);
+      const enq = new Enquirer(
+        primeContentJSON,
+        primeLanguageInfo,
+        toLanguageInfo,
+        this.provider,
+        this.config,
       );
+      await enq.mainLoop();
     }
-
-    fs.writeFileSync(cacheFilePath, JSON.stringify(cache, null, 2));
   }
 
   /**
@@ -260,16 +197,5 @@ export class OleloHonua {
     // This function should return the content for the prime language
     const filePath = path.join(this.__dirname, `locales/${primeLanguage}.json`);
     return fs.readFileSync(filePath, "utf-8");
-  }
-
-  /**
-   * Saves the provided content to a file named after the specified language.
-   *
-   * @param language - The language code to name the file.
-   * @param content - The content to be saved in the file.
-   */
-  private saveToFile(language: string, content: {}) {
-    const filePath = path.join(this.__dirname, `locales/${language}.json`);
-    fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
   }
 }
