@@ -2,7 +2,7 @@
 
 #### Automate Your Internationalization Workflow with Ease
 
-#### 🚀 Now generally available!! 🎉
+#### 🚀 Now in Beta and Release Candidate (RC)!! 🎉
 
 (ʻŌlelo Honua can be translated to mean "World Language" or "Language Bridge" in Hawaiian.)
 
@@ -24,6 +24,11 @@ Here's a simple illustration:
 2. **With ʻŌlelo Honua**: The library automatically generates and syncs translation files using your preferred translation provider.
 
 This automation makes it easier to manage internationalization in your application, allowing you to focus on other important tasks.
+
+### State Diagram
+
+![State Diagram](docs/clean_state_diagram.png)
+
 
 ## Introducing Critiques
 
@@ -50,7 +55,7 @@ const dakine = new OleloHonua(
     primeLanguage: "haw",
     excludeLanguage: ["ja", "en", "de"],
   },
-  new DeepSeekProvider({ apiKey: "<your_openrouter_api_key" }), // Highly recommend DeepSeekProvider since it's free & reliable
+  new DeepSeekProvider({ apiKey: '<your_openrouter_api_key' }), // Highly recommend DeepSeekProvider since it's free & reliable
 );
 // Runs or re-runs i18n translations
 dakine.hanaHou(); // or use alias dakine.createLocaleFiles()
@@ -90,91 +95,92 @@ yarn add olelo-honua
 
 ʻŌlelo Honua supports a wide range of languages:
 
-| Language                 | Flag Emoji            |
-| ------------------------ | --------------------- |
-| Afrikaans                | 🇿🇦                    |
-| Albanian                 | 🇦🇱                    |
-| Amharic                  | 🇪🇹                    |
-| English (Australia)      | 🇦🇺                    |
-| English (Canada)         | 🇨🇦                    |
-| English (United Kingdom) | 🇬🇧                    |
-| English                  | 🇺🇸                    |
-| Arabic                   | 🇸🇦                    |
-| Armenian                 | 🇦🇲                    |
-| Burmese                  | 🇲🇲                    |
-| Basque                   | 🇪🇸                    |
-| Hawaiian                 | 🇺🇸 (Hawaiian Islands) |
-| Bengali                  | 🇧🇩                    |
-| Bulgarian                | 🇧🇬                    |
-| Belarusian               | 🇧🇾                    |
-| Croatian                 | 🇭🇷                    |
-| Danish                   | 🇩🇰                    |
-| Estonian                 | 🇪🇪                    |
-| Filipino                 | 🇵🇭                    |
-| Finnish                  | 🇫🇮                    |
-| French (France)          | 🇫🇷                    |
-| French (Canada)          | 🇨🇦                    |
-| Galician                 | 🇪🇸                    |
-| Georgian                 | 🇬🇪                    |
-| Gujarati                 | 🇮🇳                    |
-| Hebrew                   | 🇮🇱                    |
-| Hindi                    | 🇮🇳                    |
-| Indonesian               | 🇮🇩                    |
-| Icelandic                | 🇮🇸                    |
-| Italian                  | 🇮🇹                    |
-| Japanese                 | 🇯🇵                    |
-| Kannada                  | 🇮🇳                    |
-| Catalan                  | 🇪🇸                    |
-| Kazakh                   | 🇰🇿                    |
-| Khmer                    | 🇰🇭                    |
-| Korean                   | 🇰🇷                    |
-| Kyrgyz                   | 🇰🇬                    |
-| Lao                      | 🇱🇦                    |
-| Lithuanian               | 🇱🇹                    |
-| Latvian                  | 🇱🇻                    |
-| Macedonian               | 🇲🇰                    |
-| Malayalam                | 🇮🇳                    |
-| Malay (Malaysia)         | 🇲🇾                    |
-| Malay                    | 🇲🇾                    |
-| Marathi                  | 🇮🇳                    |
-| Hungarian                | 🇭🇺                    |
-| Mongolian                | 🇲🇳                    |
-| Nepali                   | 🇳🇵                    |
-| Dutch                    | 🇳🇱                    |
-| Norwegian                | 🇳🇴                    |
-| German                   | 🇩🇪                    |
-| Punjabi                  | 🇮🇳                    |
-| Persian                  | 🇮🇷                    |
-| Polish                   | 🇵🇱                    |
-| Portuguese (Brazil)      | 🇧🇷                    |
-| Portuguese (Portugal)    | 🇵🇹                    |
-| Romanian                 | 🇷🇴                    |
-| Russian                  | 🇷🇺                    |
-| Romansh                  | 🇨🇭                    |
-| Sinhala                  | 🇱🇰                    |
-| Slovak                   | 🇸🇰                    |
-| Slovenian                | 🇸🇮                    |
-| Serbian                  | 🇷🇸                    |
-| Swahili                  | 🇹🇿                    |
-| Tamil                    | 🇮🇳                    |
-| Telugu                   | 🇮🇳                    |
-| Thai                     | 🇹🇭                    |
-| Turkish                  | 🇹🇷                    |
-| Ukrainian                | 🇺🇦                    |
-| Urdu                     | 🇵🇰                    |
-| Vietnamese               | 🇻🇳                    |
-| Zulu                     | 🇿🇦                    |
-| Azerbaijani              | 🇦🇿                    |
-| Czech                    | 🇨🇿                    |
-| Chinese (Hong Kong)      | 🇭🇰                    |
-| Chinese (Traditional)    | 🇹🇼                    |
-| Chinese (Simplified)     | 🇨🇳                    |
-| Greek                    | 🇬🇷                    |
-| Spanish (Latin America)  | 🌎                    |
-| Spanish (United States)  | 🇺🇸                    |
-| Spanish (Spain)          | 🇪🇸                    |
-| Swedish                  | 🇸🇪                    |
-| Tagalog                  | 🇵🇭                    |
+| Language             | Flag Emoji |
+|----------------------|------------|
+| Afrikaans            | 🇿🇦        |
+| Albanian             | 🇦🇱        |
+| Amharic              | 🇪🇹        |
+| English (Australia)  | 🇦🇺        |
+| English (Canada)     | 🇨🇦        |
+| English (United Kingdom) | 🇬🇧    |
+| English              | 🇺🇸        |
+| Arabic               | 🇸🇦        |
+| Armenian             | 🇦🇲        |
+| Burmese              | 🇲🇲        |
+| Basque               | 🇪🇸        |
+| Hawaiian             | 🇺🇸 (Hawaiian Islands) |
+| Bengali              | 🇧🇩        |
+| Bulgarian            | 🇧🇬        |
+| Belarusian           | 🇧🇾        |
+| Croatian             | 🇭🇷        |
+| Danish               | 🇩🇰        |
+| Estonian             | 🇪🇪        |
+| Filipino             | 🇵🇭        |
+| Finnish              | 🇫🇮        |
+| French (France)      | 🇫🇷        |
+| French (Canada)      | 🇨🇦        |
+| Galician             | 🇪🇸        |
+| Georgian             | 🇬🇪        |
+| Gujarati             | 🇮🇳        |
+| Hebrew               | 🇮🇱        |
+| Hindi                | 🇮🇳        |
+| Indonesian           | 🇮🇩        |
+| Icelandic            | 🇮🇸        |
+| Italian              | 🇮🇹        |
+| Japanese             | 🇯🇵        |
+| Kannada              | 🇮🇳        |
+| Catalan              | 🇪🇸        |
+| Kazakh               | 🇰🇿        |
+| Khmer                | 🇰🇭        |
+| Korean               | 🇰🇷        |
+| Kyrgyz               | 🇰🇬        |
+| Lao                  | 🇱🇦        |
+| Lithuanian           | 🇱🇹        |
+| Latvian              | 🇱🇻        |
+| Macedonian           | 🇲🇰        |
+| Malayalam            | 🇮🇳        |
+| Malay (Malaysia)     | 🇲🇾        |
+| Malay                | 🇲🇾        |
+| Marathi              | 🇮🇳        |
+| Hungarian            | 🇭🇺        |
+| Mongolian            | 🇲🇳        |
+| Nepali               | 🇳🇵        |
+| Dutch                | 🇳🇱        |
+| Norwegian            | 🇳🇴        |
+| German               | 🇩🇪        |
+| Punjabi              | 🇮🇳        |
+| Persian              | 🇮🇷        |
+| Polish               | 🇵🇱        |
+| Portuguese (Brazil)  | 🇧🇷        |
+| Portuguese (Portugal)| 🇵🇹        |
+| Romanian             | 🇷🇴        |
+| Russian              | 🇷🇺        |
+| Romansh              | 🇨🇭        |
+| Sinhala              | 🇱🇰        |
+| Slovak               | 🇸🇰        |
+| Slovenian            | 🇸🇮        |
+| Serbian              | 🇷🇸        |
+| Swahili              | 🇹🇿        |
+| Tamil                | 🇮🇳        |
+| Telugu               | 🇮🇳        |
+| Thai                 | 🇹🇭        |
+| Turkish              | 🇹🇷        |
+| Ukrainian            | 🇺🇦        |
+| Urdu                 | 🇵🇰        |
+| Vietnamese           | 🇻🇳        |
+| Zulu                 | 🇿🇦        |
+| Azerbaijani          | 🇦🇿        |
+| Czech                | 🇨🇿        |
+| Chinese (Hong Kong)  | 🇭🇰        |
+| Chinese (Traditional)| 🇹🇼        |
+| Chinese (Simplified) | 🇨🇳        |
+| Greek                | 🇬🇷        |
+| Spanish (Latin America) | 🌎    |
+| Spanish (United States) | 🇺🇸    |
+| Spanish (Spain)      | 🇪🇸        |
+| Swedish              | 🇸🇪        |
+| Tagalog              | 🇵🇭        |
+
 
 ### Supported Models
 
@@ -195,7 +201,7 @@ Select the provider that aligns with your application's specific needs and perfo
 
 ## Configuration
 
-You need to provide a configuration object and a translation provider. For instance, you can use the `DeepSeekProvider` as demonstrated in the usage example. I highly recommend DeepSeek & OpenRouter as these are free and extremely stable. Happy coding!
+You need to provide a configuration object and a translation provider. For instance, you can use the `DeepSeekProvider` as demonstrated in the usage example. I highly recommend DeepSeek & OpenRouter as these are free and extremely stable.  Happy coding!
 
 ## License
 
