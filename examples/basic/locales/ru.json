@@ -1,1 +1,23 @@
-{}
+{
+  "greeting": "Hallo",
+  "farewell": "Goodbye",
+  "thank_you": "Thank you",
+  "welcome": "Welcome",
+  "good_morning": "Good morning",
+  "good_night": "Good night",
+  "how_are_you": "How are you?",
+  "please": "Please",
+  "yes": "Yes",
+  "no": "No",
+  "sorry": "Sorry",
+  "excuse_me": "Excuse me",
+  "help": "Help",
+  "bathroom": "Bathroom",
+  "food": "Food",
+  "water": "Water",
+  "hotel": "Hotel",
+  "taxi": "Taxi",
+  "airport": "Airport",
+  "train_station": "Train station",
+  "train_station_description": "A train station, railway station, railroad station or depot is a railway facility or area where trains regularly stop to load or unload passengers or freight."
+}

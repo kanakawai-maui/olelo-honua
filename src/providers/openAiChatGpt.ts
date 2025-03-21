@@ -5,13 +5,14 @@ import {
 } from "../interfaces/language";
 import { bulkify, backify, sharedSystemPrompt } from "../utils/shared";
 import axios from "axios";
+import { BaseProvider } from "./base";
 
-export class OpenAIChatGPTProvider
-  implements LanguageProvider, BulkLanguageProvider
-{
+export class OpenAIChatGPTProvider extends BaseProvider {
   private apiKey: string;
+  public preferBulkTranslate: boolean = false;
 
   constructor(apiKey: string) {
+    super();
     this.apiKey = apiKey;
   }
 

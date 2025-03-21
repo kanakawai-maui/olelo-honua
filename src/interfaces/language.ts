@@ -5,7 +5,7 @@ export type Language = {
   englishName: string;
 };
 
-export const OUTPUT_FILETYPE_JSON = { 
+export const OUTPUT_FILETYPE_JSON = {
   name: "JSON",
   ext: ".json",
   exampleTitle: "from English to Japanese",
@@ -26,8 +26,8 @@ export const OUTPUT_FILETYPE_JSON = {
           "naturalFlow": 8,
           "summary": "8"
       }
-  }`
-}
+  }`,
+};
 
 export const OUTPUT_FILETYPE_MD = {
   name: "Markdown",
@@ -63,8 +63,8 @@ export const OUTPUT_FILETYPE_MD = {
   - **Syntax and Structure**: 8  
   - **Natural Flow**: 8  
   - **Summary**: 8
-  `
-  }
+  `,
+};
 
 export type FileFormat = {
   name: string;

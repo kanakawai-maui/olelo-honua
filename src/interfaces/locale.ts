@@ -9,4 +9,9 @@ export interface LocaleConfig {
   includeLanguage?: string[];
   excludeLanguage?: string[];
   multiLanguageAgreementThreshold?: number;
+  loopRetryOptions?: {
+    mainLoopRetries: number;
+    critiqueLoopRetries: number;
+    repairLoopRetries: number;
+  };
 }

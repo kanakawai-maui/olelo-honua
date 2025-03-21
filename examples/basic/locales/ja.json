@@ -4,7 +4,7 @@
   "thank_you": "ありがとう",
   "welcome": "ようこそ",
   "good_morning": "おはようございます",
-  "good_night": "おやすみなさい",
+  "good_night": "こんばんは",
   "how_are_you": "おげんきですか？",
   "please": "おねがいします",
   "yes": "はい",
@@ -19,5 +19,5 @@
   "taxi": "タクシー",
   "airport": "空港",
   "train_station": "駅",
-  "train_station_description": "鉄道駅、鉄道駅、またはデポは、定期的に乗客や貨物を乗せたり降せたりする鉄道施設またはエリアです。"
+  "train_station_description": "駅は、定期的に乗客または貨物を乗降させるために停車する鉄道施設またはエリアです。"
 }

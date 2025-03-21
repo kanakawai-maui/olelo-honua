@@ -1,29 +1,22 @@
 import {
-  BulkLanguageProvider,
-  CachableProvider,
-  CritiqueProvider,
   FileFormat,
   Language,
-  LanguageProvider,
-  RepairProvider,
 } from "../interfaces/language";
 import axios from "axios";
 import { backify, bulkify, sharedSystemPrompt } from "../utils/shared";
 import * as path from "path";
 import * as fs from "fs";
+import {BaseProvider} from "./base";
+import { jsonrepair } from 'jsonrepair';
 
 export class OpenRouterProvider
-  implements
-    LanguageProvider,
-    BulkLanguageProvider,
-    CachableProvider,
-    CritiqueProvider,
-    RepairProvider
+  extends BaseProvider
 {
   private apiKey: string;
   private modelId: string;
 
   constructor(apiKey: string, modelId: string) {
+    super();
     this.apiKey = apiKey;
     this.modelId = modelId;
   }
@@ -35,6 +28,7 @@ export class OpenRouterProvider
     The JSON should match the original JSON format as closely as possible, but with the necessary corrections.
     ONLY RESPOND WITH VALID JSON.  DO NOT RETURN ANYTHING ELSE.  THE JSON WILL BE PARSED AND VALIDATED.
     Do not include any text formatting blocks for 'json'; return only the raw JSON content string.
+    DO NOT INCLUDE ANY INVALID CONTROL CHARACTERS IN THE JSON.  REMOVE ALL CONTROL CHARACTERS.
     Original JSON:
         ${original}
     Critique JSON:
@@ -147,21 +141,19 @@ export class OpenRouterProvider
                 },
             },
         );
-        console.log(response.data);
-        let raw = response.data.choices?.[0]?.content?.trim() || "";
-        if(raw === "") {
-            console.error("Empty response received. Retrying...");
-            return await this.getChatCompletion(content, strictJSON);
-        }
+        let raw = response.data.choices[0].message.content.trim();
         if(strictJSON) {
-            raw = raw.replace(/^```json|```$/g, "").trim();
+            raw = raw.replace(/^```json|```$/g, "").trim(); // remove all code blocks
+            raw = raw.replace(/[\u0000-\u001F\u007F-\u009F]/g, "").trim(); // remove all control characters
+            raw = raw.replace(/[\u200B-\u200D\uFEFF]/g, "").trim(); // remove zero-width spaces
             try {
-                const output = JSON.parse(raw);
-                return output;
+                const _ = JSON.parse(raw);
+                return raw;
             }
             catch {
                 console.error("Invalid JSON returned. Retrying...");
-                return await this.getChatCompletion(`This JSON is not valid - return the expected valid JSON result ONLY:  ${raw}`, strictJSON);
+                raw = jsonrepair(raw); // attempt rapid repair
+                return await this.getChatCompletion(`This JSON is not valid - return the expected valid JSON result ONLY.  Remove all contol characters:  ${raw}`, strictJSON);
             }
         }
         return raw; // Ensure a return statement for non-strictJSON case

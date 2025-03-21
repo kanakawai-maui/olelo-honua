@@ -1,17 +1,13 @@
-import {
-  LanguageProvider,
-  BulkLanguageProvider,
-  CachableProvider,
-  Language,
-} from "../interfaces/language";
+import { Language } from "../interfaces/language";
+import { BaseProvider } from "./base";
 
-export class GoogleTranslateProvider
-  implements LanguageProvider, BulkLanguageProvider, CachableProvider
-{
+export class GoogleTranslateProvider extends BaseProvider {
   private translate: any;
   private projectId: string;
+  public preferBulkTranslate: boolean = false;
 
   constructor(projectId: string) {
+    super();
     const { Translate } = require("@google-cloud/translate").v2;
     this.projectId = projectId;
     this.translate = new Translate({ projectId });

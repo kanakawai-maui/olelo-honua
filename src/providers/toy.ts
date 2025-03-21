@@ -1,20 +1,18 @@
-import {
-  LanguageProvider,
-  BulkLanguageProvider,
-  Language,
-} from "../interfaces/language";
+import { Language } from "../interfaces/language";
 import { translate } from "@vitalets/google-translate-api";
 import { HttpProxyAgent } from "http-proxy-agent";
 import { backify, bulkify } from "../utils/shared";
+import { BaseProvider } from "./base";
 
 // Deprecation notice:  Don't use this provider for production.
 // This is not a good practice to use Google Translate API for free.
 // This is just for demonstration purposes.
 // You should use the official Google Translate API for production.
-export class ToyProvider implements LanguageProvider, BulkLanguageProvider {
+export class ToyProvider extends BaseProvider {
   private proxyAgent: HttpProxyAgent<string> | undefined;
 
   constructor(proxy?: string) {
+    super();
     if (proxy) {
       this.proxyAgent = new HttpProxyAgent(proxy);
     }
