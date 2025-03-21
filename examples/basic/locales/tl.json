@@ -1,16 +1,16 @@
 {
-  "greeting": "Kumusta",
+  "greeting": "Kumustá",
   "farewell": "Paalam",
   "thank_you": "Salamat",
-  "welcome": "TIsrael",
+  "welcome": "Turo",
   "good_morning": "Magandang umaga",
   "good_night": "Magandang gabi",
-  "how_are_you": "Kumustá ka?",
-  "please": "Pakí",
+  "how_are_you": "Kumustá",
+  "please": "Pakiusap",
   "yes": "Oo",
   "no": "Hindi",
-  "sorry": "Sori",
-  "excuse_me": "Excuse me",
+  "sorry": "Patawad",
+  "excuse_me": "Pakihintay",
   "help": "Tulong",
   "bathroom": "Banyo",
   "food": "Pagkain",
@@ -19,5 +19,5 @@
   "taxi": "Taksi",
   "airport": "Paliparan",
   "train_station": "Estasyon ng tren",
-  "train_station_description": "Ang isang estasyon ng tren, istasyon ng riles, o estasyon ng tren ay isang pasilidad ng riles kung saan regular na humihinto ang mga tren upang magpakarga at magluwas ng mga pasahero o kargamento."
+  "train_station_description": "Ang isang estasyon ng tren, estasyon ng riles, o istasyon ng daungan ay isang pasilidad ng riles o lugar kung saan regular na humihinto ang mga tren upang magsakay o magbaba ng mga pasahero o kargamento."
 }
