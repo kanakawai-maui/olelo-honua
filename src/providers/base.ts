@@ -58,7 +58,9 @@ export abstract class BaseProvider
     from: Language,
     to: Language,
   ): Promise<string> {
-    return new Promise(() => "Repair:  No action taken, not implemented. Skipping...");
+    return new Promise(
+      () => "Repair:  No action taken, not implemented. Skipping...",
+    );
   }
 
   /**
@@ -80,7 +82,9 @@ export abstract class BaseProvider
     from: Language,
     to: Language,
   ): Promise<string> {
-    return new Promise(() => "Critique: No action taken, not implemented. Skipping...");
+    return new Promise(
+      () => "Critique: No action taken, not implemented. Skipping...",
+    );
   }
 
   /**

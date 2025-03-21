@@ -2,7 +2,7 @@
 
 #### Automate Your Internationalization Workflow with Ease
 
-#### 🚀 Now in Beta!! 🎉
+#### 🚀 Now generally available!! 🎉
 
 (ʻŌlelo Honua can be translated to mean "World Language" or "Language Bridge" in Hawaiian.)
 
@@ -50,7 +50,7 @@ const dakine = new OleloHonua(
     primeLanguage: "haw",
     excludeLanguage: ["ja", "en", "de"],
   },
-  new DeepSeekProvider({ apiKey: '<your_openrouter_api_key' }), // Highly recommend DeepSeekProvider since it's free & reliable
+  new DeepSeekProvider({ apiKey: "<your_openrouter_api_key" }), // Highly recommend DeepSeekProvider since it's free & reliable
 );
 // Runs or re-runs i18n translations
 dakine.hanaHou(); // or use alias dakine.createLocaleFiles()
@@ -86,48 +86,116 @@ yarn add olelo-honua
 
 ### Supported Languages
 
-ʻŌlelo Honua supports a wide range of languages. Below is a compact grid of supported languages, their native names, English names, and corresponding flags:
+### Supported Languages
 
-| Language         | Flag Emoji |
-|------------------|------------|
-| English          | 🇺🇸        |
-| Spanish          | 🇪🇸        |
-| French           | 🇫🇷        |
-| German           | 🇩🇪        |
-| Japanese         | 🇯🇵        |
-| Hawaiian         | 🇺🇸 (Hawaiian Islands) |
-| Chinese (Simplified) | 🇨🇳    |
-| Korean           | 🇰🇷        |
-| Italian          | 🇮🇹        |
-| Portuguese       | 🇵🇹        |
-| Russian          | 🇷🇺        |
-| Arabic           | 🇸🇦        |
-| Hindi            | 🇮🇳        |
-| Dutch            | 🇳🇱        |
-| Swedish          | 🇸🇪        |
+ʻŌlelo Honua supports a wide range of languages:
 
-This list is customizable, and you can add or exclude languages based on your application's requirements.
+| Language                 | Flag Emoji            |
+| ------------------------ | --------------------- |
+| Afrikaans                | 🇿🇦                    |
+| Albanian                 | 🇦🇱                    |
+| Amharic                  | 🇪🇹                    |
+| English (Australia)      | 🇦🇺                    |
+| English (Canada)         | 🇨🇦                    |
+| English (United Kingdom) | 🇬🇧                    |
+| English                  | 🇺🇸                    |
+| Arabic                   | 🇸🇦                    |
+| Armenian                 | 🇦🇲                    |
+| Burmese                  | 🇲🇲                    |
+| Basque                   | 🇪🇸                    |
+| Hawaiian                 | 🇺🇸 (Hawaiian Islands) |
+| Bengali                  | 🇧🇩                    |
+| Bulgarian                | 🇧🇬                    |
+| Belarusian               | 🇧🇾                    |
+| Croatian                 | 🇭🇷                    |
+| Danish                   | 🇩🇰                    |
+| Estonian                 | 🇪🇪                    |
+| Filipino                 | 🇵🇭                    |
+| Finnish                  | 🇫🇮                    |
+| French (France)          | 🇫🇷                    |
+| French (Canada)          | 🇨🇦                    |
+| Galician                 | 🇪🇸                    |
+| Georgian                 | 🇬🇪                    |
+| Gujarati                 | 🇮🇳                    |
+| Hebrew                   | 🇮🇱                    |
+| Hindi                    | 🇮🇳                    |
+| Indonesian               | 🇮🇩                    |
+| Icelandic                | 🇮🇸                    |
+| Italian                  | 🇮🇹                    |
+| Japanese                 | 🇯🇵                    |
+| Kannada                  | 🇮🇳                    |
+| Catalan                  | 🇪🇸                    |
+| Kazakh                   | 🇰🇿                    |
+| Khmer                    | 🇰🇭                    |
+| Korean                   | 🇰🇷                    |
+| Kyrgyz                   | 🇰🇬                    |
+| Lao                      | 🇱🇦                    |
+| Lithuanian               | 🇱🇹                    |
+| Latvian                  | 🇱🇻                    |
+| Macedonian               | 🇲🇰                    |
+| Malayalam                | 🇮🇳                    |
+| Malay (Malaysia)         | 🇲🇾                    |
+| Malay                    | 🇲🇾                    |
+| Marathi                  | 🇮🇳                    |
+| Hungarian                | 🇭🇺                    |
+| Mongolian                | 🇲🇳                    |
+| Nepali                   | 🇳🇵                    |
+| Dutch                    | 🇳🇱                    |
+| Norwegian                | 🇳🇴                    |
+| German                   | 🇩🇪                    |
+| Punjabi                  | 🇮🇳                    |
+| Persian                  | 🇮🇷                    |
+| Polish                   | 🇵🇱                    |
+| Portuguese (Brazil)      | 🇧🇷                    |
+| Portuguese (Portugal)    | 🇵🇹                    |
+| Romanian                 | 🇷🇴                    |
+| Russian                  | 🇷🇺                    |
+| Romansh                  | 🇨🇭                    |
+| Sinhala                  | 🇱🇰                    |
+| Slovak                   | 🇸🇰                    |
+| Slovenian                | 🇸🇮                    |
+| Serbian                  | 🇷🇸                    |
+| Swahili                  | 🇹🇿                    |
+| Tamil                    | 🇮🇳                    |
+| Telugu                   | 🇮🇳                    |
+| Thai                     | 🇹🇭                    |
+| Turkish                  | 🇹🇷                    |
+| Ukrainian                | 🇺🇦                    |
+| Urdu                     | 🇵🇰                    |
+| Vietnamese               | 🇻🇳                    |
+| Zulu                     | 🇿🇦                    |
+| Azerbaijani              | 🇦🇿                    |
+| Czech                    | 🇨🇿                    |
+| Chinese (Hong Kong)      | 🇭🇰                    |
+| Chinese (Traditional)    | 🇹🇼                    |
+| Chinese (Simplified)     | 🇨🇳                    |
+| Greek                    | 🇬🇷                    |
+| Spanish (Latin America)  | 🌎                    |
+| Spanish (United States)  | 🇺🇸                    |
+| Spanish (Spain)          | 🇪🇸                    |
+| Swedish                  | 🇸🇪                    |
+| Tagalog                  | 🇵🇭                    |
 
 ### Supported Models
 
-ʻŌlelo Honua supports various translation providers, each catering to different needs:
+ʻŌlelo Honua supports a variety of translation providers, each tailored to specific use cases:
 
-- **OpenRouterProvider**: A free and stable option for translation tasks.
-- **DeepSeekProvider**: Recommended for its performance and cost-effectiveness.
-- **MultiLanguageProvider**: Handles multiple languages efficiently.
-- **GemmaProvider**: Focuses on high-quality translations with advanced features.
-- **LlamaProvider**: Optimized for large-scale translation tasks.
-- **MistralProvider**: Provides robust translation capabilities for diverse use cases.
-- **QwenProvider**: Offers cutting-edge translation technology for modern applications.
-- **GoogleTranslateProvider**: Leverages Google Translate for reliable translations.
-- **OpenAIChatGPTProvider**: Uses OpenAI's ChatGPT for contextual and conversational translations.
-- **ToyProvider**: A lightweight provider for testing and development.
+- **OpenRouterProvider**: A free and reliable option for general-purpose translation tasks, ideal for developers seeking stability without additional costs.
+- **DeepSeekProvider**: Highly recommended for its speed, accuracy, and cost-effectiveness, making it a great choice for production environments.
+- **MultiLanguageProvider**: Specializes in handling translations for multiple languages simultaneously, ensuring consistency across diverse locales.
+- **GemmaProvider**: Designed for high-quality translations, offering advanced features like context-aware adjustments and cultural sensitivity.
+- **LlamaProvider**: Optimized for large-scale translation projects, suitable for applications with extensive multilingual content.
+- **MistralProvider**: Provides robust and scalable translation capabilities, ideal for enterprise-level use cases and complex workflows.
+- **QwenProvider**: Utilizes state-of-the-art translation technology, delivering precise and modern translations for cutting-edge applications.
+- **GoogleTranslateProvider**: Leverages the well-known Google Translate API for dependable and widely supported translations.
+- **OpenAIChatGPTProvider**: Uses OpenAI's ChatGPT to generate contextual and conversational translations, perfect for dynamic or interactive content.
+- **ToyProvider**: A lightweight and simple provider intended for testing, prototyping, or development purposes.
 
-Choose the provider that best suits your application's requirements.
+Select the provider that aligns with your application's specific needs and performance requirements.
 
 ## Configuration
 
-You need to provide a configuration object and a translation provider. For instance, you can use the `DeepSeekProvider` as demonstrated in the usage example. I highly recommend DeepSeek & OpenRouter as these are free and extremely stable.  Happy coding!
+You need to provide a configuration object and a translation provider. For instance, you can use the `DeepSeekProvider` as demonstrated in the usage example. I highly recommend DeepSeek & OpenRouter as these are free and extremely stable. Happy coding!
 
 ## License
 

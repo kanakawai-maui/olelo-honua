@@ -1,17 +1,12 @@
-import {
-  FileFormat,
-  Language,
-} from "../interfaces/language";
+import { FileFormat, Language } from "../interfaces/language";
 import axios from "axios";
 import { backify, bulkify, sharedSystemPrompt } from "../utils/shared";
 import * as path from "path";
 import * as fs from "fs";
-import {BaseProvider} from "./base";
-import { jsonrepair } from 'jsonrepair';
+import { BaseProvider } from "./base";
+import { jsonrepair } from "jsonrepair";
 
-export class OpenRouterProvider
-  extends BaseProvider
-{
+export class OpenRouterProvider extends BaseProvider {
   private apiKey: string;
   private modelId: string;
 
@@ -21,7 +16,12 @@ export class OpenRouterProvider
     this.modelId = modelId;
   }
 
-  async repairTranslation(original: string, critique: string, from: Language, to: Language): Promise<string> {
+  async repairTranslation(
+    original: string,
+    critique: string,
+    from: Language,
+    to: Language,
+  ): Promise<string> {
     const prompt = `Now that you've critiqued the translation, if necessary, please fix the translation from ${from.englishName} to ${to.englishName}.
     If a redo is not necessary, you can simply return the original translation.
     I will provide the original outputted JSON and your JSON-based critique. Your task is to provide a new JSON output based on the critique.
@@ -34,7 +34,8 @@ export class OpenRouterProvider
     Critique JSON:
         ${critique}`;
     const translatedJSONString = await this.getChatCompletion(
-      `${prompt}`, true
+      `${prompt}`,
+      true,
     );
     return translatedJSONString;
   }
@@ -73,16 +74,19 @@ export class OpenRouterProvider
     Translated text:
         ${newText}
     `;
-    const critique = await this.getChatCompletion(`${prompt}`, (format.ext === ".json"));
-    if(save) {
-        if (!fs.existsSync(process.cwd() + "/critiques")) {
-            fs.mkdirSync(process.cwd() + "/critiques");
-        }
-        const critiqueFilePath = path.join(
+    const critique = await this.getChatCompletion(
+      `${prompt}`,
+      format.ext === ".json",
+    );
+    if (save) {
+      if (!fs.existsSync(process.cwd() + "/critiques")) {
+        fs.mkdirSync(process.cwd() + "/critiques");
+      }
+      const critiqueFilePath = path.join(
         path.resolve(process.cwd() + "/critiques"),
         `critique.${from.code}.${to.code}${format.ext}`,
-        );
-        fs.writeFileSync(critiqueFilePath, critique);
+      );
+      fs.writeFileSync(critiqueFilePath, critique);
     }
     return critique;
   }
@@ -121,49 +125,54 @@ export class OpenRouterProvider
     return translatedText;
   }
 
-  private async getChatCompletion(content: string, strictJSON: boolean = false): Promise<string> {
+  private async getChatCompletion(
+    content: string,
+    strictJSON: boolean = false,
+  ): Promise<string> {
     try {
-        const response = await axios.post(
-            "https://openrouter.ai/api/v1/chat/completions",
+      const response = await axios.post(
+        "https://openrouter.ai/api/v1/chat/completions",
+        {
+          model: this.modelId,
+          messages: [
             {
-                model: this.modelId,
-                messages: [
-                    {
-                        role: "user",
-                        content: content,
-                    },
-                ],
+              role: "user",
+              content: content,
             },
-            {
-                headers: {
-                    Authorization: `Bearer ${this.apiKey}`,
-                    "Content-Type": "application/json",
-                },
-            },
-        );
-        let raw = response.data.choices[0].message.content.trim();
-        if(strictJSON) {
-            raw = raw.replace(/^```json|```$/g, "").trim(); // remove all code blocks
-            raw = raw.replace(/[\u0000-\u001F\u007F-\u009F]/g, "").trim(); // remove all control characters
-            raw = raw.replace(/[\u200B-\u200D\uFEFF]/g, "").trim(); // remove zero-width spaces
-            try {
-                const _ = JSON.parse(raw);
-                return raw;
-            }
-            catch {
-                console.error("Invalid JSON returned. Retrying...");
-                raw = jsonrepair(raw); // attempt rapid repair
-                return await this.getChatCompletion(`This JSON is not valid - return the expected valid JSON result ONLY.  Remove all contol characters:  ${raw}`, strictJSON);
-            }
+          ],
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${this.apiKey}`,
+            "Content-Type": "application/json",
+          },
+        },
+      );
+      let raw = response.data.choices[0].message.content.trim();
+      if (strictJSON) {
+        raw = raw.replace(/^```json|```$/g, "").trim(); // remove all code blocks
+        raw = raw.replace(/[\u0000-\u001F\u007F-\u009F]/g, "").trim(); // remove all control characters
+        raw = raw.replace(/[\u200B-\u200D\uFEFF]/g, "").trim(); // remove zero-width spaces
+        try {
+          const _ = JSON.parse(raw);
+          return raw;
+        } catch {
+          console.error("Invalid JSON returned. Retrying...");
+          raw = jsonrepair(raw); // attempt rapid repair
+          return await this.getChatCompletion(
+            `This JSON is not valid - return the expected valid JSON result ONLY.  Remove all contol characters:  ${raw}`,
+            strictJSON,
+          );
         }
-        return raw; // Ensure a return statement for non-strictJSON case
+      }
+      return raw; // Ensure a return statement for non-strictJSON case
     } catch (error: any) {
-        if (error.code === "ECONNRESET") {
-            console.warn("Connection reset. Retrying...");
-            return await this.getChatCompletion(content);
-        }
-        console.error("An error occurred:", error.message);
-        return ""; // Return an empty string or a default value in case of an error
+      if (error.code === "ECONNRESET") {
+        console.warn("Connection reset. Retrying...");
+        return await this.getChatCompletion(content);
+      }
+      console.error("An error occurred:", error.message);
+      return ""; // Return an empty string or a default value in case of an error
     }
   }
 }

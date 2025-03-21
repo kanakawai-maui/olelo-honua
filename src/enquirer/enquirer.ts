@@ -1,4 +1,4 @@
-import {jsonrepair} from "jsonrepair";
+import { jsonrepair } from "jsonrepair";
 import { Language, OUTPUT_FILETYPE_JSON } from "../interfaces/language";
 import { LocaleConfig } from "../interfaces/locale";
 import { BaseProvider } from "../providers/base";
@@ -174,7 +174,8 @@ export class Enquirer {
           this.from,
           this.to,
         );
-        if (this.config.debug) console.log(`Repaired content: ${repairedContentJSON}`);
+        if (this.config.debug)
+          console.log(`Repaired content: ${repairedContentJSON}`);
         const validJSON = JSON.parse(repairedContentJSON);
         this.fileSystem.save(validJSON);
       } catch (e) {
@@ -182,14 +183,12 @@ export class Enquirer {
           `Error: An error occurred during repair loop. Retrying...`,
         );
         if (e instanceof Error) {
-          console.error(
-            `Error Message: ${e.message}`,
-          );
+          console.error(`Error Message: ${e.message}`);
         } else {
           console.error(`Error Message: Unknown error occurred.`);
         }
-        if(retries == 0) {
-            critique = jsonrepair(critique); // attempt rapid repair
+        if (retries == 0) {
+          critique = jsonrepair(critique); // attempt rapid repair
         }
         await this.repairLoop(critique, retries - 1);
       }

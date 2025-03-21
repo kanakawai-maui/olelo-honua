@@ -13,6 +13,7 @@ const dakine = new OleloHonua(
     includeLanguage: ["ar", "haw", "ja", "ru", "tl"], // Additional languages
     bulkTranslate: true, // Enable bulk translation
     critique: true, // Enable critique
+    saveCritique: true, // Enable saving of latest critique(s)
     repair: true, // Enable repair
     debug: true, // Enable debug
   },
