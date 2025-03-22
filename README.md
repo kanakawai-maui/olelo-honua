@@ -38,9 +38,19 @@ Critiques are a way to evaluate and improve the quality of translations by ident
 
 An example of an AI-generated critique can be seen [here](examples/basic/critiques/critique.en.haw.json).
 
-## Caching
+## Installation
 
-Translations are cached for performance reasons. To clear the translations cache, `rm -rf .translations_cache.json`
+To install the library, use npm or yarn:
+
+```bash
+npm install olelo-honua
+```
+
+or
+
+```bash
+yarn add olelo-honua
+```
 
 ## Usage
 
@@ -61,6 +71,30 @@ const dakine = new OleloHonua(
 dakine.hanaHou(); // or use alias dakine.createLocaleFiles()
 ```
 
+## Configuration
+
+I highly recommend setting up an OpenRouter API Key for use with various models. 
+
+[How to set up OpenRouter API Key](docs/API_KEY_SETUP.md)
+
+For better security and ease of configuration, you can store your API key in a `.env` file. Simply create a `.env` file in your project root and add the following line:
+
+```plaintext
+OPENROUTER_API_KEY=<your_openrouter_api_key>
+```
+
+Then, use a library like `dotenv` to load the key into your application:
+
+```javascript
+require('dotenv').config();
+const apiKey = process.env.OPENROUTER_API_KEY;
+```
+
+This approach keeps your sensitive information out of your codebase and makes it easier to manage across different environments.
+
+You need to provide a configuration object and a translation provider. For instance, you can use the `DeepSeekProvider` as demonstrated in the usage example. I highly recommend DeepSeek & OpenRouter as these are free and extremely stable.  Happy coding!
+
+
 ## Configuration Example
 
 Here is an example of full configuration options:
@@ -75,21 +109,32 @@ const config = {
 };
 ```
 
-## Installation
+### Supported Models
 
-To install the library, use npm or yarn:
+ʻŌlelo Honua supports a variety of translation providers, each tailored to specific use cases:
+
+- **OpenRouterProvider**: A free and reliable option for general-purpose translation tasks, ideal for developers seeking stability without additional costs.  
+- **DeepSeekProvider**: Highly recommended for its speed, accuracy, and cost-effectiveness, making it a great choice for production environments.
+- **MultiLanguageProvider**: Specializes in handling translations for multiple languages simultaneously, ensuring consistency across diverse locales.
+- **GemmaProvider**: Designed for high-quality translations, offering advanced features like context-aware adjustments and cultural sensitivity.
+- **LlamaProvider**: Optimized for large-scale translation projects, suitable for applications with extensive multilingual content.
+- **MistralProvider**: Provides robust and scalable translation capabilities, ideal for enterprise-level use cases and complex workflows.
+- **QwenProvider**: Utilizes state-of-the-art translation technology, delivering precise and modern translations for cutting-edge applications.
+- **GoogleTranslateProvider**: Leverages the well-known Google Translate API for dependable and widely supported translations.
+- **OpenAIChatGPTProvider**: Uses OpenAI's ChatGPT to generate contextual and conversational translations, perfect for dynamic or interactive content.
+- **ToyProvider**: A lightweight and simple provider intended for testing, prototyping, or development purposes.
+
+> **Note**: Free models, such as OpenRouterProvider, come with a token limit. Ensure your usage stays within the allowed quota to avoid interruptions.
+
+Select the provider that aligns with your application's specific needs (and performance requirements).
+
+## Caching
+
+Translations are cached for performance reasons. Caching helps reduce the number of API calls to translation providers, which is especially important when using free or limited-tier services that have strict quotas. By storing translations locally, you can avoid exceeding these quotas and ensure consistent performance. To clear the translations cache, use the following command:
 
 ```bash
-npm install olelo-honua
+rm -rf .translations_cache.json
 ```
-
-or
-
-```bash
-yarn add olelo-honua
-```
-
-### Supported Languages
 
 ### Supported Languages
 
@@ -180,28 +225,6 @@ yarn add olelo-honua
 | Spanish (Spain)      | 🇪🇸        |
 | Swedish              | 🇸🇪        |
 | Tagalog              | 🇵🇭        |
-
-
-### Supported Models
-
-ʻŌlelo Honua supports a variety of translation providers, each tailored to specific use cases:
-
-- **OpenRouterProvider**: A free and reliable option for general-purpose translation tasks, ideal for developers seeking stability without additional costs.
-- **DeepSeekProvider**: Highly recommended for its speed, accuracy, and cost-effectiveness, making it a great choice for production environments.
-- **MultiLanguageProvider**: Specializes in handling translations for multiple languages simultaneously, ensuring consistency across diverse locales.
-- **GemmaProvider**: Designed for high-quality translations, offering advanced features like context-aware adjustments and cultural sensitivity.
-- **LlamaProvider**: Optimized for large-scale translation projects, suitable for applications with extensive multilingual content.
-- **MistralProvider**: Provides robust and scalable translation capabilities, ideal for enterprise-level use cases and complex workflows.
-- **QwenProvider**: Utilizes state-of-the-art translation technology, delivering precise and modern translations for cutting-edge applications.
-- **GoogleTranslateProvider**: Leverages the well-known Google Translate API for dependable and widely supported translations.
-- **OpenAIChatGPTProvider**: Uses OpenAI's ChatGPT to generate contextual and conversational translations, perfect for dynamic or interactive content.
-- **ToyProvider**: A lightweight and simple provider intended for testing, prototyping, or development purposes.
-
-Select the provider that aligns with your application's specific needs and performance requirements.
-
-## Configuration
-
-You need to provide a configuration object and a translation provider. For instance, you can use the `DeepSeekProvider` as demonstrated in the usage example. I highly recommend DeepSeek & OpenRouter as these are free and extremely stable.  Happy coding!
 
 ## License
 
