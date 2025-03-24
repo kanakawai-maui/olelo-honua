@@ -34,7 +34,7 @@ This automation makes it easier to manage internationalization in your applicati
 
 ### Enquirer Loop: A Paradigm Shift in Translation Accuracy
 
-The enquirer loop represents a groundbreaking advancement in the field of internationalization. By integrating cutting-edge AI technologies, including Large Language Models (LLMs) and state-of-the-art translation tools, this iterative process redefines how translations are refined and validated. At its core, the enquirer loop operates as a self-correcting system, continuously analyzing its outputs to identify inaccuracies, ambiguities, or cultural mismatches. Through intelligent feedback mechanisms, it applies context-aware adjustments, ensuring that translations are not only linguistically precise but also culturally resonant. This innovative approach embodies a dynamic, feedback-driven methodology, setting a new standard for achieving unparalleled accuracy and relevance in multilingual applications.
+For more details about my approach, vision, and methodology, refer to [About ʻŌlelo Honua](docs/ABOUT.md).
 
 ![State Diagram](docs/clean_state_diagram.png)
 
@@ -73,8 +73,10 @@ const dakine = new OleloHonua(
   {
     primeLanguage: "haw",
     excludeLanguage: ["ja", "en", "de"],
+    critique: true,
+    repair: true,
   },
-  new DeepSeekProvider({ apiKey: '<your_openrouter_api_key' }), // Highly recommend DeepSeekProvider since it's free & reliable
+  new DeepSeekProvider({ apiKey: '<your_openrouter_api_key>' }), // Highly recommend DeepSeekProvider since it's free & reliable
 );
 // Runs or re-runs i18n translations
 dakine.hanaHou(); // or use alias dakine.createLocaleFiles()
@@ -153,8 +155,6 @@ Translations are cached to keep things running smoothly and to cut down on API c
 ```bash
 rm -rf .translations_cache.json
 ```
-
-### Supported Languages
 
 ### Supported Languages
 
