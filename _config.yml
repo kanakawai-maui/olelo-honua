@@ -10,4 +10,4 @@ defaults:
     values:
       layout: page
       title: hibiscus
-      hero_image: /images/hero.jpg
+      hero_image: /images/hero.png
