@@ -1,2 +1,2 @@
 # _config.yml
-theme: bulma-clean-theme
+remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
