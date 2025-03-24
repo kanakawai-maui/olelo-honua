@@ -1,8 +1,8 @@
 # ʻŌlelo Honua
 
-#### 🌺 Bloom Your Internationalization Workflow!
+#### 🌺🌸🌼 Bloom Your Internationalization Workflow! 🌷🌻🌹
 
-#### 🚀 Now in Beta and Release Candidate (RC)!! 🎉
+#### 🎉 Now in Beta and Release Candidate (RC)!! 🎉
 
 (ʻŌlelo Honua can be translated to mean "World Language" or "Language Bridge" in Hawaiian.)
 
