@@ -1,2 +1,4 @@
 # _config.yml
 remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
+gh_sponsor: brownrw8
+footer_menu: footer

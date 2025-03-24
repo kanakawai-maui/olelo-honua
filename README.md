@@ -109,13 +109,23 @@ You need to provide a configuration object and a translation provider. For insta
 Here is an example of full configuration options:
 
 ```javascript
-const config = {
-  primeLanguage: "haw",
-  includeLanguage: ["es", "fr"],
-  // alternatively we can use excludeLanguage: ["ja"],
-  bulkTranslate: true, // whether to use bulk translation for performance, replacement for useBulkProvider (deprecating soon)
-  critique: false, // whether to have AI critique translations, if available
+const config: LocaleConfig = {
+  primeLanguage: "en",
+  includeLanguage: ["haw", "ar", "es", "fr"], // Specify languages to include
+  // Alternatively, you can use excludeLanguage: ["ja"] to exclude specific languages
+  bulkTranslate: true, // Use bulk translation for better performance (replaces useBulkProvider, which is being deprecated)
+  critique: true, // Enable AI critique for translations
+  saveCritique: false, // Optionally save critiques for further analysis
+  repair: false, // Enable or disable automatic repair of translations
+  debug: false, // Enable debug mode for detailed logs
+  multiLanguageAgreementThreshold: 0.8, // Set threshold for multi-language agreement
+  loopRetryOptions: {
+    mainLoopRetries: 3, // Number of retries for the main loop
+    critiqueLoopRetries: 2, // Number of retries for critique loop
+    repairLoopRetries: 1, // Number of retries for repair loop
+  },
 };
+```
 ```
 
 ### Supported Models
@@ -165,6 +175,11 @@ In addition to **Hawaiian** 🌺, ʻŌlelo Honua supports a wide range of langua
 | **Russian** 🇷🇺 | **Sinhala** 🇱🇰 | **Slovak** 🇸🇰 | **Slovenian** 🇸🇮 | **Spanish (Spain)** 🇪🇸 | **Spanish (Latin America)** 🌎 |
 | **Spanish (United States)** 🇺🇸 | **Swahili** 🇹🇿 | **Swedish** 🇸🇪 | **Tagalog** 🇵🇭 | **Tamil** 🇮🇳 | **Telugu** 🇮🇳 |
 | **Thai** 🇹🇭 | **Turkish** 🇹🇷 | **Ukrainian** 🇺🇦 | **Urdu** 🇵🇰 | **Vietnamese** 🇻🇳 | **Zulu** 🇿🇦 |
+
+
+## Code of Conduct
+
+We’re committed to fostering a welcoming and inclusive community. You can find our Code of Conduct [here](CODE_OF_CONDUCT.md).
 
 ## License
 
