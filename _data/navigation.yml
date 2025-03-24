@@ -1,5 +1,3 @@
-- name: About
-  link: /
 - name: Code
   link: https://github.com/brownrw8/olelo-honua
 - name: Community
@@ -9,6 +7,6 @@
     - name: Code of Conduct
       link: /olelo-honua/CODE_OF_CONDUCT.md
     - name: Bug Reports
-      link: /olelo-honua/.github/ISSUE_TEMPLATE/bug_report.md
+      link: https://github.com/brownrw8/olelo-honua/issues
     - name: Feature Requests
-      link: /olelo-honua/.github/ISSUE_TEMPLATE/feature_request.md
+      link: https://github.com/brownrw8/olelo-honua/pulls
