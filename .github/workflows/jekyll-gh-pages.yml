@@ -32,12 +32,15 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0'
-      - name: Install dependencies
-        run: |
+          name: Install bundler
+          run: |
             gem install bundler
-            bundle init
-            echo "gem 'bulma-clean-theme'" >> Gemfile
+            bundle config set path 'vendor/bundle'
+            echo "gem 'bulma-clean-theme', '~> 1.2.0'" >> Gemfile
+            echo "gem 'jekyll', '~> 4.4.0'" >> Gemfile
             bundle install
+      - name: Verify installed gems
+        run: bundle check || bundle install
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
