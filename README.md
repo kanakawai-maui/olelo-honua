@@ -32,8 +32,6 @@ This automation makes it easier to manage internationalization in your applicati
 
 ### State Diagram
 
-### Enquirer Loop: A Paradigm Shift in Translation Accuracy
-
 For more details about my approach, vision, and methodology, refer to [About ʻŌlelo Honua](docs/ABOUT.md).
 
 ![State Diagram](docs/clean_state_diagram.png)
