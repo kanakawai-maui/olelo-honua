@@ -251,3 +251,5 @@ We’re committed to fostering a welcoming and inclusive community. You can read
 ## License
 
 This project is licensed under the MIT License.
+
+![Logo](images/logo.png)
