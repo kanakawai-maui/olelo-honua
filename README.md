@@ -4,6 +4,8 @@
 
 #### 🎉 Now in Beta and Release Candidate (RC)!! 🎉
 
+![Logo](images/logo_nobg.png)
+
 (ʻŌlelo Honua can be translated to mean "World Language" or "Language Bridge" in Hawaiian.)
 
 ## 🌍 Simplify Your Internationalization Workflow with ʻŌlelo Honua
@@ -251,5 +253,3 @@ We’re committed to fostering a welcoming and inclusive community. You can read
 ## License
 
 This project is licensed under the MIT License.
-
-![Logo](images/logo.png)
