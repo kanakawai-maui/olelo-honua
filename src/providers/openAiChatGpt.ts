@@ -1,7 +1,5 @@
 import {
-  BulkLanguageProvider,
   Language,
-  LanguageProvider,
 } from "../interfaces/language";
 import { bulkify, backify, sharedSystemPrompt } from "../utils/shared";
 import axios from "axios";

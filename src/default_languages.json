@@ -455,5 +455,11 @@
     "nativeName": "Svenska",
     "englishName": "Swedish",
     "flag": "🇸🇪"
+  },
+  {
+    "code": "tl",
+    "nativeName": "Tagalog",
+    "flag": "🇵🇭",
+    "englishName": "Tagalog"
   }
 ]
