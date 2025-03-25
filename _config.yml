@@ -9,5 +9,4 @@ defaults:
       type: "pages"
     values:
       layout: page
-      title: "ʻŌlelo Honua 🌺"
-      hero_image: /images/hero_new.png
+      hero_image: /images/hero_80s.png
