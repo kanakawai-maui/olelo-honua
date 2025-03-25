@@ -4,11 +4,11 @@
 
 #### 🎉 Now in Beta and Release Candidate (RC)!! 🎉
 
-![Logo](images/logo_nobg.png)
+<img src="images/logo_nobg.png" alt="logo" width="200"/>
 
 (ʻŌlelo Honua can be translated to mean "World Language" or "Language Bridge" in Hawaiian.)
 
-## 🌍 Simplify Your Internationalization Workflow with ʻŌlelo Honua
+## Simplify Your Internationalization Workflow with ʻŌlelo Honua
 
 Struggling to keep up with the demands of managing translation files for your multilingual app? Tools like i18next or react-i18next often leave you stuck in manual workflows, relying on services like Google Translate or ChatGPT to fill the gaps. It’s tedious, time-consuming, and easy to make mistakes.
 
