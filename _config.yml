@@ -2,6 +2,7 @@
 remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
 gh_sponsor: brownrw8
 footer_menu: footer
+theme_color: rebeccapurple
 defaults:
   -
     scope:
@@ -9,5 +10,5 @@ defaults:
       type: "pages"
     values:
       layout: page
-      title: "ʻŌlelo Honua 🌺"
-      hero_image: /images/hero_new.png
+      title: ""
+      hero_image: /images/hero_80s.png
