@@ -35,7 +35,7 @@ This automation makes it easier to manage internationalization in your applicati
 
 ### Technical Deep Dive
 
-For more details about my approach, vision, and methodology, refer to [About ʻŌlelo Honua](docs/ABOUT.html).
+For more details about my approach, vision, and methodology, refer to [About ʻŌlelo Honua](docs/deep_dive.md).
 
 ## Installation
 
@@ -82,7 +82,7 @@ dakine.hanaHou(); // or use alias dakine.createLocaleFiles()
 
 I highly recommend setting up an OpenRouter API Key for use with various models.
 
-[How to set up OpenRouter API Key](docs/API_KEY_SETUP.html)
+[How to set up OpenRouter API Key](docs/openrouter_api_key_setup.md)
 
 There are also several other providers including Google Translate (aka Cloud Translation) and OpenAI (aka ChatGPT).
 
