@@ -1,18 +1,16 @@
 # ʻŌlelo Honua
 
-#### 🌺🌸🌼 Bloom Your Internationalization Workflow! 🌷🌻🌹
-
-#### 🌟 Meet Our Smarter, Faster AI Language Engine! 🌟
-
-Ready to supercharge your i18n workflow? Our newly revamped AI language engine is here to make translations smarter, faster, and more intuitive. It delivers spot-on, culturally aware translations in record time, with built-in support for async and parallel processing. Whether you're scaling up or just starting out, this engine grows with you—making multilingual app development effortless and efficient. Say hello to the future of i18n!
-
-## Simplify Your Internationalization Workflow with ʻŌlelo Honua
+## 🌺🌸🌼 Bloom Your Internationalization Workflow! 🌷🌻🌹
 
 Struggling to keep up with the demands of managing translation files for your multilingual app? Tools like i18next or react-i18next often leave you stuck in manual workflows, relying on services like Google Translate or ChatGPT to fill the gaps. It’s tedious, time-consuming, and easy to make mistakes.
 
 That’s where **ʻŌlelo Honua** comes in. This tool takes the hassle out of internationalization (i18n) by automating translation file creation and updates. Beyond just saving time, it ensures your translations are accurate, culturally appropriate, and free from common errors.
 
 Why waste time on repetitive tasks when you can streamline your i18n process with a tool built to simplify localization? Let ʻŌlelo Honua handle the hard parts so you can focus on delivering great experiences for your global users.
+
+#### 🌟 Meet Our Smarter, Faster AI Language Engine! 🌟
+
+Ready to supercharge your i18n workflow? Our newly revamped AI language engine is here to make translations smarter, faster, and more intuitive. It delivers spot-on, culturally aware translations in record time, with built-in support for async and parallel processing. Whether you're scaling up or just starting out, this engine grows with you—making multilingual app development effortless and efficient. Say hello to the future of i18n!
 
 ## Challenges in Multilingual App Development and How ʻŌlelo Honua Solves Them
 
@@ -51,13 +49,13 @@ or
 yarn add olelo-honua
 ```
 
-## Usage
+## Getting Started with ʻŌlelo Honua in Your Application
 
-Here's how you use the library:
+To use this library in your project, import it into `app.js` or any other file where you need it. Here's an example:
 
 ```javascript
 const { OleloHonua, DeepSeekProvider } = require("olelo-honua");
-// Create a new instance
+// Create a new instance of OleloHonua
 const dakine = new OleloHonua(
   {
     provider: {
@@ -67,18 +65,40 @@ const dakine = new OleloHonua(
       },
       modelId: OleloHonua.OpenRouterModels.DEEPSEEK.DEEPSEEK_V3_FREE, // Model ID
     },
-    primeLanguage: "en", // Default language
-    excludeLanguage: ["haw"], // Additional languages
+    primeLanguage: "en", // Language to translate from, must be defined in locales/en.json
+    includeLanguages: ["haw", "en", "es", "fr", "de", "zh", "ja", "ko", "ar", "ru"], // Languages to translate to
     debug: true, // Enable debug
   },
 );
 // Runs or re-runs i18n translations
-dakine.hanaHou(); // or use alias dakine.createLocaleFiles()
+dakine.hanaHou(); // or use alias createLocaleFiles()
 ```
+
+#### Important Note on `primeLanguage` config option
+
+The `primeLanguage` setting is crucial for the translation process. It must have a corresponding locale JSON file to serve as the base for translations. For example, if you set `primeLanguage` to `'en'`, you need to ensure there is a `locales/en.json` file in your project.  Likewise, if you were to base translations in Spanish (`'es'`), you would need a `locales/es.json`.  
+
+Without this file, the translation process cannot proceed as it relies on the base language file to generate translations for other languages.
+
+## Using the CLI (Experimental Feature)
+
+Here's how you use the CLI:
+
+```bash
+# Initialize locale files using the CLI
+npm olelo-honua.js init --config ./local.config.json --debug
+```
+
+### Example Breakdown:
+- `npm olelo-honua.js init`: Runs the `init` command to create or update locale files.
+- `--config ./local.config.json`: Specifies the path to the configuration file. If omitted, it defaults to `local.config.json` in the current working directory.
+- `--debug`: Enables debug mode for detailed logging during the process.
+
+This command will read the configuration file, generate the necessary translation files, and log the process to the console.
 
 <img src="images/terminal.png" alt="terminal" width="400"/>
 
-## Configuration
+## Configuration Tips
 
 I highly recommend setting up an OpenRouter API Key for use with various models.
 
@@ -113,36 +133,35 @@ While using `.gitignore`, `dotenv` & `.env` is not mandatory for local developme
 
 You need to provide a configuration object and a translation provider. For instance, you can use the `DeepSeekProvider` as demonstrated in the usage example. I highly recommend DeepSeek & OpenRouter as these are free and extremely stable. Happy coding!
 
-## Configuration Example
+## Full Configuration Example
 
 Here is an example of full configuration options:
 
-```javascript
-const config: Config = {
-  primeLanguage: "en", // The primary language to use
-  provider: {
-    platform: "OpenRouter", // Supported platforms: 'OpenRouter' | 'OpenAI' | 'GoogleTranslate' | 'Custom'
-    credentials: {
-      apiKey: "<your_openrouter_api_key>", // Required for OpenRouter and OpenAI
+```json
+{
+  "primeLanguage": "en",
+  "provider": {
+    "platform": "OpenRouter",
+    "credentials": {
+      "apiKey": "<your_openrouter_api_key>"
     },
-    modelId: "deepseek/deepseek-chat-v3-0324:free", // Model ID for OpenRouter and OpenAI
+    "modelId": "deepseek/deepseek-chat-v3-0324:free"
   },
-  retries: {
-    mainLoop: 3, // Retry limit for the main loop
-    critiqueLoop: 2, // Retry limit for critique loop
-    repairLoop: 1, // Retry limit for repair loop
+  "retries": {
+    "mainLoop": 3,
+    "critiqueLoop": 2,
+    "repairLoop": 1
   },
-  debug: false, // Enable or disable debug mode
-  includeLanguage: ["haw", "ar", "es", "fr"], // Languages to include, or alteratively...
-  // excludeLanguage: ["haw", "ar", "es", "fr", "amh", "tg", "uz", "km", "lo", "my", "ne", "si", "ky", "mn", "ps", "sd", "tk", "ug", "xh", "zu"],
-  maxChunkRequests: 4, // Maximum number of chunk requests
-  additionalConfig: {
-    critique: true, // Enable AI critique for translations
-    saveCritique: false, // Optionally save critiques for further analysis
-    repair: false, // Enable or disable automatic repair of translations
-    multiLanguageAgreementThreshold: 0.8, // Set threshold for multi-language agreement
-  },
-};
+  "debug": false,
+  "includeLanguage": ["haw", "ar", "es", "fr"],
+  "maxChunkRequests": 4,
+  "additionalConfig": {
+    "critique": true,
+    "saveCritique": false,
+    "repair": false,
+    "multiLanguageAgreementThreshold": 0.8
+  }
+}
 ```
 
 ## Supported Providers

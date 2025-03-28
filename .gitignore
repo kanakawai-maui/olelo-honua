@@ -8,3 +8,4 @@ tsconfig.tsbuildinfo
 .translation_cache.json
 dist/
 examples/basic/*.tgz
+local.config.json

@@ -15,7 +15,7 @@ import {ConventionalEngine} from "./engine/conventionalEngine";
 import { TitleMessage, AlohaMessage, HanaHouMessage } from "./utils/display";
 
 /**
- * The main class for OleloHovnua.
+ * The main class for OleloHonua.
  */
 export class OleloHonua {
   private config: Config;
