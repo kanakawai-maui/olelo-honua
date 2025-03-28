@@ -7,6 +7,17 @@ jest.mock("fs", () => ({
     readFileSync: jest.fn(() => JSON.stringify([])),
 }));
 
+jest.mock("yoctocolors", () => ({
+    colors: {
+        cyan: jest.fn((input: string) => input),
+        bold: jest.fn((input: string) => input),
+        red: jest.fn((input: string) => input),
+        magenta: jest.fn((input: string) => input),
+        green: jest.fn((input: string) => input),
+        yellow: jest.fn((input: string) => input),
+    },
+}));
+
 jest.mock("path", () => ({
     resolve: jest.fn(() => "/mocked/path"),
     join: jest.fn((...args: string[]) => args.join("/")),
@@ -30,6 +41,12 @@ jest.mock("../src/providers/openRouter", () => ({
     OpenRouterProvider: class {
         public translate = jest.fn(() => Promise.resolve("Mock translation"));
     }
+}));
+
+jest.mock("../src/utils/display", () => ({
+    TitleMessage: "Mock title message",
+    AlohaMessage: "Mock aloha message",
+    HanaHouMessage: "Mock hana hou message",
 }));
 
 const mockConfig: Config = {

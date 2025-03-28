@@ -76,7 +76,7 @@ const dakine = new OleloHonua(
 dakine.hanaHou(); // or use alias dakine.createLocaleFiles()
 ```
 
-<img src="images/terminal.png" alt="terminal" width="200"/>
+<img src="images/terminal.png" alt="terminal" width="400"/>
 
 ## Configuration
 
