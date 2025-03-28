@@ -1,34 +1,76 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import { LocaleConfig } from "./interfaces/locale";
-import { Language } from "./interfaces/language";
 import defaultLanguagesData from "./default_languages.json";
-import { Enquirer } from "./enquirer/enquirer";
-import { BaseProvider } from "./providers/base";
 
-export { ToyProvider } from "./providers/toy";
-export { GoogleTranslateProvider } from "./providers/googleTranslate";
-export { OpenAIChatGPTProvider } from "./providers/openAiChatGpt";
-export { OpenRouterProvider } from "./providers/openRouter";
-export { DeepSeekProvider } from "./providers/deepSeek";
-export { MultiLanguageProvider } from "./providers/multiLanguage";
-export { GemmaProvider } from "./providers/gemma";
-export { LlamaProvider } from "./providers/llama";
-export { MistralProvider } from "./providers/mistral";
-export { QwenProvider } from "./providers/qwen";
+import { Config } from "./interfaces/config";
+import { Language } from "./types/shared";
+import { FullProvider, PartialProvider } from "./interfaces/provider";
+import { OpenRouterProvider } from "./providers/openRouter";
+
+import { OpenAIModels, OpenRouterModels } from "./utils/constants";
+import {AdvancedPromptingEngine} from "./engine/advancedPromptingEngine";
+import {ConventionalEngine} from "./engine/conventionalEngine";
 
 /**
- * The main class for OleloHonua.
+ * The main class for OleloHovnua.
  */
 export class OleloHonua {
-  private config: LocaleConfig;
-  private provider: BaseProvider;
+  private config: Config;
+  private provider: FullProvider | PartialProvider;
+  private useAdvancedEngine: boolean = false;
   private __dirname: string;
 
-  constructor(config: LocaleConfig, provider: BaseProvider) {
+  public static Providers = {
+    OpenRouter: "OpenRouter",
+    OpenAI: "OpenAI",
+    GoogleTranslate: "GoogleTranslate",
+    LocalLLM: "LocalLLM",
+    Custom: "Custom",
+  };
+
+  public static OpenRouterModels = OpenRouterModels;
+  public static OpenAIModels = OpenAIModels;
+
+  constructor(config: Config) {
+    switch(config.provider.platform) {
+      case OleloHonua.Providers.OpenRouter:
+        if(!config.provider.credentials.apiKey) {
+          throw new Error("API key must be specified.");
+        }
+        this.provider = new OpenRouterProvider(
+          config.provider.credentials.apiKey,
+          config.provider.modelId || OpenRouterModels.DEEPSEEK.DEEPSEEK_V3_0324_FREE
+        );
+        this.useAdvancedEngine = true;
+        break;
+      case OleloHonua.Providers.OpenAI:
+        if(!config.provider.credentials.apiKey) {
+          throw new Error("API key must be specified.");
+        }
+        /*
+        this.provider = new OpenAIProvider(
+          config.provider.credentials.apiKey,
+          config.provider.modelId || OpenAIModels.OPENAI.DAVINCI
+        );
+        */
+        this.useAdvancedEngine = true;
+        throw new Error("OpenAI provider is not implemented yet.");
+      case OleloHonua.Providers.GoogleTranslate:
+        if(!config.provider.credentials.projectId) {
+          throw new Error("Project ID must be specified.");
+        }
+        this.useAdvancedEngine = false;
+        throw new Error("Google Translate provider is not implemented yet.");
+      case OleloHonua.Providers.LocalLLM:
+        this.useAdvancedEngine = true;
+          throw new Error("LocalLLM is not implemented yet.");
+      case OleloHonua.Providers.Custom:
+        throw new Error("Custom is not implemented yet.");
+      default:
+        throw new Error("Invalid provider type.");
+    }
     this.config = config;
-    this.provider = provider;
     this.__dirname = path.resolve(process.cwd());
   }
 
@@ -54,20 +96,32 @@ export class OleloHonua {
 
     if (this.config.debug)
       console.log(`Fetching content for prime language: ${primeLanguage}`);
-    const primeLanguageInfo = this.getLanguageInfo(primeLanguage);
-    const primeContent = await this.getPrimeLanguageContent(primeLanguage);
-    const primeContentJSON = JSON.parse(primeContent);
+    const from = this.getLanguageInfo(primeLanguage);
+    const content = await this.getPrimeLanguageContent(primeLanguage);
 
-    for (const lang of languages.filter((lang) => lang !== primeLanguage)) {
-      const toLanguageInfo = this.getLanguageInfo(lang);
-      const enq = new Enquirer(
-        primeContentJSON,
-        primeLanguageInfo,
-        toLanguageInfo,
-        this.provider,
-        this.config,
+    const maxChunkRequests = this.config.maxChunkRequests || 1;
+
+    const langChunks = languages
+      .filter((lang) => lang !== primeLanguage)
+      .reduce((resultArray, item, index) => { 
+      const chunkIndex = Math.floor(index / maxChunkRequests);
+      if (!resultArray[chunkIndex]) {
+        resultArray[chunkIndex] = [];
+      }
+      resultArray[chunkIndex].push(item);
+      return resultArray;
+      }, [] as string[][]);
+
+    for (const chunk of langChunks) {
+      await Promise.all(
+      chunk.map(async (lang) => {
+        const to = this.getLanguageInfo(lang);
+        const enq = this.useAdvancedEngine
+        ? new AdvancedPromptingEngine(from, to, this.provider as FullProvider, this.config)
+        : new ConventionalEngine(from, to, this.provider as PartialProvider, this.config);
+        await enq.mainLoop(content);
+      })
       );
-      await enq.mainLoop();
     }
   }
 
@@ -84,7 +138,7 @@ export class OleloHonua {
    * @param config - The configuration to validate.
    * @throws An error if the configuration is invalid.
    */
-  private validateConfig(config: LocaleConfig) {
+  private validateConfig(config: Config) {
     if (!config.primeLanguage) {
       throw new Error("Prime language must be specified.");
     }

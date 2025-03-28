@@ -1,0 +1,18 @@
+{
+  "consistencyAndCompleteness": "The translation is inconsistent and incomplete, as most values are either blank, contain only spaces, or are partially translated. For example, 'Hello' and 'Goodbye' are not translated at all, and 'Web Development' is replaced with just spaces. This severely undermines the completeness of the translation.",
+  "clarityAndReadability": "The clarity and readability of the translation are extremely poor. Blank spaces and incomplete translations make the content incomprehensible and unusable in the target language.",
+  "accuracyOfTranslation": "The translation is highly inaccurate. Most values are missing or improperly translated, making it impossible to determine the intended meaning in the target language.",
+  "culturalAppropriateness": "Due to the lack of proper translation, it is impossible to assess cultural appropriateness. The incomplete or missing translations fail to convey any meaningful cultural context.",
+  "syntaxAndStructure": "While the JSON structure itself is preserved, the syntax of the translated content is incorrect or missing entirely, rendering the translation unusable.",
+  "naturalFlow": "The translation does not flow naturally in the target language due to the absence of meaningful content. Blank spaces and incomplete translations disrupt any sense of fluency.",
+  "summary": "The translation is fundamentally flawed, with most values left blank, improperly translated, or incomplete. This makes the content unusable and fails to convey the original meaning in the target language.",
+  "scoring": {
+    "consistencyAndCompleteness": 1,
+    "clarityAndReadability": 1,
+    "accuracyOfTranslation": 1,
+    "culturalAppropriateness": 1,
+    "syntaxAndStructure": 3,
+    "naturalFlow": 1,
+    "summary": 1
+  }
+}

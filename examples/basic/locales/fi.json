@@ -1,0 +1,62 @@
+{
+  "common": {
+    "greeting": "Hei",
+    "farewell": "Näkemiin",
+    "thank_you": "Kiitos",
+    "welcome": "Tervetuloa",
+    "yes": "Kyllä",
+    "no": "Ei",
+    "please": "Ole kiltti",
+    "sorry": "Anteeksi",
+    "excuse_me": "Anteeksi"
+  },
+  "navigation": {
+    "home": "Koti",
+    "about": "Tietoa meistä",
+    "services": "Palvelut",
+    "contact": "Yhteystiedot",
+    "blog": "Blogi"
+  },
+  "pages": {
+    "home": {
+      "title": "Tervetuloa sivustollemme",
+      "description": "Olemme iloisia, että olet täällä. Tutustu palveluihimme ja tarjontaan."
+    },
+    "about": {
+      "title": "Tietoa meistä",
+      "description": "Lue lisää missiostamme, visiostamme ja arvoistamme."
+    },
+    "services": {
+      "title": "Palvelumme",
+      "list": [
+        "Verkkosivujen kehitys",
+        "Mobiilisovellusten kehitys",
+        "Digitaalinen markkinointi",
+        "SEO-optimointi"
+      ]
+    },
+    "contact": {
+      "title": "Ota yhteyttä",
+      "description": "Ota meihin yhteyttä alla olevan lomakkeen tai sähköpostin kautta."
+    },
+    "blog": {
+      "title": "Blogimme",
+      "description": "Lue viimeisimmät artikkelit ja päivitykset tiimiltämme."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Yrityksesi. Kaikki oikeudet pidätetään.",
+    "privacy_policy": "Tietosuojakäytäntö",
+    "terms_of_service": "Käyttöehdot"
+  },
+  "errors": {
+    "404": {
+      "title": "Sivua ei löytynyt",
+      "message": "Valitettavasti etsimääsi sivua ei ole olemassa."
+    },
+    "500": {
+      "title": "Sisäinen palvelinvirhe",
+      "message": "Jokin meni pieleen. Yritä myöhemmin uudelleen."
+    }
+  }
+}

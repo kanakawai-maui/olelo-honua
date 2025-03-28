@@ -4,8 +4,7 @@ gh_sponsor: brownrw8
 footer_menu: footer
 theme_color: rebeccapurple
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "pages"
     values:

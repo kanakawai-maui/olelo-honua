@@ -1,23 +1,62 @@
 {
-  "greeting": "Kumustá",
-  "farewell": "Paalam",
-  "thank_you": "Salamat",
-  "welcome": "Turo",
-  "good_morning": "Magandang umaga",
-  "good_night": "Magandang gabi",
-  "how_are_you": "Kumustá",
-  "please": "Pakiusap",
-  "yes": "Oo",
-  "no": "Hindi",
-  "sorry": "Patawad",
-  "excuse_me": "Pakihintay",
-  "help": "Tulong",
-  "bathroom": "Banyo",
-  "food": "Pagkain",
-  "water": "Tubig",
-  "hotel": "Hotel",
-  "taxi": "Taksi",
-  "airport": "Paliparan",
-  "train_station": "Estasyon ng tren",
-  "train_station_description": "Ang isang estasyon ng tren, estasyon ng riles, o istasyon ng daungan ay isang pasilidad ng riles o lugar kung saan regular na humihinto ang mga tren upang magsakay o magbaba ng mga pasahero o kargamento."
+  "common": {
+    "greeting": "Kamusta",
+    "farewell": "Paalam",
+    "thank_you": "Salamat",
+    "welcome": "Maligayang pagdating",
+    "yes": "Oo",
+    "no": "Hindi",
+    "please": "Pakiusap",
+    "sorry": "Paumanhin",
+    "excuse_me": "Mawalang galang na"
+  },
+  "navigation": {
+    "home": "Bahay",
+    "about": "Tungkol",
+    "services": "Mga Serbisyo",
+    "contact": "Kontak",
+    "blog": "Blog"
+  },
+  "pages": {
+    "home": {
+      "title": "Maligayang pagdating sa aming website",
+      "description": "Ikinalulugod naming narito ka. Tuklasin ang aming mga serbisyo at alok."
+    },
+    "about": {
+      "title": "Tungkol sa Amin",
+      "description": "Alamin ang higit pa tungkol sa aming misyon, pananaw, at mga halaga."
+    },
+    "services": {
+      "title": "Ang aming mga Serbisyo",
+      "list": [
+        "Pagbuo ng Website",
+        "Pagbuo ng Mobile App",
+        "Digital Marketing",
+        "SEO Optimization"
+      ]
+    },
+    "contact": {
+      "title": "Makipag-ugnayan sa Amin",
+      "description": "Makipag-ugnayan sa amin sa pamamagitan ng form sa ibaba o sa pamamagitan ng email."
+    },
+    "blog": {
+      "title": "Ang aming Blog",
+      "description": "Basahin ang pinakabagong mga artikulo at update mula sa aming koponan."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Ang iyong Kumpanya. Lahat ng karapatan ay nakalaan.",
+    "privacy_policy": "Patakaran sa Privacy",
+    "terms_of_service": "Mga Tuntunin ng Serbisyo"
+  },
+  "errors": {
+    "404": {
+      "title": "Hindi Mahanap ang Pahina",
+      "message": "Paumanhin, ang pahina na hinahanap mo ay hindi umiiral."
+    },
+    "500": {
+      "title": "Internal Server Error",
+      "message": "May nangyaring mali sa aming dulo. Pakisubukang muli mamaya."
+    }
+  }
 }

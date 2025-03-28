@@ -1,0 +1,18 @@
+{
+  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Bulgarian. Proper nouns and technical terms like 'Web Development' and 'SEO Optimization' are preserved as expected.",
+  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content.",
+  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Bulgarian while maintaining the original meaning.",
+  "culturalAppropriateness": "The translation is culturally appropriate, using formal Bulgarian expressions where necessary.",
+  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct.",
+  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions.",
+  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified.",
+  "scoring": {
+    "consistencyAndCompleteness": 10,
+    "clarityAndReadability": 10,
+    "accuracyOfTranslation": 10,
+    "culturalAppropriateness": 10,
+    "syntaxAndStructure": 10,
+    "naturalFlow": 10,
+    "summary": 10
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "common": {
+    "greeting": "Kaixo",
+    "farewell": "Agur",
+    "thank_you": "Eskerrik asko",
+    "welcome": "Ongi etorri",
+    "yes": "Bai",
+    "no": "Ez",
+    "please": "Mesedez",
+    "sorry": "Barkatu",
+    "excuse_me": "Barkatu"
+  },
+  "navigation": {
+    "home": "Hasiera",
+    "about": "Honi buruz",
+    "services": "Zerbitzuak",
+    "contact": "Kontaktua",
+    "blog": "Bloga"
+  },
+  "pages": {
+    "home": {
+      "title": "Ongi etorri Gure Webgunera",
+      "description": "Pozik gaude hemen zurekin. Arakatu gure zerbitzuak eta eskaintzak."
+    },
+    "about": {
+      "title": "Guri buruz",
+      "description": "Jakin gehiago gure misioari, ikuspegiari eta balioei buruz."
+    },
+    "services": {
+      "title": "Gure Zerbitzuak",
+      "list": [
+        "Web Garapena",
+        "Aplikazio Mugikorren Garapena",
+        "Marketing Digitala",
+        "SEO Optimizazioa"
+      ]
+    },
+    "contact": {
+      "title": "Jarri Gurekin Harremanetan",
+      "description": "Harremanetan jarri zaitez beheko formularioaren bidez edo posta elektroniko bidez."
+    },
+    "blog": {
+      "title": "Gure Bloga",
+      "description": "Irakurri gure taldeko azken artikuluak eta eguneraketak."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Zure Enpresa. Eskubide guztiak erreserbatuta.",
+    "privacy_policy": "Pribatutasun Politika",
+    "terms_of_service": "Zerbitzu Baldintzak"
+  },
+  "errors": {
+    "404": {
+      "title": "Orria Ez da Aurkitu",
+      "message": "Barkatu, bilatzen ari zaren orria ez da existitzen."
+    },
+    "500": {
+      "title": "Barneko Zerbitzari Errorea",
+      "message": "Zerbait gaizki joan da gure aldean. Saiatu berriro geroago."
+    }
+  }
+}

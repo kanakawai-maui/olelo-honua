@@ -1,23 +1,22 @@
-const { OleloHonua, DeepSeekProvider } = require("olelo-honua");
+const { OleloHonua } = require("olelo-honua");
 
 // Load .env file from ./.env (root)
 require("dotenv").config();
 
-// Open Router API Key from .env
-const OPEN_ROUTER_API_KEY = process.env.OPEN_ROUTER_API_KEY;
-
 // Create a new instance
 const dakine = new OleloHonua(
   {
+    provider: {
+        platform: OleloHonua.Providers.OpenRouter,
+        credentials: {
+            apiKey: process.env.OPEN_ROUTER_API_KEY // Open Router API Key from .env
+        },
+        modelId: OleloHonua.OpenRouterModels.DEEPSEEK.DEEPSEEK_V3_FREE, // Model ID
+    },
     primeLanguage: "en", // Default language
-    includeLanguage: ["ar", "haw", "ja", "ru", "tl"], // Additional languages
-    bulkTranslate: true, // Enable bulk translation
-    critique: true, // Enable critique
-    saveCritique: true, // Enable saving of latest critique(s)
-    repair: true, // Enable repair
+    excludeLanguage: ["haw"], // Additional languages
     debug: true, // Enable debug
   },
-  new DeepSeekProvider(OPEN_ROUTER_API_KEY),
 );
 // Runs or re-runs i18n translations
 dakine.hanaHou();

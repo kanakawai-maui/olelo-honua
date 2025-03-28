@@ -1,0 +1,62 @@
+{
+  "common": {
+    "greeting": "Hej",
+    "farewell": "Farvel",
+    "thank_you": "Tak",
+    "welcome": "Velkommen",
+    "yes": "Ja",
+    "no": "Nej",
+    "please": "Vær så venlig",
+    "sorry": "Undskyld",
+    "excuse_me": "Undskyld mig"
+  },
+  "navigation": {
+    "home": "Hjem",
+    "about": "Om",
+    "services": "Tjenester",
+    "contact": "Kontakt",
+    "blog": "Blog"
+  },
+  "pages": {
+    "home": {
+      "title": "Velkommen til vores hjemmeside",
+      "description": "Vi er glade for at have dig her. Udforsk vores tjenester og tilbud."
+    },
+    "about": {
+      "title": "Om os",
+      "description": "Lær mere om vores mission, vision og værdier."
+    },
+    "services": {
+      "title": "Vores tjenester",
+      "list": [
+        "Webudvikling",
+        "Mobil app-udvikling",
+        "Digital markedsføring",
+        "SEO-optimering"
+      ]
+    },
+    "contact": {
+      "title": "Kontakt os",
+      "description": "Kontakt os gennem formularen nedenfor eller via e-mail."
+    },
+    "blog": {
+      "title": "Vores blog",
+      "description": "Læs de seneste artikler og opdateringer fra vores team."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Dit firma. Alle rettigheder forbeholdes.",
+    "privacy_policy": "Privatlivspolitik",
+    "terms_of_service": "Servicevilkår"
+  },
+  "errors": {
+    "404": {
+      "title": "Side ikke fundet",
+      "message": "Beklager, siden du leder efter, findes ikke."
+    },
+    "500": {
+      "title": "Intern serverfejl",
+      "message": "Noget gik galt på vores side. Prøv venligst igen senere."
+    }
+  }
+}

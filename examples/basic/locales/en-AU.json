@@ -1,0 +1,62 @@
+{
+  "common": {
+    "greeting": "G'day",
+    "farewell": "See ya",
+    "thank_you": "Cheers",
+    "welcome": "Welcome",
+    "yes": "Yeah",
+    "no": "Nah",
+    "please": "Please",
+    "sorry": "Sorry",
+    "excuse_me": "'Scuse me"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "pages": {
+    "home": {
+      "title": "Welcome to Our Website",
+      "description": "We’re stoked to have you here. Check out our services and offerings."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Find out more about our mission, vision, and values."
+    },
+    "services": {
+      "title": "Our Services",
+      "list": [
+        "Web Development",
+        "Mobile App Development",
+        "Digital Marketing",
+        "SEO Optimization"
+      ]
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with us through the form below or via email."
+    },
+    "blog": {
+      "title": "Our Blog",
+      "description": "Read the latest articles and updates from our team."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Your Company. All rights reserved.",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "message": "Sorry, the page you’re looking for doesn’t exist."
+    },
+    "500": {
+      "title": "Internal Server Error",
+      "message": "Something went wrong on our end. Please try again later."
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "common": {
+    "greeting": "Përshëndetje",
+    "farewell": "Mirupafshim",
+    "thank_you": "Faleminderit",
+    "welcome": "Mirë se vini",
+    "yes": "Po",
+    "no": "Jo",
+    "please": "Ju lutem",
+    "sorry": "Më falni",
+    "excuse_me": "Më falni"
+  },
+  "navigation": {
+    "home": "Kryefaqja",
+    "about": "Rreth nesh",
+    "services": "Shërbimet",
+    "contact": "Kontakti",
+    "blog": "Blogu"
+  },
+  "pages": {
+    "home": {
+      "title": "Mirë se vini në Faqen Tonë",
+      "description": "Gëzohemi që jeni këtu. Eksploroni shërbimet dhe ofertat tona."
+    },
+    "about": {
+      "title": "Rreth Nesh",
+      "description": "Mësoni më shumë rreth misionit, vizionit dhe vlerave tona."
+    },
+    "services": {
+      "title": "Shërbimet Tona",
+      "list": [
+        "Zhvillimi i Uebit",
+        "Zhvillimi i Aplikacioneve Mobile",
+        "Marketingu Digjital",
+        "Optimizimi SEO"
+      ]
+    },
+    "contact": {
+      "title": "Na Kontaktoni",
+      "description": "Na kontaktoni përmes formularit më poshtë ose me email."
+    },
+    "blog": {
+      "title": "Blogu Ynë",
+      "description": "Lexoni artikujt dhe përditësimet më të fundit nga ekipi ynë."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Kompania Juaj. Të gjitha të drejtat e rezervuara.",
+    "privacy_policy": "Politika e Privatësisë",
+    "terms_of_service": "Kushtet e Shërbimit"
+  },
+  "errors": {
+    "404": {
+      "title": "Faqja Nuk U Gjet",
+      "message": "Na vjen keq, faqja që po kërkoni nuk ekziston."
+    },
+    "500": {
+      "title": "Gabim i Brendshëm i Serverit",
+      "message": "Diçka shkoi keq në ana jonë. Ju lutem provoni përsëri më vonë."
+    }
+  }
+}
