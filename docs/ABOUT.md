@@ -20,8 +20,6 @@ For open-source maintainers, **the challenge is not just about translating words
 - **Critique Loop**: Analyzes translations to identify errors and any areas for improvement. Breaks down the evaluation into components, each focusing on a different aspect of the translation's quality.
 - **Repair Loop**: Implements corrections based on critique feedback with a goal of enhancing accuracy.
 
-![State Diagram](docs/clean_state_diagram.png)
-
 ### Implementation
 
 - **Advanced AI Translation Engines**: Harnesses cutting-edge prompt engineering to produce accurate translations.

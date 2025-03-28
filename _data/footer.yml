@@ -4,3 +4,7 @@
   link: https://www.pitchhut.com/project/olelo-honua-i18n-library
 - name: OpenRouter Quickstart
   link: https://openrouter.ai/docs/quickstart
+- name: OpenAI Quickstart
+  link: https://platform.openai.com/docs/quickstart?api-mode=chat
+- name: Google Translate Quickstart
+  link: https://cloud.google.com/translate/docs/basic/translate-text-basic

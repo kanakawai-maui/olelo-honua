@@ -1,11 +1,11 @@
 {
-  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Bulgarian. Proper nouns and technical terms like 'Web Development' and 'SEO Optimization' are preserved as expected.",
-  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content.",
-  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Bulgarian while maintaining the original meaning.",
-  "culturalAppropriateness": "The translation is culturally appropriate, using formal Bulgarian expressions where necessary.",
-  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct.",
-  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions.",
-  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified.",
+  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Bulgarian. The structure and keys of the JSON are preserved, and all necessary details are included.",
+  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content. The Bulgarian phrases are well-structured and understandable.",
+  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Bulgarian while maintaining the original meaning. The phrases and terms are appropriately localized.",
+  "culturalAppropriateness": "The translation is culturally appropriate, using formal and polite Bulgarian expressions where necessary. The context and cultural relevance are well-maintained.",
+  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct. The Bulgarian language rules are followed accurately.",
+  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions. The Bulgarian text reads fluently and is well-adapted to the target language.",
+  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified. It effectively conveys the original meaning in Bulgarian.",
   "scoring": {
     "consistencyAndCompleteness": 10,
     "clarityAndReadability": 10,

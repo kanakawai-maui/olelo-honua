@@ -12,6 +12,8 @@ import { OpenAIModels, OpenRouterModels } from "./utils/constants";
 import {AdvancedPromptingEngine} from "./engine/advancedPromptingEngine";
 import {ConventionalEngine} from "./engine/conventionalEngine";
 
+import { TitleMessage, AlohaMessage, HanaHouMessage } from "./utils/display";
+
 /**
  * The main class for OleloHovnua.
  */
@@ -33,6 +35,7 @@ export class OleloHonua {
   public static OpenAIModels = OpenAIModels;
 
   constructor(config: Config) {
+    console.log(TitleMessage);
     switch(config.provider.platform) {
       case OleloHonua.Providers.OpenRouter:
         if(!config.provider.credentials.apiKey) {
@@ -72,6 +75,7 @@ export class OleloHonua {
     }
     this.config = config;
     this.__dirname = path.resolve(process.cwd());
+    console.log(AlohaMessage);
   }
 
   /**
@@ -80,6 +84,7 @@ export class OleloHonua {
    * @throws An error if the configuration is invalid.
    */
   async hanaHou() {
+    console.log(HanaHouMessage);
     this.validateConfig(this.config);
 
     const languages =

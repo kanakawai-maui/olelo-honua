@@ -1,11 +1,11 @@
 {
-  "consistencyAndCompleteness": "The translation maintains complete consistency with the original text, as both the source and target texts are identical.",
-  "clarityAndReadability": "The text is clear and readable, with no issues in comprehension or structure.",
-  "accuracyOfTranslation": "The translation is entirely accurate, as no changes were made to the original text.",
-  "culturalAppropriateness": "The text is culturally appropriate for both American and British English contexts.",
-  "syntaxAndStructure": "The syntax and structure are correct and preserved as per the original.",
-  "naturalFlow": "The text flows naturally, as it remains unchanged from the original.",
-  "summary": "The translation is accurate and consistent, as both the source and target texts are exactly the same.",
+  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately retained without any omissions or additions.",
+  "clarityAndReadability": "The translated text is clear and easy to read, with no ambiguities in the content.",
+  "accuracyOfTranslation": "The translation is accurate, with all values correctly preserved while maintaining the original meaning.",
+  "culturalAppropriateness": "The translation is culturally appropriate, using standard British English expressions where necessary.",
+  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the values are grammatically correct.",
+  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions.",
+  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified.",
   "scoring": {
     "consistencyAndCompleteness": 10,
     "clarityAndReadability": 10,

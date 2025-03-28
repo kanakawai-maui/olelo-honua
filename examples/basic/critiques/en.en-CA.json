@@ -1,11 +1,11 @@
 {
-  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Canadian English. The structure and content of the original JSON are preserved without any omissions or discrepancies.",
-  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content. The language used is straightforward and appropriate for the target audience.",
-  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Canadian English while maintaining the original meaning. There are no errors or misinterpretations.",
-  "culturalAppropriateness": "The translation is culturally appropriate for Canadian English, with no terms or phrases that would be considered out of place or irrelevant in this context.",
-  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct. The formatting and organization of the content remain intact.",
-  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions. The language used is smooth and idiomatic for Canadian English.",
-  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified. It effectively conveys the original meaning in Canadian English.",
+  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Canadian English. There are no missing or inconsistent elements.",
+  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content.",
+  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Canadian English while maintaining the original meaning.",
+  "culturalAppropriateness": "The translation is culturally appropriate, using standard Canadian English expressions where necessary.",
+  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct.",
+  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions.",
+  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified.",
   "scoring": {
     "consistencyAndCompleteness": 10,
     "clarityAndReadability": 10,

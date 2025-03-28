@@ -1,11 +1,11 @@
 {
-  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Armenian. The structure and keys of the JSON remain intact, and all values are appropriately localized.",
-  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities or confusing phrasing. The translated text is well-structured and logically organized.",
-  "accuracyOfTranslation": "The translation is accurate, with all values correctly rendered into Armenian while preserving the original meaning. There are no mistranslations or errors in the text.",
-  "culturalAppropriateness": "The translation is culturally appropriate, using formal and polite Armenian expressions where necessary. The content is contextually relevant and suitable for the target audience.",
-  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct. The translation adheres to Armenian language conventions.",
-  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions. The text reads smoothly and is idiomatic in Armenian.",
-  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified. It effectively conveys the original meaning while maintaining the integrity of the JSON structure.",
+  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Armenian. Proper nouns and technical terms like 'Web Development' and 'SEO Optimization' retain their meaning effectively.",
+  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content.",
+  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Armenian while maintaining the original meaning.",
+  "culturalAppropriateness": "The translation is culturally appropriate, using formal and polite Armenian expressions where necessary.",
+  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct.",
+  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions.",
+  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified.",
   "scoring": {
     "consistencyAndCompleteness": 10,
     "clarityAndReadability": 10,

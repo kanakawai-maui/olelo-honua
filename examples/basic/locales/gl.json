@@ -1,0 +1,62 @@
+{
+  "common": {
+    "greeting": "Ola",
+    "farewell": "Adeus",
+    "thank_you": "Grazas",
+    "welcome": "Benvido",
+    "yes": "Si",
+    "no": "Non",
+    "please": "Por favor",
+    "sorry": "Sentímolo",
+    "excuse_me": "Desculpe"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "about": "Sobre nós",
+    "services": "Servizos",
+    "contact": "Contacto",
+    "blog": "Blog"
+  },
+  "pages": {
+    "home": {
+      "title": "Benvido ao noso sitio web",
+      "description": "Estamos encantados de terte aquí. Explora os nosos servizos e ofertas."
+    },
+    "about": {
+      "title": "Sobre nós",
+      "description": "Aprende máis sobre a nosa misión, visión e valores."
+    },
+    "services": {
+      "title": "Os nosos servizos",
+      "list": [
+        "Desenvolvemento web",
+        "Desenvolvemento de aplicacións móbiles",
+        "Marketing dixital",
+        "Optimización SEO"
+      ]
+    },
+    "contact": {
+      "title": "Contacta connosco",
+      "description": "Ponte en contacto connosco a través do formulario inferior ou por correo electrónico."
+    },
+    "blog": {
+      "title": "O noso blog",
+      "description": "Le os últimos artigos e actualizacións do noso equipo."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 A túa empresa. Todos os dereitos reservados.",
+    "privacy_policy": "Política de privacidade",
+    "terms_of_service": "Termos do servizo"
+  },
+  "errors": {
+    "404": {
+      "title": "Páxina non atopada",
+      "message": "Sentímolo, a páxina que buscas non existe."
+    },
+    "500": {
+      "title": "Erro interno do servidor",
+      "message": "Algo foi mal no noso lado. Por favor, inténtao de novo máis tarde."
+    }
+  }
+}

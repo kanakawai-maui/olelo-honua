@@ -35,7 +35,7 @@ This automation makes it easier to manage internationalization in your applicati
 
 ### Technical Deep Dive
 
-For more details about my approach, vision, and methodology, refer to [About ʻŌlelo Honua](docs/ABOUT.md).
+For more details about my approach, vision, and methodology, refer to [About ʻŌlelo Honua](docs/ABOUT.html).
 
 ## Installation
 
@@ -76,13 +76,25 @@ const dakine = new OleloHonua(
 dakine.hanaHou(); // or use alias dakine.createLocaleFiles()
 ```
 
+<img src="images/terminal.png" alt="terminal" width="200"/>
+
 ## Configuration
 
 I highly recommend setting up an OpenRouter API Key for use with various models.
 
-[How to set up OpenRouter API Key](docs/API_KEY_SETUP.md)
+[How to set up OpenRouter API Key](docs/API_KEY_SETUP.html)
 
-For better security and ease of configuration, you can store your API key in a `.env` file. Simply create a `.env` file in your project root and add the following line:
+There are also several other providers including Google Translate (aka Cloud Translation) and OpenAI (aka ChatGPT).
+
+[OpenAI API Quickstart](https://platform.openai.com/docs/quickstart?api-mode=chat)
+
+[Google Cloud Translation Quickstart](https://cloud.google.com/translate/docs/basic/translate-text-basic)
+
+For enhanced security and ease of configuration, you should store your API key in a `.gitignore`'d `.env` file. 
+
+[How to set up `.gitignore` for your project](https://git-scm.com/docs/gitignore)
+
+Simply create a `.env` file in your project root and add the following line:
 
 ```plaintext
 OPENROUTER_API_KEY=<your_openrouter_api_key>
@@ -95,7 +107,9 @@ require("dotenv").config();
 const apiKey = process.env.OPENROUTER_API_KEY;
 ```
 
-This approach keeps your sensitive information out of your codebase and makes it easier to manage across different environments.
+[How to set up `dotenv` for your project](https://www.npmjs.com/package/dotenv#-install)
+
+While using `.gitignore`, `dotenv` & `.env` is not mandatory for local development, it’s best engineering practice for safeguarding sensitive information. This approach keeps your credentials out of your codebase, simplifies environment management, and enhances security across different deployment setups.
 
 You need to provide a configuration object and a translation provider. For instance, you can use the `DeepSeekProvider` as demonstrated in the usage example. I highly recommend DeepSeek & OpenRouter as these are free and extremely stable. Happy coding!
 

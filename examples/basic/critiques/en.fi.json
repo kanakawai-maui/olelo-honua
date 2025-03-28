@@ -1,18 +1,18 @@
 {
-  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Finnish. The structure and keys of the JSON are preserved, and no information is missing.",
-  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content. The Finnish phrases are appropriately used and understandable.",
-  "accuracyOfTranslation": "The translation is mostly accurate, but there is a minor issue with the translation of 'please' as 'Ole hyvä', which is more accurately translated as 'Ole kiltti' or 'Pyydän'.",
-  "culturalAppropriateness": "The translation is culturally appropriate, using standard Finnish expressions that are contextually relevant.",
-  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct.",
-  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions.",
-  "summary": "The translation is highly accurate, clear, and culturally appropriate, with only a minor issue with the translation of 'please'.",
+  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Finnish. Proper nouns and technical terms like 'Web Development' and 'SEO Optimization' are correctly translated as 'Verkkosivujen kehitys' and 'SEO-optimointi' respectively.",
+  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content. The Finnish phrases are well-structured and easily understandable.",
+  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Finnish while maintaining the original meaning. For example, 'Welcome to Our Website' is accurately translated as 'Tervetuloa sivustollemme'.",
+  "culturalAppropriateness": "The translation is culturally appropriate, using formal Finnish expressions where necessary. The phrases used are contextually relevant and suitable for a Finnish audience.",
+  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct. The Finnish language rules are followed accurately.",
+  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions. The Finnish text reads fluently and naturally.",
+  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified. The Finnish text maintains the integrity of the original English content.",
   "scoring": {
     "consistencyAndCompleteness": 10,
     "clarityAndReadability": 10,
-    "accuracyOfTranslation": 9,
+    "accuracyOfTranslation": 10,
     "culturalAppropriateness": 10,
     "syntaxAndStructure": 10,
     "naturalFlow": 10,
-    "summary": 9
+    "summary": 10
   }
 }

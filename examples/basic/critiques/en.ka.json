@@ -1,0 +1,18 @@
+{
+  "consistencyAndCompleteness": "The translation maintains consistency and completeness for most terms, but there are some minor inconsistencies and errors. For example, 'services' is translated as 'სერისები' instead of 'სერვისები', and 'contact' is translated as 'კონტატი' instead of 'კონტაქტი'. Some phrases in the 'pages' section, such as the 'home' description, have awkward phrasing and minor errors.",
+  "clarityAndReadability": "The clarity and readability of the translation are somewhat compromised due to grammatical errors and awkward phrasing. For instance, 'We are glad to have you here' is translated as 'მოარი არ, რომ ა არ', which does not convey the intended meaning clearly. The 'errors' section also contains unclear phrasing.",
+  "accuracyOfTranslation": "The accuracy of the translation is mixed. While some terms are translated correctly, such as 'home' as 'მთავარი' and 'yes' as 'დია', others are incorrect or awkwardly translated. For example, 'excuse me' is translated as 'უარავად', which is incorrect, and 'blog' is translated as 'ბლოი' instead of 'ბლოგი'.",
+  "culturalAppropriateness": "The translation is culturally appropriate in most cases, but some terms and phrases may not resonate well with Georgian speakers due to incorrect translations or awkward phrasing. For example, 'sorry' is translated as 'ბოიი', which is not a standard Georgian word for 'sorry'.",
+  "syntaxAndStructure": "The syntax and structure of the translation are mostly preserved, but there are grammatical errors and awkward phrasing in several sections, particularly in the 'pages' and 'errors' sections. For example, 'Get in touch with us' is translated as 'დავიავიით ვემო მოემული ოით', which is grammatically incorrect.",
+  "naturalFlow": "The natural flow of the translation is disrupted by grammatical errors and awkward phrasing. For example, 'Read the latest articles and updates from our team' is translated as 'აიითხეთ ალესი სტატიები და განალებები ვენი გუდიდან', which does not flow naturally in Georgian.",
+  "summary": "The translation is inconsistent in accuracy and clarity, with several grammatical errors and awkward phrasing. While some terms are translated correctly, others are incorrect or poorly phrased, affecting the overall quality of the translation. Improvements are needed to ensure accuracy, clarity, and natural flow.",
+  "scoring": {
+    "consistencyAndCompleteness": 6,
+    "clarityAndReadability": 5,
+    "accuracyOfTranslation": 5,
+    "culturalAppropriateness": 6,
+    "syntaxAndStructure": 5,
+    "naturalFlow": 5,
+    "summary": 5
+  }
+}

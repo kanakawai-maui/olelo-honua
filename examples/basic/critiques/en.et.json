@@ -1,11 +1,11 @@
 {
-  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Estonian. Proper nouns like 'Your Company' are preserved appropriately in the footer section.",
-  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content. All phrases and sentences are well-structured and understandable.",
-  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Estonian while maintaining the original meaning. For example, 'Hello' is correctly translated as 'Tere', and 'Welcome to Our Website' is accurately rendered as 'Tere tulemast meie veebilehele'.",
-  "culturalAppropriateness": "The translation is culturally appropriate, using formal Estonian expressions where necessary. All phrases align well with Estonian cultural norms.",
-  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct. No errors in grammar or sentence structure are present.",
-  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions. The sentences read smoothly in Estonian.",
-  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified. It maintains the integrity of the original text while adapting it effectively to Estonian.",
+  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Estonian. Proper nouns and technical terms like 'Web Development' and 'SEO Optimization' are appropriately translated, and the JSON structure is perfectly preserved.",
+  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content. The phrasing and terminology used are well-suited for an Estonian audience.",
+  "accuracyOfTranslation": "The translation is highly accurate, with all values correctly translated into Estonian while maintaining the original meaning. There are no instances of mistranslation or incorrect phrasing.",
+  "culturalAppropriateness": "The translation is culturally appropriate, using formal and polite Estonian expressions where necessary. The translations fit well within the cultural context of Estonia.",
+  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct. The translation adheres to Estonian grammar rules.",
+  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions. The text reads as if it were originally written in Estonian.",
+  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified. It maintains the integrity of the original text while adapting it seamlessly for an Estonian audience.",
   "scoring": {
     "consistencyAndCompleteness": 10,
     "clarityAndReadability": 10,

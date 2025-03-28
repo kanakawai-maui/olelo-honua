@@ -1,11 +1,11 @@
 {
-  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Afrikaans. Proper nouns and technical terms like 'Web Development' and 'SEO Optimization' are preserved as expected.",
-  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content.",
-  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Afrikaans while maintaining the original meaning.",
-  "culturalAppropriateness": "The translation is culturally appropriate, using formal Afrikaans expressions where necessary.",
-  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct.",
-  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions.",
-  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified.",
+  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Afrikaans, including common phrases, navigation items, page titles, and descriptions.",
+  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities or confusing phrases in the Afrikaans text.",
+  "accuracyOfTranslation": "The translation is accurate, with all values correctly reflecting the original English text and maintaining their intended meaning in Afrikaans.",
+  "culturalAppropriateness": "The translation is culturally appropriate, using common Afrikaans expressions and terms.",
+  "syntaxAndStructure": "The syntax and structure of the Afrikaans translation are correct, with grammatically accurate sentences and proper use of vocabulary.",
+  "naturalFlow": "The Afrikaans translation flows naturally, with no awkward phrasing or unnatural expressions.",
+  "summary": "The translation is highly accurate, culturally appropriate, and natural in Afrikaans. No significant issues were found in the translation.",
   "scoring": {
     "consistencyAndCompleteness": 10,
     "clarityAndReadability": 10,

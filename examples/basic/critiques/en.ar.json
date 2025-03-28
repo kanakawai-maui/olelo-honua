@@ -1,11 +1,11 @@
 {
-  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Arabic. Proper nouns and technical terms like 'Web Development' and 'SEO Optimization' are appropriately translated.",
-  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content. The structure of the JSON is preserved, making it easy to navigate.",
-  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Arabic while maintaining the original meaning. Phrases like 'Welcome to Our Website' and 'Contact Us' are accurately conveyed.",
-  "culturalAppropriateness": "The translation is culturally appropriate, using formal Arabic expressions where necessary. Terms like 'أهلاً وسهلاً' for 'Welcome' and 'من فضلك' for 'Please' are culturally relevant.",
-  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct. The nested structure of the JSON is maintained without any issues.",
+  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Arabic. Proper nouns and technical terms like 'Web Development' and 'SEO Optimization' are translated appropriately, and the structure of the JSON is preserved.",
+  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content. The phrases are well-structured and easily understandable.",
+  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Arabic while maintaining the original meaning. Phrases like 'Welcome to Our Website' and 'Privacy Policy' are accurately conveyed.",
+  "culturalAppropriateness": "The translation is culturally appropriate, using formal Arabic expressions where necessary. The translations align with cultural norms and expectations.",
+  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct. The format remains intact across all sections.",
   "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions. The sentences read fluently in Arabic.",
-  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified. It effectively conveys the original meaning while maintaining the structure and flow of the content.",
+  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified. All sections are well-translated and maintain the integrity of the original text.",
   "scoring": {
     "consistencyAndCompleteness": 10,
     "clarityAndReadability": 10,
