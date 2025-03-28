@@ -1,0 +1,18 @@
+{
+  "consistencyAndCompleteness": "The translation maintains complete consistency with the original text, as both the source and target texts are identical.",
+  "clarityAndReadability": "The text is clear and readable, with no issues in comprehension or structure.",
+  "accuracyOfTranslation": "The translation is entirely accurate, as no changes were made to the original text.",
+  "culturalAppropriateness": "The text is culturally appropriate for both American and British English contexts.",
+  "syntaxAndStructure": "The syntax and structure are correct and preserved as per the original.",
+  "naturalFlow": "The text flows naturally, as it remains unchanged from the original.",
+  "summary": "The translation is accurate and consistent, as both the source and target texts are exactly the same.",
+  "scoring": {
+    "consistencyAndCompleteness": 10,
+    "clarityAndReadability": 10,
+    "accuracyOfTranslation": 10,
+    "culturalAppropriateness": 10,
+    "syntaxAndStructure": 10,
+    "naturalFlow": 10,
+    "summary": 10
+  }
+}

@@ -5,7 +5,7 @@
 - name: Community
   link: https://github.com/brownrw8/olelo-honua/discussions
 - name: More
-  dropdown: 
+  dropdown:
     - name: Bug Reports
       link: https://github.com/brownrw8/olelo-honua/issues
     - name: Feature Requests

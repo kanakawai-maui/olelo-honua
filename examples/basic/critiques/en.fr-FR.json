@@ -1,0 +1,18 @@
+{
+  "consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into French. The structure and keys of the JSON are preserved, and all values are translated appropriately.",
+  "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content. The French phrases are well-chosen and convey the intended meaning effectively.",
+  "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into French while maintaining the original meaning. Common phrases like 'Bonjour' for 'Hello' and 'Merci' for 'Thank you' are correctly used.",
+  "culturalAppropriateness": "The translation is culturally appropriate, using formal and polite French expressions where necessary. The phrases are contextually relevant and suitable for a French-speaking audience.",
+  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct. The French sentences are well-formed and adhere to proper grammar rules.",
+  "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions. The French text reads fluently and is easy to understand.",
+  "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified. It effectively conveys the original meaning in French while maintaining the integrity of the JSON structure.",
+  "scoring": {
+    "consistencyAndCompleteness": 10,
+    "clarityAndReadability": 10,
+    "accuracyOfTranslation": 10,
+    "culturalAppropriateness": 10,
+    "syntaxAndStructure": 10,
+    "naturalFlow": 10,
+    "summary": 10
+  }
+}

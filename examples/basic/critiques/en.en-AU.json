@@ -1,0 +1,18 @@
+{
+  "consistencyAndCompleteness": "The translation is consistent and preserves the original meaning across all sections. The Australian English adaptations like 'G'day' and 'Cheers' are appropriate and complete within the context.",
+  "clarityAndReadability": "The translated text is clear and retains readability. Phrases like 'Find out more' and 'We’re stoked to have you here' are understandable and align with Australian English.",
+  "accuracyOfTranslation": "The translation accurately reflects Australian English colloquialisms and idiomatic expressions without altering the original meaning. Examples include 'G'day' for 'Hello' and 'Cheers' for 'Thank you'.",
+  "culturalAppropriateness": "The translation is culturally appropriate for an Australian audience, using terms like 'Nah', 'Yeah', and 'See ya' that are typical in Australian vernacular.",
+  "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct. The use of contractions like 'doesn’t' adds a natural Australian tone.",
+  "naturalFlow": "The translation flows naturally in Australian English, with no awkward phrasing. Phrases like 'We’re stoked to have you here' and 'Check out our services' sound conversational and authentic.",
+  "summary": "The translation effectively adapts the original text to Australian English, maintaining consistency, clarity, and cultural appropriateness. The use of colloquialisms enhances the natural flow without compromising accuracy.",
+  "scoring": {
+    "consistencyAndCompleteness": 10,
+    "clarityAndReadability": 10,
+    "accuracyOfTranslation": 10,
+    "culturalAppropriateness": 10,
+    "syntaxAndStructure": 10,
+    "naturalFlow": 10,
+    "summary": 10
+  }
+}

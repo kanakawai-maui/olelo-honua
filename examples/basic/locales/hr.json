@@ -1,0 +1,62 @@
+{
+  "common": {
+    "greeting": "Bok",
+    "farewell": "Doviđenja",
+    "thank_you": "Hvala",
+    "welcome": "Dobrodošli",
+    "yes": "Da",
+    "no": "Ne",
+    "please": "Molim",
+    "sorry": "Oprostite",
+    "excuse_me": "Oprostite"
+  },
+  "navigation": {
+    "home": "Početna",
+    "about": "O nama",
+    "services": "Usluge",
+    "contact": "Kontakt",
+    "blog": "Blog"
+  },
+  "pages": {
+    "home": {
+      "title": "Dobrodošli na našu web stranicu",
+      "description": "Drago nam je što ste ovdje. Istražite naše usluge i ponudu."
+    },
+    "about": {
+      "title": "O nama",
+      "description": "Saznajte više o našoj misiji, viziji i vrijednostima."
+    },
+    "services": {
+      "title": "Naše usluge",
+      "list": [
+        "Razvoj web stranica",
+        "Razvoj mobilnih aplikacija",
+        "Digitalni marketing",
+        "SEO optimizacija"
+      ]
+    },
+    "contact": {
+      "title": "Kontaktirajte nas",
+      "description": "Javite nam se putem obrasca u nastavku ili putem e-pošte."
+    },
+    "blog": {
+      "title": "Naš blog",
+      "description": "Pročitajte najnovije članke i ažuriranja iz našeg tima."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Vaša tvrtka. Sva prava pridržana.",
+    "privacy_policy": "Politika privatnosti",
+    "terms_of_service": "Uvjeti korištenja"
+  },
+  "errors": {
+    "404": {
+      "title": "Stranica nije pronađena",
+      "message": "Žao nam je, stranica koju tražite ne postoji."
+    },
+    "500": {
+      "title": "Interna pogreška poslužitelja",
+      "message": "Nešto je pošlo po zlu na našoj strani. Molimo pokušajte ponovno kasnije."
+    }
+  }
+}

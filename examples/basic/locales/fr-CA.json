@@ -1,0 +1,62 @@
+{
+  "common": {
+    "greeting": "Bonjour",
+    "farewell": "Au revoir",
+    "thank_you": "Merci",
+    "welcome": "Bienvenue",
+    "yes": "Oui",
+    "no": "Non",
+    "please": "S'il vous plaît",
+    "sorry": "Désolé",
+    "excuse_me": "Excusez-moi"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "pages": {
+    "home": {
+      "title": "Bienvenue sur notre site web",
+      "description": "Nous sommes ravis de vous accueillir. Découvrez nos services et offres."
+    },
+    "about": {
+      "title": "À propos de nous",
+      "description": "Apprenez-en plus sur notre mission, vision et valeurs."
+    },
+    "services": {
+      "title": "Nos services",
+      "list": [
+        "Développement Web",
+        "Développement d'applications mobiles",
+        "Marketing numérique",
+        "Optimisation SEO"
+      ]
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "description": "Contactez-nous via le formulaire ci-dessous ou par e-mail."
+    },
+    "blog": {
+      "title": "Notre blogue",
+      "description": "Lisez les derniers articles et mises à jour de notre équipe."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Votre entreprise. Tous droits réservés.",
+    "privacy_policy": "Politique de confidentialité",
+    "terms_of_service": "Conditions d'utilisation"
+  },
+  "errors": {
+    "404": {
+      "title": "Page non trouvée",
+      "message": "Désolé, la page que vous recherchez n'existe pas."
+    },
+    "500": {
+      "title": "Erreur interne du serveur",
+      "message": "Quelque chose s'est mal passé de notre côté. Veuillez réessayer plus tard."
+    }
+  }
+}

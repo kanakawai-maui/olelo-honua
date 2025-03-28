@@ -1,0 +1,62 @@
+{
+  "common": {
+    "greeting": "Tere",
+    "farewell": "Head aega",
+    "thank_you": "Aitäh",
+    "welcome": "Tere tulemast",
+    "yes": "Jah",
+    "no": "Ei",
+    "please": "Palun",
+    "sorry": "Vabandust",
+    "excuse_me": "Vabandage mind"
+  },
+  "navigation": {
+    "home": "Kodu",
+    "about": "Meist",
+    "services": "Teenused",
+    "contact": "Kontakt",
+    "blog": "Blogi"
+  },
+  "pages": {
+    "home": {
+      "title": "Tere tulemast meie veebilehele",
+      "description": "Oleme rõõmsad, et olete siin. Uurige meie teenuseid ja pakkumisi."
+    },
+    "about": {
+      "title": "Meist",
+      "description": "Lugege lähemalt meie missiooni, visiooni ja väärtuste kohta."
+    },
+    "services": {
+      "title": "Meie teenused",
+      "list": [
+        "Veebiarendus",
+        "Mobiilirakenduste arendus",
+        "Digitaalne turundus",
+        "SEO optimeerimine"
+      ]
+    },
+    "contact": {
+      "title": "Võtke meiega ühendust",
+      "description": "Võtke meiega ühendust alloleva vormi või e-posti teel."
+    },
+    "blog": {
+      "title": "Meie blogi",
+      "description": "Lugege meie meeskonna uusimaid artikleid ja uuendusi."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Teie ettevõte. Kõik igused kaitstud.",
+    "privacy_policy": "Privaatsuspoliitika",
+    "terms_of_service": "Kasutustingimused"
+  },
+  "errors": {
+    "404": {
+      "title": "Lehte ei leitud",
+      "message": "Vabandust, lehte, mida otsite, ei ole olemas."
+    },
+    "500": {
+      "title": "Sisemine serveritõrge",
+      "message": "Meie poolel tekkis viga. Palun proovige hiljem uuesti."
+    }
+  }
+}

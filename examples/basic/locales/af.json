@@ -1,0 +1,62 @@
+{
+  "common": {
+    "greeting": "Hallo",
+    "farewell": "Totsiens",
+    "thank_you": "Dankie",
+    "welcome": "Welkom",
+    "yes": "Ja",
+    "no": "Nee",
+    "please": "Asseblief",
+    "sorry": "Jammer",
+    "excuse_me": "Verskoon my"
+  },
+  "navigation": {
+    "home": "Tuis",
+    "about": "Oor Ons",
+    "services": "Dienste",
+    "contact": "Kontak",
+    "blog": "Blog"
+  },
+  "pages": {
+    "home": {
+      "title": "Welkom by Ons Webwerf",
+      "description": "Ons is bly om jou hier te hê. Verken ons dienste en aanbiedinge."
+    },
+    "about": {
+      "title": "Oor Ons",
+      "description": "Leer meer oor ons missie, visie en waardes."
+    },
+    "services": {
+      "title": "Ons Dienste",
+      "list": [
+        "Webontwikkeling",
+        "Mobiele App Ontwikkeling",
+        "Digitale Bemarking",
+        "SEO Optimalisering"
+      ]
+    },
+    "contact": {
+      "title": "Kontak Ons",
+      "description": "Kontak ons deur die vorm hieronder of per e-pos."
+    },
+    "blog": {
+      "title": "Ons Blog",
+      "description": "Lees die jongste artikels en opdaterings van ons span."
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 Jou Maatskappy. Alle regte voorbehou.",
+    "privacy_policy": "Privaatheidsbeleid",
+    "terms_of_service": "Diensvoorwaardes"
+  },
+  "errors": {
+    "404": {
+      "title": "Blad Nie Gevind Nie",
+      "message": "Jammer, die blad waarna jy soek, bestaan nie."
+    },
+    "500": {
+      "title": "Interne Bedienerfout",
+      "message": "Iets het aan ons kant verkeerd geloop. Probeer asseblief later weer."
+    }
+  }
+}

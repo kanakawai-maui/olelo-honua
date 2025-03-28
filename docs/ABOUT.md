@@ -17,8 +17,10 @@ For open-source maintainers, **the challenge is not just about translating words
 ### Core Components
 
 - **Main Translation Loop**: Executes initial translations and caches results.
-- **Critique Loop**: Analyzes translations to identify errors and any areas for improvement.  Breaks down the evaluation into components, each focusing on a different aspect of the translation's quality.  
+- **Critique Loop**: Analyzes translations to identify errors and any areas for improvement. Breaks down the evaluation into components, each focusing on a different aspect of the translation's quality.
 - **Repair Loop**: Implements corrections based on critique feedback with a goal of enhancing accuracy.
+
+![State Diagram](docs/clean_state_diagram.png)
 
 ### Implementation
 
@@ -34,7 +36,7 @@ For open-source maintainers, **the challenge is not just about translating words
 - **Scalability**: Efficiently handles large-scale content translation, with results that can be cached and reused later.
 - **Error Resilience**: Retry mechanisms enhance system reliability.
 
-## Ultimate Goal:  Bridging AI and Human Expertise
+## Ultimate Goal: Bridging AI and Human Expertise
 
 **Human review is indispensable for achieving high-quality translations**. While AI excels at processing vast amounts of data, identifying patterns, and delivering rapid results, it often falls short in capturing subtle nuances, idiomatic expressions, and cultural sensitivities. In some cases, it may even produce entirely incorrect translations. By incorporating human reviewers into the workflow, ʻŌlelo Honua bridges this gap, leveraging human expertise to ensure translations are not only technically accurate but also resonate meaningfully with the intended audience. This synergy between human insight and AI efficiency underscores the critical role of community-driven translation efforts in the success of open-source projects.
 
@@ -46,6 +48,5 @@ For open-source maintainers, **the challenge is not just about translating words
 - **i18n Migrations**: Streamline translation updates by supporting i18n migrations. Give ability for power users to efficiently manage these updates via `.md` files or some other human-readable format.
 - **Human Injection of Context**: Introduce mechanisms that allow human contributors to provide additional context during the translation process. This feature will enable translators to specify cultural, historical, or situational nuances that automated systems might overlook. By embedding this context directly into the translation workflow, ʻŌlelo Honua can produce outputs that are more aligned with the intended meaning and audience expectations.
 - **Human-Centric Critique and Repair Hooks**: Introduce more hooks and interfaces to facilitate deeper human involvement in the translation process, ensuring cultural and contextual appropriateness.
-
 
 ʻŌlelo Honua is still in its early stages, and we are actively seeking collaborators to help bring these ambitious goals to life. Whether you are a developer, linguist, or simply passionate about bridging language barriers, your contributions can play a pivotal role in shaping the future of this project. Together, we can refine the system, expand its capabilities, and create a tool that fosters global understanding and communication.
