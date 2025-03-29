@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@google-cloud/translate": "^8.5.1",
-    "@vitalets/google-translate-api": "^9.2.1",
     "axios": "^1.8.3",
     "commander": "^13.1.0",
     "dotenv": "^16.4.7",

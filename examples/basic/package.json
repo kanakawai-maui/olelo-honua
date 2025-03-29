@@ -9,6 +9,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "olelo-honua": "^3.0.2-future"
+    "olelo-honua": "^3.0.3-rc"
   }
 }
