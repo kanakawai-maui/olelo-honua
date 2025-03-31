@@ -16,7 +16,13 @@ We’re thrilled to have you here! Your ideas, code, and passion can make a real
 npm run build
 ```
 
-## Pack the library:
+## Use the CLI:
+
+```
+npx .
+```
+
+## Pack the library for manual import:
 
 ```
 npm pack
