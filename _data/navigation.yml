@@ -1,7 +1,7 @@
 - name: About
   dropdown:
-  - name: Deep Dive
-    link: /docs/deep_dive.html
+    - name: Deep Dive
+      link: /docs/deep_dive.html
 - name: Integrations
   dropdown:
     - name: Shopify
