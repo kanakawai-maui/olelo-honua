@@ -1,7 +1,9 @@
 # _config.yml
 remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
 gh_sponsor: brownrw8
+google_analytics: G-6JFSY25SGS
 footer_menu: footer
+cookie_policy: cookie-banner
 theme_color: rebeccapurple
 defaults:
   - scope:
