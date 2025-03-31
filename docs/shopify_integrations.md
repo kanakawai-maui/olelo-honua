@@ -14,11 +14,9 @@ Looking to enhance your Shopify store with multilingual support? ʻŌlelo Honua'
 - **Save Time**: Automate tedious translation tasks, allowing you to focus on growing your business.
 
 #### Get Started:
-1. Install the ʻŌlelo Honua CLI:
-    -`npm install -g npx && npx olelo-honua`
+1. Install the ʻŌlelo Honua CLI: `npm install -g npx && npx --yes olelo-honua`
 2. Configure your Shopify project for localization using the step-by-step [setup instructions](https://shopify.dev/docs/storefronts/themes/architecture/locales).
-3. Run the CLI to generate and synchronize translation files:
-    -`npx olelo-honua init`
+3. Run the CLI to generate and synchronize translation files: `npx olelo-honua init`
 4. Test your localized storefront and start reaching a global audience!
 
 Start scaling your e-commerce business today with ʻŌlelo Honua and unlock the potential of a truly multilingual Shopify store!  
