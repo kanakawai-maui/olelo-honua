@@ -1,12 +1,32 @@
 - name: About
-  link: /docs/deep_dive.html
-- name: Code
-  link: https://github.com/brownrw8/olelo-honua
-- name: Community
-  link: https://github.com/brownrw8/olelo-honua/discussions
-- name: More
   dropdown:
+  - name: Deep Dive
+    link: /docs/deep_dive.html
+- name: Integrations
+  dropdown:
+    - name: Shopify
+      link: /docs/shopify_integrations.html
+- name: Quickstart Guides
+  dropdown:
+    - name: OpenRouter
+      link: https://openrouter.ai/docs/quickstart
+    - name: OpenAI
+      link: https://platform.openai.com/docs/quickstart?api-mode=chat
+    - name: Google Translate
+      link: https://cloud.google.com/translate/docs/basic/translate-text-basic
+- name: Code
+  dropdown:
+    - name: Github Repository
+      link: https://github.com/brownrw8/olelo-honua
+    - name: Community
+      link: https://github.com/brownrw8/olelo-honua/discussions
     - name: Bug Reports
       link: https://github.com/brownrw8/olelo-honua/issues
     - name: Feature Requests
       link: https://github.com/brownrw8/olelo-honua/pulls
+- name: Other
+  dropdown:
+    - name: Contributing
+      link: /docs/contributing.html
+    - name: Code of Conduct
+      link: /docs/code_of_conduct.html
