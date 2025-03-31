@@ -31,7 +31,19 @@ Here's a simple illustration:
 
 This automation makes it easier to manage internationalization in your application, allowing you to focus on other stuff!
 
-### Technical Deep Dive
+## Use Cases
+
+### Web Apps Served with Node.js
+
+Building web applications with Node.js? ʻŌlelo Honua seamlessly integrates into your server-side workflows. Directly incorporate translation management into your Node.js app, enabling real-time localization for dynamic content. Whether you're serving a React, Vue, or plain HTML frontend, ʻŌlelo Honua ensures your app speaks the language of your users effortlessly. Simplify your localization pipeline and deliver a truly global experience!
+
+### Shopify Integration
+
+Looking to enhance your Shopify store with multilingual support? ʻŌlelo Honua's easy-to-use CLI simplifies the process of localizing your storefront, helping you reach a global audience. Automate translation file generation and synchronization for your Shopify themes and apps, ensuring a seamless shopping experience for customers worldwide. Start scaling your e-commerce business today with ʻŌlelo Honua!
+
+[Learn more about Shopify integrations](docs/shopify_integrations.md)
+
+## Technical Deep Dive
 
 For more details about my approach, vision, and methodology, refer to [About ʻŌlelo Honua](docs/deep_dive.md).
 
