@@ -1,8 +1,13 @@
 examples/
-_data/
-_includes/
+src/
 images/
 docs/
 promo/
 assets/
 test/
+_data/
+_includes/
+_config.yml
+.github/
+local.config.json
+
