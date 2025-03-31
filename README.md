@@ -2,7 +2,8 @@
 
 ## 🌺🌸🌼 Bloom Your Internationalization Workflow! 🌷🌻🌹
 
-Struggling to keep up with the demands of managing translation files for your multilingual app? Tools like i18next or react-i18next often leave you stuck in manual workflows, relying on services like Google Translate or ChatGPT to fill the gaps. It’s tedious, time-consuming, and easy to make mistakes.
+Struggling to keep up with the demands of managing translation files for your multilingual app? Useful tools like [i18next](https://github.com/i18next/i18next) often still leave you stuck in manual workflows, relying on services like Google Translate or ChatGPT to fill the gaps. 
+ It’s tedious, time-consuming, and easy to make mistakes.
 
 That’s where **ʻŌlelo Honua** comes in. This tool takes the hassle out of internationalization (i18n) by automating translation file creation and updates. Beyond just saving time, it ensures your translations are accurate, culturally appropriate, and free from common errors.
 
@@ -16,13 +17,13 @@ Ready to supercharge your i18n workflow? Our newly revamped AI language engine i
 
 ### Problem
 
-Imagine building an app that speaks to the world. You start with one language, but as your app grows, so does the demand for multilingual support. Manually crafting and updating translation files for every new language? It’s a grind—tedious, error-prone, and a major time sink. Sound familiar?
+Imagine building an app that speaks to the world. You start with one language, but as your app grows, so does the demand for multilingual support. Manually crafting and updating translation files for every new language? It’s a grind—tedious, error-prone, and a major time sink.
 
-With these models, ʻŌlelo Honua ensures you have access to the best tools for your internationalization needs, whether you're working on a small project or scaling to global audiences.
+Tools like (i18next)[[i18next](https://github.com/i18next/i18next)] are truly great, but they don't handle automatic translations.  Even [i18nest-scanner](https://github.com/i18next/i18next-scanner) involves a significant manual aspect - and all content needs to be retranslated, manually, nearly every time your site changes.  No wonder so many websites forgo i18n completely.
 
 ### Solution
 
-Say goodbye to the headaches of managing translation files! ʻŌlelo Honua takes the grunt work out of internationalization by automating the creation and synchronization of translation files. With support for trusted providers like Google Translate, it ensures your translations are not only accurate but also always up-to-date. Save time, eliminate errors, and focus on what truly matters—building a world-class multilingual app.
+ʻŌlelo Honua takes the grunt work out of i18n by automating the creation and synchronization of translation files. With support for trusted providers like Google Translate, it ensures translations are not only accurate but also always up-to-date. Save time, eliminate errors, and focus on what truly matters—building a world-class multilingual app.
 
 Here's a simple illustration:
 
