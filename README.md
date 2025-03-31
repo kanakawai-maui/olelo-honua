@@ -80,7 +80,7 @@ The `primeLanguage` setting is crucial for the translation process. It must have
 
 Without this file, the translation process cannot proceed as it relies on the base language file to generate translations for other languages.
 
-## Using the CLI (Experimental Feature)
+## Using the CLI
 
 Here's how you use the CLI:
 ```bash
