@@ -34,5 +34,6 @@
     "language",
     "i18n",
     "l10n"
-  ]
+  ],
+  "bin": "./bin.js"
 }

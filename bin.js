@@ -1,7 +1,9 @@
-const { Command } = require("commander");
+#!/usr/bin/env node
+
 const fs = require("fs");
 const path = require("path");
 const { OleloHonua } = require("./dist/index.js");
+const { Command } = require("commander");
 const packageJson = require("./package.json");
 
 const program = new Command();

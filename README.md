@@ -1,4 +1,4 @@
-# ʻŌlelo Honua
+# ʻŌlelo Honua 
 
 ## 🌺🌸🌼 Bloom Your Internationalization Workflow! 🌷🌻🌹
 
@@ -83,14 +83,13 @@ Without this file, the translation process cannot proceed as it relies on the ba
 ## Using the CLI (Experimental Feature)
 
 Here's how you use the CLI:
-
 ```bash
 # Initialize locale files using the CLI
-npm olelo-honua.js init --config ./local.config.json --debug
+npx olelo-honua init --config ./local.config.json --debug
 ```
 
 ### Example Breakdown:
-- `npm olelo-honua.js init`: Runs the `init` command to create or update locale files.
+- `npx olelo-honua init`: Runs the `init` command to create or update locale files.
 - `--config ./local.config.json`: Specifies the path to the configuration file. If omitted, it defaults to `local.config.json` in the current working directory.
 - `--debug`: Enables debug mode for detailed logging during the process.
 
