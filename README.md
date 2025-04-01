@@ -116,9 +116,10 @@ npx olelo-honua sync
 ```
 
 ### Example Breakdown:
-- `npx olelo-honua init`: Runs the `init` command to create or update locale files.
+- `npx olelo-honua init`: Runs the `init` command to create locale files.
 - `--config ./local.config.json`: Specifies the path to the configuration file. If omitted, it defaults to `local.config.json` in the current working directory.
 - `--debug`: Enables debug mode for detailed logging during the process.
+- `npx olelo-honua sync`: Runs the `sync` command to sync all locale files based on latest changes and update translation cache.
 
 This command will read the configuration file, generate the necessary translation files, and log the process to the console.
 
