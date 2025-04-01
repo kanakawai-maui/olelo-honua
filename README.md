@@ -268,12 +268,6 @@ Afrikaans 🇿🇦 | Albanian 🇦🇱 | Amharic 🇪🇹 | Arabic 🇸🇦 | Ar
 </details>
 
 
-```markdown
-{% raw %}
-Discover more about our mission, features, and updates on our [official ʻŌlelo Honua website](https://www.olelohonua.com). 🌐✨
-{% endraw %}
-```
-
 ## Contributing
 
 We welcome contributions from developers of all skill levels! Whether it's fixing a bug, adding a feature, or improving documentation, your help is greatly appreciated. To get started, check out our [Contributing Guide](docs/contributing.md) for detailed instructions on how to contribute to the project. Let's build something amazing together!
