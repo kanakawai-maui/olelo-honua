@@ -262,7 +262,10 @@ rm -rf .translations_cache.json
 
 In addition to **Hawaiian** 🌺, ʻŌlelo Honua supports a wide range of languages:
 
+<details>
+ <summary>Supported Languages 🌍</summary>
 Afrikaans 🇿🇦 | Albanian 🇦🇱 | Amharic 🇪🇹 | Arabic 🇸🇦 | Armenian 🇦🇲 | Bengali 🇧🇩 | Basque 🇪🇸 | Bulgarian 🇧🇬 | Belarusian 🇧🇾 | Burmese 🇲🇲 | Catalan 🇪🇸 | Chinese (Simplified) 🇨🇳 | Chinese (Traditional) 🇹🇼 | Chinese (Hong Kong) 🇭🇰 | Croatian 🇭🇷 | Czech 🇨🇿 | Danish 🇩🇰 | Dutch 🇳🇱 | English (US) 🇺🇸 | English (UK) 🇬🇧 | English (Australia) 🇦🇺 | English (Canada) 🇨🇦 | Estonian 🇪🇪 | Filipino 🇵🇭 | Finnish 🇫🇮 | French (France) 🇫🇷 | French (Canada) 🇨🇦 | Galician 🇪🇸 | Georgian 🇬🇪 | German 🇩🇪 | Greek 🇬🇷 | Gujarati 🇮🇳 | Hebrew 🇮🇱 | Hindi 🇮🇳 | Hungarian 🇭🇺 | Icelandic 🇮🇸 | Indonesian 🇮🇩 | Italian 🇮🇹 | Japanese 🇯🇵 | Kannada 🇮🇳 | Kazakh 🇰🇿 | Khmer 🇰🇭 | Korean 🇰🇷 | Kyrgyz 🇰🇬 | Lao 🇱🇦 | Latvian 🇱🇻 | Lithuanian 🇱🇹 | Macedonian 🇲🇰 | Malay (Malaysia) 🇲🇾 | Malayalam 🇮🇳 | Marathi 🇮🇳 | Mongolian 🇲🇳 | Nepali 🇳🇵 | Norwegian 🇳🇴 | Persian 🇮🇷 | Polish 🇵🇱 | Portuguese (Brazil) 🇧🇷 | Portuguese (Portugal) 🇵🇹 | Punjabi 🇮🇳 | Romanian 🇷🇴 | Russian 🇷🇺 | Sinhala 🇱🇰 | Slovak 🇸🇰 | Slovenian 🇸🇮 | Spanish (Spain) 🇪🇸 | Spanish (Latin America) 🌎 | Spanish (United States) 🇺🇸 | Swahili 🇹🇿 | Swedish 🇸🇪 | Tagalog 🇵🇭 | Tamil 🇮🇳 | Telugu 🇮🇳 | Thai 🇹🇭 | Turkish 🇹🇷 | Ukrainian 🇺🇦 | Urdu 🇵🇰 | Vietnamese 🇻🇳 | Zulu 🇿🇦
+<details>
 
 
 ## Contributing
