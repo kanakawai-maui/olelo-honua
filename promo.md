@@ -6,7 +6,7 @@ snippet: |-
     `npm i olelo-honua`
     `yarn add olelo-honua`
     `npx --yes olelo-honua`
-hero_link: '#'
+hero_link: '/'
 hero_link_text: Go Global Now
 hero_image: /images/logo.png
 hero_image_alt: ʻŌlelo Honua Logo
