@@ -13,7 +13,7 @@ snippet: |-
     # Run instantly with NPX  
     npx --yes olelo-honua  
     ```
-hero_link: '/'
+hero_link: '/overview'
 hero_link_text: Go Global Now
 hero_image: /images/logo.png
 hero_image_alt: ʻŌlelo Honua Logo
