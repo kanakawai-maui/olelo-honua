@@ -110,6 +110,9 @@ Here's how you use the CLI:
 ```bash
 # Initialize locale files using the CLI
 npx olelo-honua init --config ./local.config.json --debug
+
+# After making changes to locales/en.json, sync locale files using the CLI
+npx olelo-honua sync
 ```
 
 ### Example Breakdown:

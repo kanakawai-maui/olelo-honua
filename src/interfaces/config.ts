@@ -16,6 +16,7 @@ export interface Config {
     repairLoop: number; // Retry limit for repair loop
   },
   debug?: boolean; // Enable or disable debug mode
+  clearCache?: boolean; // Clear cache on startup
   includeLanguage?: string[]; // Languages to include
   excludeLanguage?: string[]; // Languages to exclude
   maxChunkRequests?: 2 | 4 | 6; // Maximum number of chunk requests

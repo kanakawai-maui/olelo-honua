@@ -13,6 +13,7 @@ import {AdvancedPromptingEngine} from "./engine/advancedPromptingEngine";
 import {ConventionalEngine} from "./engine/conventionalEngine";
 
 import { TitleMessage, AlohaMessage, HanaHouMessage } from "./utils/display";
+import {CacheManager} from "./system/shared";
 
 /**
  * The main class for OleloHonua.
@@ -99,10 +100,35 @@ export class OleloHonua {
 
     const primeLanguage = this.config.primeLanguage;
 
-    if (this.config.debug)
-      console.log(`Fetching content for prime language: ${primeLanguage}`);
+    if (this.config.debug) console.log(`Fetching content for prime language: ${primeLanguage}`);
     const from = this.getLanguageInfo(primeLanguage);
     const content = await this.getPrimeLanguageContent(primeLanguage);
+
+    const cacheManager = new CacheManager();
+
+    if(this.config.clearCache){
+      cacheManager.clear();
+    }
+
+    cacheManager.setCacheKey(`${from.code}-root`);
+
+    if (cacheManager.peek()){
+      if (this.config.debug) console.log(`Checking cached content for ${from.code}`);
+      const cacheContent = cacheManager.get();
+      if(cacheContent !== content){
+        if (this.config.debug) {
+          console.log("Content has changed. Clearing cache...");
+        }
+        cacheManager.clear();
+        cacheManager.setCacheKey(`${from.code}-root`);
+        cacheManager.set(content);
+        cacheManager.save();
+      }
+    }
+
+    cacheManager.setCacheKey(`${from.code}-root`);
+    cacheManager.set(content);
+    cacheManager.save();
 
     const maxChunkRequests = this.config.maxChunkRequests || 1;
 

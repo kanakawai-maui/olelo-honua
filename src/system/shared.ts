@@ -141,7 +141,6 @@ export class CacheManager {
   }
 
   public clear(): void {
-    this.autoCacheKey = CacheManager.DEFAULT_CACHE_KEY;
     this.cache = {};
     fs.writeFileSync(this.cacheFilePath, JSON.stringify(this.cache, null, 2));
   }
