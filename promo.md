@@ -3,10 +3,16 @@ title: ʻŌlelo Honua
 subtitle: Bloom Your i18n Workflow!
 layout: promo-page
 snippet: |-
-    Installation:
-    - NPM: `npm i olelo-honua`
-    - Yarn: `yarn add olelo-honua`
-    - NPX: `npx --yes olelo-honua`
+    ```bash
+    # Install with NPM  
+    npm i olelo-honua  
+
+    # Install with Yarn  
+    yarn add olelo-honua  
+
+    # Run instantly with NPX  
+    npx --yes olelo-honua  
+    ```
 hero_link: '/'
 hero_link_text: Go Global Now
 hero_image: /images/logo.png
