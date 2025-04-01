@@ -1,3 +1,7 @@
+---
+permalink: /overview
+---
+
 # ʻŌlelo Honua 
 
 ## 🌺🌸🌼 Bloom Your Internationalization Workflow! 🌷🌻🌹
