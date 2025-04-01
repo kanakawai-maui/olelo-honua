@@ -16,6 +16,9 @@ about_image: /images/logo_nobg.png
 about_image_alt: ʻŌlelo Honua White Logo
 about_title: Expand Your Reach
 product_code: "`npm i olelo-honua`"
+permalink: /
+redirect_from:
+  - /promo
 ---
 
 ## Go Global Without the Headache

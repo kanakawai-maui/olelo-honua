@@ -5,6 +5,8 @@ google_analytics: G-6JFSY25SGS
 footer_menu: footer
 cookie_policy: cookie-banner
 theme_color: rebeccapurple
+plugins:
+  - jekyll-redirect-from
 defaults:
   - scope:
       path: ""
