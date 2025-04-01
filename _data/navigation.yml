@@ -27,6 +27,6 @@
 - name: Other
   dropdown:
     - name: Contributing
-      link: /docs/contributing.html
+      link: /docs/contributing.md
     - name: Code of Conduct
-      link: /docs/code_of_conduct.html
+      link: /docs/code_of_conduct.md
