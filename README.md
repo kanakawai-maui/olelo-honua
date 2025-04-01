@@ -60,6 +60,12 @@ npm install olelo-honua
 or
 
 ```bash
+npx --yes olelo-honua
+```
+
+or
+
+```bash
 yarn add olelo-honua
 ```
 
