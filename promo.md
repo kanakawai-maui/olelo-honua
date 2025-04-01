@@ -3,9 +3,12 @@ title: ʻŌlelo Honua
 subtitle: Bloom Your Internationalization Workflow!
 layout: promo-page
 snippet: |-
-    `npm i olelo-honua`
-    `yarn add olelo-honua`
-    `npx --yes olelo-honua`
+    NPM:
+        - `npm i olelo-honua`
+    Yarn:
+        - `yarn add olelo-honua`
+    NPX:
+        - `npx --yes olelo-honua`
 hero_link: '/'
 hero_link_text: Go Global Now
 hero_image: /images/logo.png
