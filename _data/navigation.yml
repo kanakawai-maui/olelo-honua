@@ -6,6 +6,10 @@
       link: /docs/deep_dive.html
 - name: Integrations
   dropdown:
+    - name: NextJS
+      link: /docs/nextjs_integrations.html
+    - name: Remix
+      link: /docs/remix_integrations.html
     - name: Shopify
       link: /docs/shopify_integrations.html
 - name: Quickstart Guides
