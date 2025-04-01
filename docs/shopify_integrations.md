@@ -1,4 +1,4 @@
-## Shopify Integration
+## ʻŌlelo Honua with Shopify
 
 Looking to enhance your Shopify store with multilingual support? ʻŌlelo Honua's easy-to-use CLI simplifies the process of localizing your storefront, helping you reach a global audience. With just a few commands, you can automate the generation and synchronization of translation files for your Shopify themes and apps, ensuring your store is accessible to customers in their preferred language.
 
