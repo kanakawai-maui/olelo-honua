@@ -18,7 +18,7 @@ hero_link_text: Go Global Now
 hero_image: /images/logo.png
 hero_image_alt: ʻŌlelo Honua Logo
 hero_image_ratio: is-5by5
-about_image: /images/logo_nobg.png
+about_image: /images/logo_sm_nobg.png
 about_image_alt: ʻŌlelo Honua White Logo
 about_title: Expand Your Reach
 product_code: "`npm i olelo-honua`"
