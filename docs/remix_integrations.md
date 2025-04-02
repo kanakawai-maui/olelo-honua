@@ -2,6 +2,8 @@
 
 Looking to make your Remix application multilingual? ʻŌlelo Honua simplifies localization, allowing you to manage and sync translations effortlessly. Follow these steps to enable seamless internationalization in your Remix project.
 
+Steps: 
+
 1. Install ʻŌlelo Honua CLI
 Run the following command to install the CLI globally:
 
@@ -80,4 +82,4 @@ Whenever you update your translations, run:
 npx olelo-honua sync
 ```
 
-This ensures your translation files stay updated.
+This ensures your translation files stay updated.  
