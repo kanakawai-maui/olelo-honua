@@ -1,5 +1,5 @@
 import path from "path";
-import fs from "fs";
+import {promises as fs} from "fs";
 import { Language } from "../types/shared";
 
 export type FileType = "json" | "yaml" | "md" | "txt";
@@ -16,19 +16,21 @@ export class FileManager {
    *
    * @param content - The content to be saved in the file.
    */
-  public save(
+  public async save(
     pathName: string,
     fileName: string,
     format: FileType = "json",
     content: string,
-  ) {
+  ): Promise<void> {
     const rootPath = path.join(this.__dirname, pathName);
-    if (!fs.existsSync(rootPath)) {
-      fs.mkdirSync(rootPath);
+    try {
+      await fs.access(rootPath);
+    } catch {
+      await fs.mkdir(rootPath, { recursive: true });
     }
     const filePath = path.join(rootPath, `${fileName}.${format}`);
     const json = JSON.parse(content);
-    fs.writeFileSync(filePath, JSON.stringify(json, null, 2));
+    await fs.writeFile(filePath, JSON.stringify(json, null, 2));
   }
 }
 
@@ -45,8 +47,8 @@ export class LocaleFileManager extends FileManager {
    *
    * @param content - The content to be saved in the file.
    */
-  public saveContent(content: string, format: FileType = "json") {
-    super.save("locales", `${this.language.code}`, "json", content);
+  public async saveContent(content: string, format: FileType = "json") {
+    await super.save("locales", `${this.language.code}`, "json", content);
   }
 }
 
@@ -69,16 +71,16 @@ export class CritiqueFileManager extends FileManager {
    *
    * @param content - The content to be saved in the file.
    */
-  public saveContent(content: string, format: FileType = "json") {
+  public async saveContent(content: string, format: FileType = "json") {
     if (this.namespace) {
-      super.save(
+      await super.save(
         "critiques",
         `${this.from.code}.${this.to.code}.${this.namespace}`,
         format,
         content,
       );
     } else {
-      super.save(
+      await super.save(
         "critiques",
         `${this.from.code}.${this.to.code}`,
         format,
@@ -98,9 +100,11 @@ export class CacheManager {
   constructor(name: string = "translation_cache", namespace: string = "") {
     this.__dirname = path.resolve(process.cwd());
     this.cacheFilePath = path.join(this.__dirname, `${namespace}.${name}.json`);
-
-    if (fs.existsSync(this.cacheFilePath)) {
-      const cacheRaw = fs.readFileSync(this.cacheFilePath, "utf-8");
+    // keep this synchronous for now because we need to read the cache file before any async operations
+    // could get around that if startup time is a concern though
+    const fsSync = require("fs");
+    if (fsSync.existsSync(this.cacheFilePath)) {
+      const cacheRaw = fsSync.readFileSync(this.cacheFilePath, "utf-8");
       this.cache = JSON.parse(cacheRaw);
     }
   }
@@ -134,14 +138,15 @@ export class CacheManager {
       );
     }
 
-    fs.writeFileSync(this.cacheFilePath, JSON.stringify(this.cache, null, 2));
+    fs.writeFile(this.cacheFilePath, JSON.stringify(this.cache, null, 2));
     if (clearCacheKey) {
       this.autoCacheKey = CacheManager.DEFAULT_CACHE_KEY;
     }
   }
 
-  public clear(): void {
+  public async clear(): Promise<void> {
     this.cache = {};
-    fs.writeFileSync(this.cacheFilePath, JSON.stringify(this.cache, null, 2));
+    fs.writeFile(this.cacheFilePath, JSON.stringify(this.cache, null, 2));
+    this.autoCacheKey = CacheManager.DEFAULT_CACHE_KEY;
   }
 }

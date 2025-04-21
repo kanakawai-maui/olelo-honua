@@ -5,6 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
+    "test:clear": "jest --clearCache",
+    "test:coverage": "jest --coverage",
     "format": "prettier --write .",
     "build": "tsc --build",
     "clean": "tsc --build --clean"
