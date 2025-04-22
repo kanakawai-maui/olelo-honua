@@ -104,7 +104,7 @@
   },
   {
     "code": "tl",
-    "nativeName": "Filipino",
+    "nativeName": "Tagalog",
     "flag": "🇵🇭",
     "englishName": "Filipino"
   },
@@ -455,11 +455,5 @@
     "nativeName": "Svenska",
     "englishName": "Swedish",
     "flag": "🇸🇪"
-  },
-  {
-    "code": "tl",
-    "nativeName": "Tagalog",
-    "flag": "🇵🇭",
-    "englishName": "Tagalog"
   }
 ]
