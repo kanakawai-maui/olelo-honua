@@ -47,18 +47,18 @@ export class ConventionalEngine implements PartialEngine {
             `Translating ${this.from.code} -> ${this.to.code}  (main loop retries left: ${retries})`,
           );
         }
-        this.cacheManager.setCacheKey(
+        await this.cacheManager.setCacheKey(
           `${this.from.code}-${this.to.code}-${this.provider.constructor.name}`,
         );
         let translated;
 
-        if (this.cacheManager.peek()) {
+        if (await this.cacheManager.peek()) {
           if (this.config.debug) {
             console.log(
               `Using cached bulk translation for ${this.from.code} -> ${this.to.code}`,
             );
           }
-          translated = this.cacheManager.get();
+          translated = await this.cacheManager.get();
         } else {
           if (this.config.debug) {
             console.log(
@@ -70,9 +70,9 @@ export class ConventionalEngine implements PartialEngine {
             this.from,
             this.to,
           );
-          this.cacheManager.set(translated);
+          await this.cacheManager.set(translated);
         }
-        this.cacheManager.save();
+        await this.cacheManager.save();
         this.localeFileManager.saveContent(translated);
       } catch (e) {
         console.error(`Error: An error occurred during main loop. Retrying...`);
