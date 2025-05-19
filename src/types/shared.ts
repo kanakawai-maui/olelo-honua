@@ -8,9 +8,8 @@ export type Language = {
 export type Models = Record<string, Record<string, string>>;
 
 export type FileFormat = {
-name: string;
-ext: string;
-exampleTitle: string;
-exampleDetail: string;
+  name: string;
+  ext: string;
+  exampleTitle: string;
+  exampleDetail: string;
 };
-

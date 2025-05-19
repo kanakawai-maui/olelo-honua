@@ -4,7 +4,8 @@ import { compareKeys } from "../../utils/shared";
 
 const examples = [
   {
-    description: "Translation example from English to Japanese using domain-specific language (DSL).",
+    description:
+      "Translation example from English to Japanese using domain-specific language (DSL).",
     translate: {
       input: `
         <TRANSLATE from="en" to="ja" action="translate">
@@ -28,10 +29,11 @@ const examples = [
           <CRITIQUE>{"consistencyAndCompleteness": "The translation maintains consistency and completeness for most terms, with accurate translations such as 'Welcome to our wonderful website' to '私たちの素晴らしいウェブサイトへようこそ' and 'We value your privacy and data security.' to 'プライバシーとデータセキュリティを大切にしています。'. Proper nouns like 'Peter Smith' and 'Hypergrowth Inc.' are preserved as expected.", "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content.", "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Japanese while maintaining the original meaning.", "culturalAppropriateness": "The translation is culturally appropriate, using polite and formal Japanese expressions where necessary.", "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct.", "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions.", "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified.", "scoring": { "consistencyAndCompleteness": 10, "clarityAndReadability": 10, "accuracyOfTranslation": 10, "culturalAppropriateness": 10, "syntaxAndStructure": 10, "naturalFlow": 10, "summary": 10 }}</CRITIQUE>
         </TRANSLATE>`,
       output: `{"welcome": "私たちの素晴らしいウェブサイトへようこそ", "privacyStatment": "プライバシーとデータセキュリティを大切にしています。", partners: ["Peter Smith", "Martin Gross", "Laura Sanchez"], hero: {title: "Hypergrowth Inc.", tagline: "強さとシナジーを通じて多様化しています。"}}`,
-    }
+    },
   },
   {
-    description: "Translation example from English to Arabic using domain-specific language (DSL).",
+    description:
+      "Translation example from English to Arabic using domain-specific language (DSL).",
     translate: {
       input: `
         <TRANSLATE from="en" to="ar" action="translate">
@@ -55,7 +57,7 @@ const examples = [
           <CRITIQUE>{"consistencyAndCompleteness": "The translation is consistent and complete, with all terms accurately translated into Arabic. Proper nouns like 'Peter Smith' and 'Hypergrowth Inc.' are preserved as expected.", "clarityAndReadability": "The translation is clear and easy to read, with no ambiguities in the translated content.", "accuracyOfTranslation": "The translation is accurate, with all values correctly translated into Arabic while maintaining the original meaning.", "culturalAppropriateness": "The translation is culturally appropriate, using formal Arabic expressions where necessary.", "syntaxAndStructure": "The syntax and structure of the JSON are preserved, and the translated values are grammatically correct.", "naturalFlow": "The translation flows naturally, with no awkward phrasing or unnatural expressions.", "summary": "The translation is highly accurate, clear, and culturally appropriate, with no issues identified.", "scoring": { "consistencyAndCompleteness": 10, "clarityAndReadability": 10, "accuracyOfTranslation": 10, "culturalAppropriateness": 10, "syntaxAndStructure": 10, "naturalFlow": 10, "summary": 10 }}</CRITIQUE>
         </TRANSLATE>`,
       output: `{"welcome": "مرحبًا بكم في موقعنا الرائع", "privacyStatment": "نحن نقدر خصوصيتك وأمان بياناتك.", partners: ["Peter Smith", "Martin Gross", "Laura Sanchez"], hero: {title: "Hypergrowth Inc.", tagline: "التنوع من خلال القوة والتآزر."}}`,
-    }
+    },
   },
 ];
 
@@ -124,7 +126,7 @@ SPECIAL_INSTRUCTIONS:
   - Output the translated JSON only.  Recall that only the values within the JSON should be translated to target_language.
   Examples
     ${examples.map((example) => {
-    return `
+      return `
       Description: ${example.description}
       Input: ${example.translate.input}
       Output: ${example.translate.output}
@@ -140,12 +142,12 @@ SPECIAL_INSTRUCTIONS:
 
   Examples
     ${examples.map((example) => {
-    return `
+      return `
       Description: ${example.description}
       Input: ${example.critique.input}
       Output: ${example.critique.output}
     `;
-  })}
+    })}
 
 - You may also be asked to [REPAIR] translations if the TRANSLATE tag includes both a FROM, TO, & CRITIQUE tag and action="repair":
   - [REPAIR] instructions will be provided within <TRANSLATE from="source_language" to="target_language" action="repair"><FROM>...</FROM><TO>...</TO><CRITIQUE>...</CRITIQUE></TRANSLATE> tags.
@@ -154,15 +156,17 @@ SPECIAL_INSTRUCTIONS:
     - Only return JSON content.
   Examples
     ${examples.map((example) => {
-    return `
+      return `
       Description: ${example.description}
       Input: ${example.repair.input}
       Output: ${example.repair.output}
     `;
-  })}
+    })}
 `;
 
-export abstract class AbstractAdvancedLargeLanguageModelProvider implements AbstractFullProvider {
+export abstract class AbstractAdvancedLargeLanguageModelProvider
+  implements AbstractFullProvider
+{
   abstract getCacheCode(): string;
   abstract getChatCompletion(content: string): Promise<string>;
 
@@ -185,9 +189,7 @@ export abstract class AbstractAdvancedLargeLanguageModelProvider implements Abst
         <CRITIQUE>${critique}</CRITIQUE>
     </TRANSLATE>
     `;
-    const repaired = await this.getChatCompletion(
-      `${systemPrompt} ${prompt}`,
-    );
+    const repaired = await this.getChatCompletion(`${systemPrompt} ${prompt}`);
 
     if (compareKeys(JSON.parse(translated), JSON.parse(repaired))) {
       console.log(
@@ -212,9 +214,7 @@ export abstract class AbstractAdvancedLargeLanguageModelProvider implements Abst
         <TO>${translated}</TO>
     </TRANSLATE>
     `;
-    const critique = await this.getChatCompletion(
-      `${systemPrompt} ${prompt}`,
-    );
+    const critique = await this.getChatCompletion(`${systemPrompt} ${prompt}`);
     return critique;
   }
 

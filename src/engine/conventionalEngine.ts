@@ -1,10 +1,7 @@
 import { jsonrepair } from "jsonrepair";
 import { Language } from "../types/shared";
 import { Config } from "../interfaces/config";
-import {
-  LocaleFileManager,
-  CacheManager
-} from "../system/shared";
+import { LocaleFileManager, CacheManager } from "../system/shared";
 import { PartialProvider } from "../interfaces/provider";
 import { PartialEngine } from "../interfaces/engine";
 

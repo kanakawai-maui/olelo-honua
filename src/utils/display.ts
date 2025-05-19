@@ -1,13 +1,10 @@
-import colors from 'yoctocolors';
+import colors from "yoctocolors";
 
+export const TitleMessage = `
+${colors.cyan(colors.bold("ʻŌlelo Honua"))}
+`;
 
-export const TitleMessage = 
-`
-${colors.cyan(colors.bold('ʻŌlelo Honua'))}
-`
-
-export const AlohaMessage = 
-`
+export const AlohaMessage = `
 ${colors.red(`                                          ∞√≈∞√∞       `)}
 ${colors.red(`                                          ≈=-×÷÷÷      `)}
 ${colors.red(`                         =∞∞   ≈≈      ∞∞≈×∞=-÷      `)}
@@ -37,20 +34,19 @@ ${colors.red(`   ≈≈==÷--- ÷==÷÷÷ =∞≈≠÷----+-÷=≠≠≈≈≠==
 ${colors.red(`   ≠≈≈≠===÷ +++++-÷---×××÷=÷×-+-×=≈≈≈≠≠≈≠≈≈=÷÷××       `)}
 ${colors.red(`    ××÷÷÷÷÷÷÷××××-      ÷=≠≠=÷÷÷×-- -÷=≈≠≠×            `)}
 ${colors.red(`                         -×=≠≠=≠÷×                     `)}             
-`
+`;
 
-export const HanaHouMessage = 
-`
-${colors.cyan(' ___                                  ___                      ___  ')}
-${colors.cyan('(   )                                (   )                    (   ) ')}
-${colors.cyan(' | | .-.    .---.  ___ .-.    .---.   | | .-.   .--.  ___  ___ | |  ')}
-${colors.cyan(' | |/   \\  / .-, \\(   )   \\  / .-, \\  | |/   \\ /    \\(   )(   )| |  ')}
-${colors.magenta(' |  .-. . (__) ; | |  .-. . (__) ; |  |  .-. .|  .-. ;| |  | | | |  ')}
-${colors.magenta(' | |  | |   .\'`  | | |  | |   .\'`  |  | |  | || |  | || |  | | | |  ')}
-${colors.magenta(' | |  | |  / .\'| | | |  | |  / .\'| |  | |  | || |  | || |  | | | |  ')}
-${colors.green(' | |  | | | /  | | | |  | | | /  | |  | |  | || |  | || |  | | | |  ')}
-${colors.green(' | |  | | ; |  ; | | |  | | ; |  ; |  | |  | || \'  | || |  ; \' |_|  ')}
-${colors.green(' | |  | | \' `-\'  | | |  | | \' `-\'  |  | |  | |\'  `-\' /\' `-\'  / .-.  ')}
-${colors.yellow('(___)(___)`.__.\'_(___)(___)`.__.\'_ (___)(___)`.__.\'  \'__.\' (   ) ')}
-${colors.yellow('                                                               \'-\'  ')}       
-`
+export const HanaHouMessage = `
+${colors.cyan(" ___                                  ___                      ___  ")}
+${colors.cyan("(   )                                (   )                    (   ) ")}
+${colors.cyan(" | | .-.    .---.  ___ .-.    .---.   | | .-.   .--.  ___  ___ | |  ")}
+${colors.cyan(" | |/   \\  / .-, \\(   )   \\  / .-, \\  | |/   \\ /    \\(   )(   )| |  ")}
+${colors.magenta(" |  .-. . (__) ; | |  .-. . (__) ; |  |  .-. .|  .-. ;| |  | | | |  ")}
+${colors.magenta(" | |  | |   .'`  | | |  | |   .'`  |  | |  | || |  | || |  | | | |  ")}
+${colors.magenta(" | |  | |  / .'| | | |  | |  / .'| |  | |  | || |  | || |  | | | |  ")}
+${colors.green(" | |  | | | /  | | | |  | | | /  | |  | |  | || |  | || |  | | | |  ")}
+${colors.green(" | |  | | ; |  ; | | |  | | ; |  ; |  | |  | || '  | || |  ; ' |_|  ")}
+${colors.green(" | |  | | ' `-'  | | |  | | ' `-'  |  | |  | |'  `-' /' `-'  / .-.  ")}
+${colors.yellow("(___)(___)`.__.'_(___)(___)`.__.'_ (___)(___)`.__.'  '__.' (   ) ")}
+${colors.yellow("                                                               '-'  ")}       
+`;

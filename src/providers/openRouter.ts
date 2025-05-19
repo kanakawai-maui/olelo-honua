@@ -2,7 +2,6 @@ import axios from "axios";
 import { AbstractAdvancedLargeLanguageModelProvider } from "./abstract/allm";
 import { jsonrepair } from "jsonrepair";
 
-
 export class OpenRouterProvider extends AbstractAdvancedLargeLanguageModelProvider {
   private apiKey: string;
   private modelId: string;

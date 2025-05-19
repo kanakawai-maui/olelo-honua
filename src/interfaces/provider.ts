@@ -27,5 +27,9 @@ export interface Repairer {
   ): Promise<string>;
 }
 
-export interface FullProvider extends Translator, Cachable, Critiquer, Repairer {}
+export interface FullProvider
+  extends Translator,
+    Cachable,
+    Critiquer,
+    Repairer {}
 export interface PartialProvider extends Translator, Cachable {}

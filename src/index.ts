@@ -9,11 +9,11 @@ import { FullProvider, PartialProvider } from "./interfaces/provider";
 import { OpenRouterProvider } from "./providers/openRouter";
 
 import { OpenAIModels, OpenRouterModels } from "./utils/constants";
-import {AdvancedPromptingEngine} from "./engine/advancedPromptingEngine";
-import {ConventionalEngine} from "./engine/conventionalEngine";
+import { AdvancedPromptingEngine } from "./engine/advancedPromptingEngine";
+import { ConventionalEngine } from "./engine/conventionalEngine";
 
 import { TitleMessage, AlohaMessage, HanaHouMessage } from "./utils/display";
-import {CacheManager} from "./system/shared";
+import { CacheManager } from "./system/shared";
 
 /**
  * The main class for OleloHonua.
@@ -37,19 +37,20 @@ export class OleloHonua {
 
   constructor(config: Config) {
     console.log(TitleMessage);
-    switch(config.provider.platform) {
+    switch (config.provider.platform) {
       case OleloHonua.Providers.OpenRouter:
-        if(!config.provider.credentials.apiKey) {
+        if (!config.provider.credentials.apiKey) {
           throw new Error("API key must be specified.");
         }
         this.provider = new OpenRouterProvider(
           config.provider.credentials.apiKey,
-          config.provider.modelId || OpenRouterModels.DEEPSEEK.DEEPSEEK_V3_0324_FREE
+          config.provider.modelId ||
+            OpenRouterModels.DEEPSEEK.DEEPSEEK_V3_0324_FREE,
         );
         this.useAdvancedEngine = true;
         break;
       case OleloHonua.Providers.OpenAI:
-        if(!config.provider.credentials.apiKey) {
+        if (!config.provider.credentials.apiKey) {
           throw new Error("API key must be specified.");
         }
         /*
@@ -61,14 +62,14 @@ export class OleloHonua {
         this.useAdvancedEngine = true;
         throw new Error("OpenAI provider is not implemented yet.");
       case OleloHonua.Providers.GoogleTranslate:
-        if(!config.provider.credentials.projectId) {
+        if (!config.provider.credentials.projectId) {
           throw new Error("Project ID must be specified.");
         }
         this.useAdvancedEngine = false;
         throw new Error("Google Translate provider is not implemented yet.");
       case OleloHonua.Providers.LocalLLM:
         this.useAdvancedEngine = true;
-          throw new Error("LocalLLM is not implemented yet.");
+        throw new Error("LocalLLM is not implemented yet.");
       case OleloHonua.Providers.Custom:
         throw new Error("Custom is not implemented yet.");
       default:
@@ -100,22 +101,24 @@ export class OleloHonua {
 
     const primeLanguage = this.config.primeLanguage;
 
-    if (this.config.debug) console.log(`Fetching content for prime language: ${primeLanguage}`);
+    if (this.config.debug)
+      console.log(`Fetching content for prime language: ${primeLanguage}`);
     const from = this.getLanguageInfo(primeLanguage);
     const content = await this.getPrimeLanguageContent(primeLanguage);
 
     const cacheManager = new CacheManager();
 
-    if(this.config.clearCache){
+    if (this.config.clearCache) {
       cacheManager.clear();
     }
 
     cacheManager.setCacheKey(`${from.code}-root`);
 
-    if (cacheManager.peek()){
-      if (this.config.debug) console.log(`Checking cached content for ${from.code}`);
+    if (cacheManager.peek()) {
+      if (this.config.debug)
+        console.log(`Checking cached content for ${from.code}`);
       const cacheContent = cacheManager.get();
-      if(cacheContent !== content){
+      if (cacheContent !== content) {
         if (this.config.debug) {
           console.log("Content has changed. Clearing cache...");
         }
@@ -134,24 +137,34 @@ export class OleloHonua {
 
     const langChunks = languages
       .filter((lang) => lang !== primeLanguage)
-      .reduce((resultArray, item, index) => { 
-      const chunkIndex = Math.floor(index / maxChunkRequests);
-      if (!resultArray[chunkIndex]) {
-        resultArray[chunkIndex] = [];
-      }
-      resultArray[chunkIndex].push(item);
-      return resultArray;
+      .reduce((resultArray, item, index) => {
+        const chunkIndex = Math.floor(index / maxChunkRequests);
+        if (!resultArray[chunkIndex]) {
+          resultArray[chunkIndex] = [];
+        }
+        resultArray[chunkIndex].push(item);
+        return resultArray;
       }, [] as string[][]);
 
     for (const chunk of langChunks) {
       await Promise.all(
-      chunk.map(async (lang) => {
-        const to = this.getLanguageInfo(lang);
-        const enq = this.useAdvancedEngine
-        ? new AdvancedPromptingEngine(from, to, this.provider as FullProvider, this.config)
-        : new ConventionalEngine(from, to, this.provider as PartialProvider, this.config);
-        await enq.mainLoop(content);
-      })
+        chunk.map(async (lang) => {
+          const to = this.getLanguageInfo(lang);
+          const enq = this.useAdvancedEngine
+            ? new AdvancedPromptingEngine(
+                from,
+                to,
+                this.provider as FullProvider,
+                this.config,
+              )
+            : new ConventionalEngine(
+                from,
+                to,
+                this.provider as PartialProvider,
+                this.config,
+              );
+          await enq.mainLoop(content);
+        }),
       );
     }
   }
