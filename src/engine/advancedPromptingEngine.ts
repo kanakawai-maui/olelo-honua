@@ -101,7 +101,7 @@ export class AdvancedPromptingEngine implements FullEngine {
     original: string | object,
     translated: string | object,
     retries: number = this.critiqueLoopRetries,
-  ) : Promise<string> {
+  ): Promise<string> {
     if (retries >= 0) {
       let critique = "{}";
       try {
@@ -137,7 +137,7 @@ export class AdvancedPromptingEngine implements FullEngine {
     translated: string | object,
     critique: string | object,
     retries: number = this.repairLoopRetries,
-  ) : Promise<string> {
+  ): Promise<string> {
     if (retries >= 0) {
       try {
         if (this.config.debug)
@@ -167,7 +167,12 @@ export class AdvancedPromptingEngine implements FullEngine {
         if (retries == 0) {
           critique = anyToStr(critique); // attempt rapid repair
         }
-        return await this.repairLoop(original, translated, critique, retries - 1);
+        return await this.repairLoop(
+          original,
+          translated,
+          critique,
+          retries - 1,
+        );
       }
     } else {
       console.warn(

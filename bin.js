@@ -20,7 +20,8 @@ program
   .option("-d, --debug", "Enable debug mode", false)
   .action(async (options) => {
     try {
-      const configPath = options.config || path.resolve(process.cwd(), "local.config.json");
+      const configPath =
+        options.config || path.resolve(process.cwd(), "local.config.json");
       if (!fs.existsSync(configPath)) {
         console.error(`Configuration file not found: ${configPath}`);
         process.exit(1);
@@ -48,7 +49,8 @@ program
   .option("-d, --debug", "Enable debug mode", false)
   .action(async (options) => {
     try {
-      const configPath = options.config || path.resolve(process.cwd(), "local.config.json");
+      const configPath =
+        options.config || path.resolve(process.cwd(), "local.config.json");
       if (!fs.existsSync(configPath)) {
         console.error(`Configuration file not found: ${configPath}`);
         process.exit(1);

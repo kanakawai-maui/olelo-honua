@@ -2,15 +2,15 @@
 permalink: /overview
 ---
 
-# ʻŌlelo Honua 
+# ʻŌlelo Honua
 
 ## 🌺🌸🌼 Bloom Your Internationalization Workflow! 🌷🌻🌹
 
-Tired of wrestling with translation files for your multilingual app? Even with powerful tools like [i18next](https://github.com/i18next/i18next), you're often stuck in a cycle of manual updates—copy-pasting into Google Translate or ChatGPT, redoing work every time your content changes. It’s a grind: repetitive, error-prone, and draining your time. What if there was a smarter way to handle it all? 
+Are you still manually managing translation files for your multilingual app? Even with tools like [i18next](https://github.com/i18next/i18next), the process can feel like an endless uphill battle—copy-pasting into Google Translate or ChatGPT, redoing translations every time your content changes. It’s not just tedious; it’s a productivity killer, prone to errors and inconsistencies that can alienate your global audience.
 
-That’s where **ʻŌlelo Honua** comes in. This tool takes the hassle out of internationalization (i18n) by automating translation file creation and updates. Beyond just saving time, it ensures your translations are accurate, culturally appropriate, and free from common errors.
+But what if you could break free from this cycle? **ʻŌlelo Honua** isn’t just another tool—it’s a game-changer for internationalization (i18n). By automating translation file creation and updates, it eliminates the grunt work, ensuring your translations are not only accurate but also culturally nuanced and always up-to-date.
 
-Why waste time on repetitive tasks when you can streamline your i18n process with a tool built to simplify localization? Let ʻŌlelo Honua handle the hard parts so you can focus on delivering great experiences for your global users.
+Stop settling for outdated workflows that waste your time and energy. With ʻŌlelo Honua, you can finally focus on what matters: building exceptional experiences for your global users. The future of effortless localization is here—are you ready to embrace it?
 
 #### 🌟 Meet Our Smarter, Faster AI Language Engine! 🌟
 
@@ -43,11 +43,53 @@ This automation makes it easier to manage internationalization in your applicati
 
 Building web applications with Node.js? ʻŌlelo Honua seamlessly integrates into your server-side workflows. Directly incorporate translation management into your Node.js app, enabling real-time localization for dynamic content. Whether you're serving a React, Vue, or plain HTML frontend, ʻŌlelo Honua ensures your app speaks the language of your users effortlessly. Simplify your localization pipeline and deliver a truly global experience!
 
-### Shopify Integration
+### Shopify Integrations
+
+#### Additional Benefits for Shopify Store Owners
 
 Looking to enhance your Shopify store with multilingual support? ʻŌlelo Honua's easy-to-use CLI simplifies the process of localizing your storefront, helping you reach a global audience. Automate translation file generation and synchronization for your Shopify themes and apps, ensuring a seamless shopping experience for customers worldwide. Start scaling your e-commerce business today with ʻŌlelo Honua!
 
+- **Boost Sales with Multilingual Support**: Reach a wider audience by offering your store in multiple languages, increasing customer trust and conversion rates.
+- **SEO Optimization**: Improve your store's visibility in search engines by providing localized content tailored to different regions.
+- **Automated Updates**: Keep your translations up-to-date effortlessly as you add new products or update descriptions.
+- **Customizable Workflows**: Tailor the translation process to fit your store's unique needs with flexible configuration options.
+- **Seamless Integration**: Works with Shopify's Liquid templates and APIs to ensure a smooth localization experience.
+
+For any questions or support, feel free to reach out to us at [admin@olelohonua.com](mailto:admin@olelohonua.com).
+
 [Learn more about Shopify integrations](docs/shopify_integrations.md)
+
+### Website Owners
+
+#### Simplify Localization for Your Website
+
+Running a multilingual website? ʻŌlelo Honua makes it easy to localize your content without the hassle of managing translation files manually. Whether you're using a CMS like WordPress, Joomla, or a static site generator like Jekyll or Hugo, this tool integrates seamlessly into your workflow.
+
+- **Automated Translation Updates**: Keep your website content up-to-date in multiple languages with minimal effort.
+- **SEO-Friendly Translations**: Improve your site's search engine rankings by providing localized content tailored to your audience.
+- **Customizable Integration**: Use the CLI or API to fit your specific website setup.
+- **Error-Free Translations**: Reduce the risk of inconsistencies and errors with automated processes.
+
+#### How It Works
+
+1. Export your website's content into a JSON or CSV format.
+2. Use ʻŌlelo Honua to generate translations for your target languages.
+3. Import the translated content back into your website.
+
+#### Example Workflow
+
+```bash
+# Export content from your CMS
+npx olelo-honua export --cms wordpress --output ./content.json
+
+# Generate translations
+npx olelo-honua sync --input ./content.json --output ./translations/
+
+# Import translations back into your CMS
+npx olelo-honua import --cms wordpress --input ./translations/
+```
+
+With ʻŌlelo Honua, you can focus on creating great content while leaving the heavy lifting of translations to us. 🌐✨
 
 ## Technical Deep Dive
 
@@ -80,33 +122,43 @@ To use this library in your project, import it into `app.js` or any other file w
 ```javascript
 const { OleloHonua } = require("olelo-honua");
 // Create a new instance of OleloHonua
-const dakine = new OleloHonua(
-  {
-    provider: {
-      platform: OleloHonua.Providers.OpenRouter,
-      credentials: {
-        apiKey: process.env.OPEN_ROUTER_API_KEY, // Open Router API Key from .env
-      },
-      modelId: OleloHonua.OpenRouterModels.DEEPSEEK.DEEPSEEK_V3_FREE, // Model ID
+const dakine = new OleloHonua({
+  provider: {
+    platform: OleloHonua.Providers.OpenRouter,
+    credentials: {
+      apiKey: process.env.OPEN_ROUTER_API_KEY, // Open Router API Key from .env
     },
-    primeLanguage: "en", // Language to translate from, must be defined in locales/en.json
-    includeLanguages: ["haw", "en", "es", "fr", "de", "zh", "ja", "ko", "ar", "ru"], // Languages to translate to
-    debug: true, // Enable debug
+    modelId: OleloHonua.OpenRouterModels.DEEPSEEK.DEEPSEEK_V3_FREE, // Model ID
   },
-);
+  primeLanguage: "en", // Language to translate from, must be defined in locales/en.json
+  includeLanguages: [
+    "haw",
+    "en",
+    "es",
+    "fr",
+    "de",
+    "zh",
+    "ja",
+    "ko",
+    "ar",
+    "ru",
+  ], // Languages to translate to
+  debug: true, // Enable debug
+});
 // Runs or re-runs i18n translations
 dakine.hanaHou(); // or use alias createLocaleFiles()
 ```
 
 #### Important Note on `primeLanguage` config option
 
-The `primeLanguage` setting is crucial for the translation process. It must have a corresponding locale JSON file to serve as the base for translations. For example, if you set `primeLanguage` to `'en'`, you need to ensure there is a `locales/en.json` file in your project.  Likewise, if you were to base translations in Spanish (`'es'`), you would need a `locales/es.json`.  
+The `primeLanguage` setting is crucial for the translation process. It must have a corresponding locale JSON file to serve as the base for translations. For example, if you set `primeLanguage` to `'en'`, you need to ensure there is a `locales/en.json` file in your project. Likewise, if you were to base translations in Spanish (`'es'`), you would need a `locales/es.json`.
 
 Without this file, the translation process cannot proceed as it relies on the base language file to generate translations for other languages.
 
 ## Using the CLI
 
 Here's how you use the CLI:
+
 ```bash
 # Initialize locale files using the CLI
 npx olelo-honua init --config ./local.config.json --debug
@@ -116,6 +168,7 @@ npx olelo-honua sync
 ```
 
 ### Example Breakdown:
+
 - `npx olelo-honua init`: Runs the `init` command to create locale files.
 - `--config ./local.config.json`: Specifies the path to the configuration file. If omitted, it defaults to `local.config.json` in the current working directory.
 - `--debug`: Enables debug mode for detailed logging during the process.
@@ -137,7 +190,7 @@ There are also several other providers including Google Translate (aka Cloud Tra
 
 [Google Cloud Translation Quickstart](https://cloud.google.com/translate/docs/basic/translate-text-basic)
 
-For enhanced security and ease of configuration, you should store your API key in a `.gitignore`'d `.env` file. 
+For enhanced security and ease of configuration, you should store your API key in a `.gitignore`'d `.env` file.
 
 [How to set up `.gitignore` for your project](https://git-scm.com/docs/gitignore)
 
@@ -193,7 +246,7 @@ Here is an example of full configuration options:
 
 ## Supported Providers
 
-Olelo Honua integrates with OpenRouter, OpenAI/ChatGPT, Google Translate, and even local LLM providers.  
+Olelo Honua integrates with OpenRouter, OpenAI/ChatGPT, Google Translate, and even local LLM providers.
 
 ### Supported Models
 
@@ -270,7 +323,6 @@ In addition to **Hawaiian** 🌺, ʻŌlelo Honua supports a wide range of langua
  <summary>Supported Languages 🌍</summary>
 Afrikaans 🇿🇦 | Albanian 🇦🇱 | Amharic 🇪🇹 | Arabic 🇸🇦 | Armenian 🇦🇲 | Bengali 🇧🇩 | Basque 🇪🇸 | Bulgarian 🇧🇬 | Belarusian 🇧🇾 | Burmese 🇲🇲 | Catalan 🇪🇸 | Chinese (Simplified) 🇨🇳 | Chinese (Traditional) 🇹🇼 | Chinese (Hong Kong) 🇭🇰 | Croatian 🇭🇷 | Czech 🇨🇿 | Danish 🇩🇰 | Dutch 🇳🇱 | English (US) 🇺🇸 | English (UK) 🇬🇧 | English (Australia) 🇦🇺 | English (Canada) 🇨🇦 | Estonian 🇪🇪 | Filipino 🇵🇭 | Finnish 🇫🇮 | French (France) 🇫🇷 | French (Canada) 🇨🇦 | Galician 🇪🇸 | Georgian 🇬🇪 | German 🇩🇪 | Greek 🇬🇷 | Gujarati 🇮🇳 | Hebrew 🇮🇱 | Hindi 🇮🇳 | Hungarian 🇭🇺 | Icelandic 🇮🇸 | Indonesian 🇮🇩 | Italian 🇮🇹 | Japanese 🇯🇵 | Kannada 🇮🇳 | Kazakh 🇰🇿 | Khmer 🇰🇭 | Korean 🇰🇷 | Kyrgyz 🇰🇬 | Lao 🇱🇦 | Latvian 🇱🇻 | Lithuanian 🇱🇹 | Macedonian 🇲🇰 | Malay (Malaysia) 🇲🇾 | Malayalam 🇮🇳 | Marathi 🇮🇳 | Mongolian 🇲🇳 | Nepali 🇳🇵 | Norwegian 🇳🇴 | Persian 🇮🇷 | Polish 🇵🇱 | Portuguese (Brazil) 🇧🇷 | Portuguese (Portugal) 🇵🇹 | Punjabi 🇮🇳 | Romanian 🇷🇴 | Russian 🇷🇺 | Sinhala 🇱🇰 | Slovak 🇸🇰 | Slovenian 🇸🇮 | Spanish (Spain) 🇪🇸 | Spanish (Latin America) 🌎 | Spanish (United States) 🇺🇸 | Swahili 🇹🇿 | Swedish 🇸🇪 | Tagalog 🇵🇭 | Tamil 🇮🇳 | Telugu 🇮🇳 | Thai 🇹🇭 | Turkish 🇹🇷 | Ukrainian 🇺🇦 | Urdu 🇵🇰 | Vietnamese 🇻🇳 | Zulu 🇿🇦
 </details>
-
 
 ## Contributing
 

@@ -1,62 +1,62 @@
 {
-    "common": {
-        "greeting": "Hello",
-        "farewell": "Goodbye",
-        "thank_you": "Thank you",
-        "welcome": "Welcome",
-        "yes": "Yes",
-        "no": "No",
-        "please": "Please",
-        "sorry": "Sorry",
-        "excuse_me": "Excuse me"
+  "common": {
+    "greeting": "Hello",
+    "farewell": "Goodbye",
+    "thank_you": "Thank you",
+    "welcome": "Welcome",
+    "yes": "Yes",
+    "no": "No",
+    "please": "Please",
+    "sorry": "Sorry",
+    "excuse_me": "Excuse me"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "pages": {
+    "home": {
+      "title": "Welcome to Our Website",
+      "description": "We are glad to have you here. Explore our services and offerings."
     },
-    "navigation": {
-        "home": "Home",
-        "about": "About",
-        "services": "Services",
-        "contact": "Contact",
-        "blog": "Blog"
+    "about": {
+      "title": "About Us",
+      "description": "Learn more about our mission, vision, and values."
     },
-    "pages": {
-        "home": {
-            "title": "Welcome to Our Website",
-            "description": "We are glad to have you here. Explore our services and offerings."
-        },
-        "about": {
-            "title": "About Us",
-            "description": "Learn more about our mission, vision, and values."
-        },
-        "services": {
-            "title": "Our Services",
-            "list": [
-                "Web Development",
-                "Mobile App Development",
-                "Digital Marketing",
-                "SEO Optimization"
-            ]
-        },
-        "contact": {
-            "title": "Contact Us",
-            "description": "Get in touch with us through the form below or via email."
-        },
-        "blog": {
-            "title": "Our Blog",
-            "description": "Read the latest articles and updates from our team."
-        }
+    "services": {
+      "title": "Our Services",
+      "list": [
+        "Web Development",
+        "Mobile App Development",
+        "Digital Marketing",
+        "SEO Optimization"
+      ]
     },
-    "footer": {
-        "copyright": "© 2023 Your Company. All rights reserved.",
-        "privacy_policy": "Privacy Policy",
-        "terms_of_service": "Terms of Service"
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with us through the form below or via email."
     },
-    "errors": {
-        "404": {
-            "title": "Page Not Found",
-            "message": "Sorry, the page you are looking for does not exist."
-        },
-        "500": {
-            "title": "Internal Server Error",
-            "message": "Something went wrong on our end. Please try again later."
-        }
+    "blog": {
+      "title": "Our Blog",
+      "description": "Read the latest articles and updates from our team."
     }
+  },
+  "footer": {
+    "copyright": "© 2023 Your Company. All rights reserved.",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "message": "Sorry, the page you are looking for does not exist."
+    },
+    "500": {
+      "title": "Internal Server Error",
+      "message": "Something went wrong on our end. Please try again later."
+    }
+  }
 }

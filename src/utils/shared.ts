@@ -30,4 +30,4 @@ export const anyToStr = (input: string | object): string => {
     }
   }
   return "{}";
-}
+};

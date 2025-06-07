@@ -1,19 +1,19 @@
 ---
-title: ʻŌlelo Honua 
+title: ʻŌlelo Honua
 subtitle: Bloom Your i18n Workflow!
 layout: promo-page
 snippet: |-
-    ```bash
-    # Install with NPM  
-    npm i olelo-honua  
+  ```bash
+  # Install with NPM  
+  npm i olelo-honua  
 
-    # Install with Yarn  
-    yarn add olelo-honua  
+  # Install with Yarn  
+  yarn add olelo-honua  
 
-    # Run instantly with NPX  
-    npx --yes olelo-honua  
-    ```
-hero_link: '/overview'
+  # Run instantly with NPX  
+  npx --yes olelo-honua  
+  ```
+hero_link: "/overview"
 hero_link_text: Go Global Now
 hero_image: /images/logo.png
 hero_image_alt: ʻŌlelo Honua Logo
@@ -33,7 +33,7 @@ Most websites are built for just one language—until suddenly, they need to be 
 
 That’s where ʻŌlelo Honua comes in. We take the pain out of i18n, making it seamless to adapt your website for any language or region—effortlessly, now and in the future.
 
-Expand your reach - make it multilingual!  **Break language barriers and translate instantly.**
+Expand your reach - make it multilingual! **Break language barriers and translate instantly.**
 
 #### Pronunciation
 
