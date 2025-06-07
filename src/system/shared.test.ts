@@ -7,9 +7,9 @@ jest.mock("fs", () => {
     return {
         ...originalModule,
         promises: {
-            access: jest.fn(),
-            mkdir: jest.fn(),
-            writeFile: jest.fn(),
+            access: jest.fn().mockResolvedValue(Promise.resolve()),
+            mkdir: jest.fn().mockResolvedValue(Promise.resolve()),
+            writeFile: jest.fn().mockResolvedValue(Promise.resolve()),
         },
     };
 });

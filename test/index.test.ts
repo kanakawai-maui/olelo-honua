@@ -3,8 +3,10 @@ import { Config } from "../src/interfaces/config";
 import { OpenRouterProvider } from "../src/providers/openRouter";
 
 jest.mock("fs", () => ({
-  existsSync: jest.fn(() => false),
-  readFileSync: jest.fn(() => JSON.stringify([])),
+    existsSync: jest.fn(() => false),
+    readFileSync: jest.fn(() => JSON.stringify([])),
+    access: jest.fn(() => Promise.resolve()), // Mock the access method as asynchronous
+    writeFile: jest.fn(() => Promise.resolve()), // Mock the writeFile method if needed
 }));
 
 jest.mock("yoctocolors", () => ({
