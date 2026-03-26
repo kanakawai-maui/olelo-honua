@@ -10,7 +10,7 @@
     "clean": "tsc --build --clean"
   },
   "dependencies": {
-    "@google-cloud/translate": "^8.5.1",
+    "@google-cloud/translate": "^9.0.0",
     "axios": "^1.8.3",
     "commander": "^13.1.0",
     "dotenv": "^16.4.7",
