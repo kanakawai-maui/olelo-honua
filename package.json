@@ -15,7 +15,7 @@
     "commander": "^13.1.0",
     "dotenv": "^16.4.7",
     "g": "^2.0.1",
-    "http-proxy-agent": "^3.15.0",
+    "http-proxy-agent": "^7.0.2",
     "jsonrepair": "^3.12.0",
     "yoctocolors": "^2.1.1"
   },
