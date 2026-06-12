@@ -103,7 +103,6 @@ export class AdvancedPromptingEngine implements FullEngine {
     retries: number = this.critiqueLoopRetries,
   ): Promise<string> {
     if (retries >= 0) {
-      let critique = "{}";
       try {
         const contentFrom = anyToStr(original);
         const contentTo = anyToStr(translated);
