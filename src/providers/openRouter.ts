@@ -41,7 +41,7 @@ export class OpenRouterProvider extends AbstractAdvancedLargeLanguageModelProvid
       raw = raw.replace(/[\u0000-\u001F\u007F-\u009F]/g, "").trim(); // remove all control characters
       raw = raw.replace(/[\u200B-\u200D\uFEFF]/g, "").trim(); // remove zero-width spaces
       try {
-        const _ = JSON.parse(raw);
+        JSON.parse(raw);
         return raw;
       } catch {
         console.error("Invalid JSON returned. Retrying...");
