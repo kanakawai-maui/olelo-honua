@@ -45,7 +45,7 @@ export class LocaleFileManager extends FileManager {
    *
    * @param content - The content to be saved in the file.
    */
-  public saveContent(content: string, format: FileType = "json") {
+  public saveContent(content: string, _format: FileType = "json") {
     super.save("locales", `${this.language.code}`, "json", content);
   }
 }
@@ -54,14 +54,12 @@ export class CritiqueFileManager extends FileManager {
   private from: Language;
   private to: Language;
   private namespace: string;
-  private timestamp: string;
 
   constructor(from: Language, to: Language, namespace: string = "") {
     super();
     this.from = from;
     this.to = to;
     this.namespace = namespace.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
-    this.timestamp = new Date().toLocaleString();
   }
 
   /**
