@@ -15,7 +15,7 @@ export abstract class AbstractPartialProvider implements PartialProvider {
    * @param to The target language.
    * @returns A promise that resolves to the translated text.
    */
-  async translate(text: string, from: Language, to: Language): Promise<string> {
+  async translate(_text: string, _from: Language, _to: Language): Promise<string> {
     throw new Error("Not implemented");
   }
 }
