@@ -1,4 +1,4 @@
-import { Language, FileFormat } from "../types/shared";
+import { Language } from "../types/shared";
 
 export interface Translator {
   translate(original: string, from: Language, to: Language): Promise<string>;
