@@ -1,4 +1,5 @@
 # _config.yml
+url: "https://www.olelohonua.com"
 remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
 gh_sponsor: brownrw8
 google_analytics: G-6JFSY25SGS

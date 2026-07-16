@@ -1,6 +1,9 @@
 ---
 title: ʻŌlelo Honua
 subtitle: Bloom Your i18n Workflow!
+description: "Discover ʻŌlelo Honua, the ultimate AI-powered i18n library for JavaScript, Node.JS, TypeScript, Next.js, Remix, and Shopify projects. Simplify localization and internationalization with ease."
+image: /images/logo.png
+hero_title: "ʻŌlelo Honua — Bloom Your i18n Workflow"
 layout: promo-page
 snippet: |-
   ```bash
@@ -35,6 +38,17 @@ That’s where ʻŌlelo Honua comes in. We take the pain out of i18n, making it 
 
 Expand your reach - make it multilingual! **Break language barriers and translate instantly.**
 
-#### Pronunciation
+### Why Choose ʻŌlelo Honua?
+
+ʻŌlelo Honua leverages AI-powered translation through OpenRouter to automatically generate locale files for your project. Whether you're building with Next.js, Remix, Shopify, or plain Node.js, our library integrates in minutes—not days. No more maintaining translations by hand or coordinating with external translation services.
+
+- **AI-Powered**: Uses leading LLMs to produce natural, context-aware translations across dozens of languages
+- **Framework Ready**: First-class support for Next.js, Remix, and Shopify storefronts
+- **Developer Friendly**: Simple CLI and programmatic API — works in any JavaScript or TypeScript project
+- **Any Language**: Supports dozens of languages and regional variants out of the box, from Afrikaans to Tagalog
+
+Stop writing translation strings by hand. Let ʻŌlelo Honua handle the heavy lifting so you can focus on building great products for a global audience. Run it from the command line with a single `npx` command and get production-ready locale files immediately.
+
+### Pronunciation
 
 ʻŌlelo Honua (Oh-leh-loh Ho-noo-ah)
