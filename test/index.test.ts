@@ -1,6 +1,5 @@
 import { OleloHonua } from "../src/index";
 import { Config } from "../src/interfaces/config";
-import { OpenRouterProvider } from "../src/providers/openRouter";
 
 jest.mock("fs", () => ({
   existsSync: jest.fn(() => false),

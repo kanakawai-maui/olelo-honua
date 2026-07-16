@@ -45,7 +45,7 @@ export class OleloHonua {
         this.provider = new OpenRouterProvider(
           config.provider.credentials.apiKey,
           config.provider.modelId ||
-            OpenRouterModels.DEEPSEEK.DEEPSEEK_V3_0324_FREE,
+            OpenRouterModels.NVIDIA.NEMOTRON_3_ULTRA_550B_FREE,
         );
         this.useAdvancedEngine = true;
         break;
@@ -56,7 +56,7 @@ export class OleloHonua {
         /*
         this.provider = new OpenAIProvider(
           config.provider.credentials.apiKey,
-          config.provider.modelId || OpenAIModels.OPENAI.DAVINCI
+          config.provider.modelId || OpenAIModels.OPENAI.GPT_5_6_LUNA
         );
         */
         this.useAdvancedEngine = true;

@@ -2,65 +2,84 @@ import { Models } from "../types/shared";
 
 export const OpenRouterModels: Models = {
   DEEPSEEK: {
+    DEEPSEEK_V4_FLASH: "deepseek/deepseek-v4-flash",
+    DEEPSEEK_V4_PRO: "deepseek/deepseek-v4-pro",
+    DEEPSEEK_V3_2: "deepseek/deepseek-v3.2",
+    DEEPSEEK_R1_0528: "deepseek/deepseek-r1-0528",
+    // Legacy free models (may be deprecated)
     DEEPSEEK_V3_0324_FREE: "deepseek/deepseek-chat-v3-0324:free",
     DEEPSEEK_R1_FREE: "deepseek/deepseek-r1:free",
-    DEEPSEEK_V3_FREE: "deepseek/deepseek-chat:free",
   },
   GOOGLE: {
-    GEMINI_PRO_2_5_EXP_FREE: "google/gemini-2.5-pro-exp-03-25:free",
-    GEMMA_3_1B_FREE: "google/gemma-3-1b-it:free",
+    GEMMA_4_31B_FREE: "google/gemma-4-31b-it:free",
+    GEMMA_4_26B_A4B_FREE: "google/gemma-4-26b-a4b-it:free",
+    GEMINI_3_FLASH_PREVIEW: "google/gemini-3-flash-preview",
+    GEMINI_3_5_FLASH: "google/gemini-3.5-flash",
+    GEMINI_3_1_FLASH_LITE: "google/gemini-3.1-flash-lite",
+    GEMINI_2_5_PRO: "google/gemini-2.5-pro",
+    GEMINI_2_5_FLASH: "google/gemini-2.5-flash",
+    // Legacy Gemma 3 free models
     GEMMA_3_4B_FREE: "google/gemma-3-4b-it:free",
     GEMMA_3_12B_FREE: "google/gemma-3-12b-it:free",
     GEMMA_3_27B_FREE: "google/gemma-3-27b-it:free",
-    GEMINI_2_0_FLASH_LITE_PREVIEW_FREE:
-      "google/gemini-2.0-flash-lite-preview-02-05:free",
-    GEMINI_PRO_2_0_EXP_FREE: "google/gemini-2.0-pro-exp-02-05:free",
-    GEMINI_2_0_FLASH_THINKING_EXP_01_21_FREE:
-      "google/gemini-2.0-flash-thinking-exp:free",
-    GEMINI_2_0_FLASH_THINKING_EXP_FREE:
-      "google/gemini-2.0-flash-thinking-exp-1219:free",
-    GEMINI_FLASH_2_0_EXP_FREE: "google/gemini-2.0-flash-exp:free",
-    LEARNLM_1_5_PRO_EXP_FREE: "google/learnlm-1.5-pro-experimental:free",
-    GEMMA_2_9B_FREE: "google/gemma-2-9b-it:free",
   },
-  LLAMA2: {
-    ROGUE_ROSE_103B_V0_2_FREE: "sophosympatheia/rogue-rose-103b-v0.2:free",
-    MYTHOMAX_13B_FREE: "gryphe/mythomax-l2-13b:free",
+  NVIDIA: {
+    NEMOTRON_3_ULTRA_550B_FREE: "nvidia/nemotron-3-ultra-550b-a55b:free",
+    NEMOTRON_3_SUPER_120B_FREE: "nvidia/nemotron-3-super-120b-a12b:free",
+    NEMOTRON_3_NANO_30B_FREE: "nvidia/nemotron-3-nano-30b-a3b:free",
+    NEMOTRON_3_NANO_OMNI_FREE: "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+    NEMOTRON_NANO_9B_V2_FREE: "nvidia/nemotron-nano-9b-v2:free",
   },
-  LLAMA3: {
-    DEEPSEEK_R1_DISTILL_LLAMA_70B_FREE:
-      "deepseek/deepseek-r1-distill-llama-70b:free",
-    META_LLAMA_3_3_70B_INSTRUCT_FREE: "meta-llama/llama-3.3-70b-instruct:free",
-    NVIDIA_LLAMA_3_1_NEMOTRON_70B_INSTRUCT_FREE:
-      "nvidia/llama-3.1-nemotron-70b-instruct:free",
-    META_LLAMA_3_2_3B_INSTRUCT_FREE: "meta-llama/llama-3.2-3b-instruct:free",
-    META_LLAMA_3_2_1B_INSTRUCT_FREE: "meta-llama/llama-3.2-1b-instruct:free",
-    META_LLAMA_3_1_8B_INSTRUCT_FREE: "meta-llama/llama-3.1-8b-instruct:free",
-    META_LLAMA_3_8B_INSTRUCT_FREE: "meta-llama/llama-3-8b-instruct:free",
+  META: {
+    LLAMA_4_MAVERICK: "meta-llama/llama-4-maverick-17b-128e-instruct",
+    LLAMA_4_SCOUT: "meta-llama/llama-4-scout-17b-16e-instruct",
+    LLAMA_3_3_70B_FREE: "meta-llama/llama-3.3-70b-instruct:free",
+    LLAMA_3_2_3B_FREE: "meta-llama/llama-3.2-3b-instruct:free",
   },
   QWEN: {
+    QWEN_3_CODER_480B_FREE: "qwen/qwen3-coder:free",
+    QWEN_3_235B_A22B: "qwen/qwen3-235b-a22b-2507",
+    QWEN_3_30B_A3B: "qwen/qwen3-30b-a3b-instruct-2507",
+    QWEN_3_6_FLASH: "qwen/qwen3.6-flash",
+    QWEN_3_6_35B_A3B: "qwen/qwen3.6-35b-a3b",
+    // Legacy free models
     QWQ_32B_FREE: "qwen/qwq-32b:free",
-    DEEPSEEK_R1_DISTILL_QWEN_32B_FREE:
-      "deepseek/deepseek-r1-distill-qwen-32b:free",
-    DEEPSEEK_R1_DISTILL_QWEN_14B_FREE:
-      "deepseek/deepseek-r1-distill-qwen-14b:free",
-    QWQ_32B_PREVIEW_FREE: "qwen/qwq-32b-preview:free",
     QWEN_2_5_CODER_32B_INSTRUCT_FREE: "qwen/qwen-2.5-coder-32b-instruct:free",
-    QWEN_2_5_72B_INSTRUCT_FREE: "qwen/qwen-2.5-72b-instruct:free",
-    QWEN_2_7B_INSTRUCT_FREE: "qwen/qwen-2-7b-instruct:free",
   },
   MISTRAL: {
+    MISTRAL_SMALL_4: "mistralai/mistral-small-2603",
+    MISTRAL_MEDIUM_3_5: "mistralai/mistral-medium-3.5",
+    DEVSTRAL_2: "mistralai/devstral-2512",
+    // Legacy
+    MISTRAL_SMALL_3_2_24B: "mistralai/mistral-small-3.2-24b-instruct",
     MISTRAL_7B_INSTRUCT_FREE: "mistralai/mistral-7b-instruct:free",
+  },
+  COHERE: {
+    NORTH_MINI_CODE_FREE: "cohere/north-mini-code:free",
+  },
+  POOLSIDE: {
+    LAGUNA_XS_2_1_FREE: "poolside/laguna-xs-2.1:free",
+  },
+  OPENAI_OSS: {
+    GPT_OSS_20B_FREE: "openai/gpt-oss-20b:free",
+    GPT_OSS_120B: "openai/gpt-oss-120b",
   },
 };
 
 export const OpenAIModels: Models = {
   OPENAI: {
-    DAVINCI: "openai/davinci",
-    CURIE: "openai/curie",
-    BABBAGE: "openai/babbage",
-    ADA: "openai/ada",
+    GPT_5_6_SOL: "openai/gpt-5.6-sol",
+    GPT_5_6_TERRA: "openai/gpt-5.6-terra",
+    GPT_5_6_LUNA: "openai/gpt-5.6-luna",
+    GPT_5_5: "openai/gpt-5.5",
+    GPT_5_4: "openai/gpt-5.4",
+    GPT_5_4_MINI: "openai/gpt-5.4-mini",
+    GPT_5: "openai/gpt-5",
+    GPT_5_MINI: "openai/gpt-5-mini",
+    GPT_4O: "openai/gpt-4o",
+    GPT_4O_MINI: "openai/gpt-4o-mini",
+    // Legacy
     GPT3_5: "openai/gpt-3.5-turbo",
-    GPT4: "openai/gpt-4o",
+    GPT4: "openai/gpt-4",
   },
 };

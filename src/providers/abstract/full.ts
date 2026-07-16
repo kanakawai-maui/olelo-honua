@@ -15,11 +15,11 @@ export abstract class AbstractFullProvider implements FullProvider {
    * @returns A promise that resolves to the repaired translation as a string.
    */
   async repair(
-    original: string,
-    translated: string,
-    critique: string,
-    from: Language,
-    to: Language,
+    _original: string,
+    _translated: string,
+    _critique: string,
+    _from: Language,
+    _to: Language,
   ): Promise<string> {
     return new Promise(
       () => "Repair:  No action taken, not implemented. Skipping...",
@@ -36,10 +36,10 @@ export abstract class AbstractFullProvider implements FullProvider {
    * @returns A promise that resolves to a string containing the critique or a message indicating no action was taken.
    */
   async critique(
-    original: string,
-    translated: string,
-    from: Language,
-    to: Language,
+    _original: string,
+    _translated: string,
+    _from: Language,
+    _to: Language,
   ): Promise<string> {
     return new Promise(
       () => "Critique: No action taken, not implemented. Skipping...",
@@ -55,7 +55,7 @@ export abstract class AbstractFullProvider implements FullProvider {
    * @param to The target language.
    * @returns A promise that resolves to the translated text.
    */
-  async translate(text: string, from: Language, to: Language): Promise<string> {
+  async translate(_text: string, _from: Language, _to: Language): Promise<string> {
     throw new Error("Not implemented");
   }
 }
