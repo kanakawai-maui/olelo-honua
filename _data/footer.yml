@@ -8,3 +8,7 @@
   link: https://platform.openai.com/docs/quickstart?api-mode=chat
 - name: Google Translate Quickstart
   link: https://cloud.google.com/translate/docs/basic/translate-text-basic
+- name: Options Calculator
+  link: https://options.olelohonua.com
+- name: Aerodynamic Simulator
+  link: https://foil.olelohonua.com

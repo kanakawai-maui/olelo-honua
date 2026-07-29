@@ -36,3 +36,9 @@
       link: /docs/contributing.md
     - name: Code of Conduct
       link: /docs/code_of_conduct.md
+- name: Simulations
+  dropdown:
+    - name: Options Calculator
+      link: https://options.olelohonua.com
+    - name: Aerodynamic Simulator
+      link: https://foil.olelohonua.com
